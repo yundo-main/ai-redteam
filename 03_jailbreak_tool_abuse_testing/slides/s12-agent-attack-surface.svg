@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">에이전트 공격 경로와 통제 지점</title>
+  <desc id="d">사용자 입력과 외부 문서가 LLM 에이전트로 들어가고, 에이전트가 도구를 호출한다. 탈옥은 모델 단계, 도구 오용은 도구 호출 단계를 노린다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118">Jailbreak vs Tool Abuse</text>
+  <text class="ssub" x="60" y="154">탈옥은 모델의 안전 정책을, 도구 오용은 에이전트의 행동을 노린다</text>
+  <g transform="translate(37.7,130) scale(1.115)">
+    <rect class="box" x="20" y="80" width="190" height="80" rx="8"/>
+    <text class="name" x="115.0" y="113.5" text-anchor="middle">사용자 입력</text>
+    <text class="sub" x="115.0" y="138.5" text-anchor="middle">직접 입력</text>
+    <rect class="box key" x="20" y="220" width="190" height="80" rx="8"/>
+    <text class="name" x="115.0" y="253.5" text-anchor="middle">외부 문서·웹</text>
+    <text class="sub" x="115.0" y="278.5" text-anchor="middle">간접 입력 (비신뢰)</text>
+    <rect class="box" x="330" y="120" width="230" height="140" rx="8"/>
+    <text class="name" x="445.0" y="175.5" text-anchor="middle">LLM 에이전트</text>
+    <text class="sub" x="445.0" y="200.5" text-anchor="middle">시스템 프롬프트</text>
+    <text class="sub" x="445.0" y="216.5" text-anchor="middle">안전 정책·가드레일</text>
+    <line class="arrow" x1="210" y1="120" x2="322.4" y2="157.5"/>
+    <polygon class="head" points="330,160 321.1,161.3 323.7,153.7"/>
+    <line class="arrow" x1="210" y1="260" x2="322.4" y2="222.5"/>
+    <polygon class="head" points="330,220 323.7,226.3 321.1,218.7"/>
+    <rect class="box" x="700" y="70" width="150" height="60" rx="8"/>
+    <text class="name" x="775.0" y="104.5" text-anchor="middle">DB 쿼리</text>
+    <rect class="box" x="700" y="150" width="150" height="60" rx="8"/>
+    <text class="name" x="775.0" y="184.5" text-anchor="middle">이메일·메시지</text>
+    <rect class="box" x="700" y="230" width="150" height="60" rx="8"/>
+    <text class="name" x="775.0" y="264.5" text-anchor="middle">HTTP·파일</text>
+    <line class="arrow" x1="560" y1="190" x2="693.3" y2="104.3"/>
+    <polygon class="head" points="700,100 695.4,107.7 691.1,101.0"/>
+    <line class="arrow" x1="560" y1="190" x2="692.0" y2="180.6"/>
+    <polygon class="head" points="700,180 692.3,184.6 691.7,176.6"/>
+    <line class="arrow" x1="560" y1="190" x2="692.8" y2="256.4"/>
+    <polygon class="head" points="700,260 691.1,260.0 694.6,252.8"/>
+    <rect class="box ok" x="880" y="100" width="145" height="120" rx="8"/>
+    <text class="sub" x="952.5" y="145.0" text-anchor="middle">① 최소 권한</text>
+    <text class="sub" x="952.5" y="161.0" text-anchor="middle">② 인자 검증</text>
+    <text class="sub" x="952.5" y="177.0" text-anchor="middle">③ 사람 승인</text>
+    <text class="sub" x="952.5" y="193.0" text-anchor="middle">(Tool Abuse 방어)</text>
+    <rect x="320" y="110" width="250" height="160" rx="10" fill="none" stroke="#d27a1f" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="note" x="445" y="296" text-anchor="middle">Jailbreak: 이 영역(모델의 안전 정책) 우회</text>
+    <rect x="690" y="60" width="170" height="240" rx="10" fill="none" stroke="#d27a1f" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text class="note" x="775" y="322" text-anchor="middle">Tool Abuse: 도구 호출·권한 오용</text>
+    <text class="note" x="20" y="360" text-anchor="start">텍스트 출력만 하는 챗봇은 Jailbreak가 주된 위험, 도구를 가진 에이전트는 Tool Abuse의 실제 피해가 훨씬 크다.</text>
+  </g>
+  <text class="foot" x="60" y="694">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">12 / 35</text>
+</svg>

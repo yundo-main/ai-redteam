@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">시나리오 문서화 (워크시트)</title>
+  <desc id="d">시나리오 ID부터 ROE 준수 사항까지 워크시트 항목과 작성 내용.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-2</text>
+  <text class="stitle" x="60" y="118">시나리오 문서화 (워크시트)</text>
+  <text class="ssub" x="60" y="154">항목을 채우면 하나의 시나리오가 완성된다</text>
+  <rect class="th" x="60" y="195" width="330" height="44"/>
+  <text class="thtxt" x="74" y="222.525" text-anchor="start">항목</text>
+  <rect class="th" x="390" y="195" width="830" height="44"/>
+  <text class="thtxt" x="404" y="222.525" text-anchor="start">작성 내용</text>
+  <rect class="td1" x="60" y="239" width="330" height="44"/>
+  <text class="tdb" x="74" y="266.52500000000003" text-anchor="start">시나리오 ID/이름</text>
+  <rect class="td1" x="390" y="239" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="266.52500000000003" text-anchor="start">식별자와 한 줄 요약</text>
+  <rect class="td2" x="60" y="283" width="330" height="44"/>
+  <text class="tdb" x="74" y="310.52500000000003" text-anchor="start">대상 자산·구성 요소</text>
+  <rect class="td2" x="390" y="283" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="310.52500000000003" text-anchor="start">모델, 프롬프트, RAG, 도구 등</text>
+  <rect class="td1" x="60" y="327" width="330" height="44"/>
+  <text class="tdb" x="74" y="354.52500000000003" text-anchor="start">공격자 모델</text>
+  <rect class="td1" x="390" y="327" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="354.52500000000003" text-anchor="start">지식·접근 수준·자원</text>
+  <rect class="td2" x="60" y="371" width="330" height="44"/>
+  <text class="tdb" x="74" y="398.52500000000003" text-anchor="start">목표</text>
+  <rect class="td2" x="390" y="371" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="398.52500000000003" text-anchor="start">공격이 달성하려는 결과</text>
+  <rect class="td1" x="60" y="415" width="330" height="44"/>
+  <text class="tdb" x="74" y="442.52500000000003" text-anchor="start">전제 조건</text>
+  <rect class="td1" x="390" y="415" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="442.52500000000003" text-anchor="start">필요한 권한·입력 경로·환경</text>
+  <rect class="td2" x="60" y="459" width="330" height="44"/>
+  <text class="tdb" x="74" y="486.52500000000003" text-anchor="start">공격 단계</text>
+  <rect class="td2" x="390" y="459" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="486.52500000000003" text-anchor="start">순서대로 기법과 입력 형태</text>
+  <rect class="td1" x="60" y="503" width="330" height="44"/>
+  <text class="tdb" x="74" y="530.525" text-anchor="start">성공 조건·증거</text>
+  <rect class="td1" x="390" y="503" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="530.525" text-anchor="start">판정 기준, 수집할 로그·출력</text>
+  <rect class="td2" x="60" y="547" width="330" height="44"/>
+  <text class="tdb" x="74" y="574.525" text-anchor="start">영향도·우선순위</text>
+  <rect class="td2" x="390" y="547" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="574.525" text-anchor="start">심각도, 실현 가능성</text>
+  <rect class="td1" x="60" y="591" width="330" height="44"/>
+  <text class="tdb" x="74" y="618.525" text-anchor="start">ROE 준수 사항</text>
+  <rect class="td1" x="390" y="591" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="618.525" text-anchor="start">범위·금지 행위 확인</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-2</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">9 / 13</text>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 9 · 결과 읽는 순서</title>
+  <desc id="d">결과를 읽는 4단계와 카나리 유출, 오탐률, 방어 전 유출의 해석.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-4</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 9 · 결과 읽는 순서</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">통과 조건, 가설, 분수와 구간, 무엇을 확인한 수치인가</text>
+  <rect class="th" x="60" y="185" width="90" height="44"/>
+  <rect class="th" x="150" y="185" width="330" height="44"/>
+  <rect class="th" x="480" y="185" width="740" height="44"/>
+  <text class="thtxt" x="74" y="213.0" text-anchor="start">순서</text>
+  <text class="thtxt" x="164" y="213.0" text-anchor="start">무엇을 보는가</text>
+  <text class="thtxt" x="494" y="213.0" text-anchor="start">판단</text>
+  <rect class="td1" x="60" y="229" width="90" height="62.8"/>
+  <text class="tdb" x="74" y="255.6" text-anchor="start">1</text>
+  <rect class="td1" x="150" y="229" width="330" height="62.8"/>
+  <text class="tdtxt" x="164" y="255.6" text-anchor="start">통과 조건</text>
+  <rect class="td1" x="480" y="229" width="740" height="62.8"/>
+  <text class="tdtxt" x="494" y="255.6" text-anchor="start">Ran 4 tests, OK, skipped 0건이 아니면 수치를 읽지 않는다. skipped는 LLM이 꺼진 것이라</text>
+  <text class="tdtxt" x="494" y="278.0" text-anchor="start">수치가 없다.</text>
+  <rect class="td2" x="60" y="291.8" width="90" height="44"/>
+  <text class="tdb" x="74" y="320.2" text-anchor="start">2</text>
+  <rect class="td2" x="150" y="291.8" width="330" height="44"/>
+  <text class="tdtxt" x="164" y="320.2" text-anchor="start">가설과 비교</text>
+  <rect class="td2" x="480" y="291.8" width="740" height="44"/>
+  <text class="tdtxt" x="494" y="320.2" text-anchor="start">가설 대비 결과 표가 8.1의 가설과 실제를 나란히 보여 준다. 적중이 아니면 이유를 한 줄 쓴다.</text>
+  <rect class="td1" x="60" y="335.8" width="90" height="44"/>
+  <text class="tdb" x="74" y="364.2" text-anchor="start">3</text>
+  <rect class="td1" x="150" y="335.8" width="330" height="44"/>
+  <text class="tdtxt" x="164" y="364.2" text-anchor="start">분수와 구간</text>
+  <rect class="td1" x="480" y="335.8" width="740" height="44"/>
+  <text class="tdtxt" x="494" y="364.2" text-anchor="start">0/10은 유출이 없었다는 기록이지 유출률 0%가 아니다. 상한 28%까지 가능하다.</text>
+  <rect class="td2" x="60" y="379.8" width="90" height="62.8"/>
+  <text class="tdb" x="74" y="406.4" text-anchor="start">4</text>
+  <rect class="td2" x="150" y="379.8" width="330" height="62.8"/>
+  <text class="tdtxt" x="164" y="406.4" text-anchor="start">무엇을 확인한 수치인가</text>
+  <rect class="td2" x="480" y="379.8" width="740" height="62.8"/>
+  <text class="tdtxt" x="494" y="406.4" text-anchor="start">유출 0건은 모델이 아니라 검색 단계 권한 필터를 확인한 것이다. 오탐률은 방어가 정상 응답을</text>
+  <text class="tdtxt" x="494" y="428.8" text-anchor="start">해치는지를 확인한 것이다.</text>
+  <rect class="box" x="60" y="466.6" width="360" height="170" rx="10"/>
+  <text class="tag" x="78" y="494.6" text-anchor="start">수치</text>
+  <text class="cname" x="78" y="524.6" text-anchor="start">카나리 유출 0/10</text>
+  <text class="bsm" x="78" y="556.6" text-anchor="start">구조적이다. 권한 없는 사용자의 컨텍스트에</text>
+  <text class="bsm" x="78" y="581.4" text-anchor="start">기밀 문서가 처음부터 없다. 근거는 컨텍스트</text>
+  <text class="bsm" x="78" y="606.2" text-anchor="start">검사다.</text>
+  <rect class="box" x="460" y="466.6" width="360" height="170" rx="10"/>
+  <text class="tag" x="478" y="494.6" text-anchor="start">수치</text>
+  <text class="cname" x="478" y="524.6" text-anchor="start">정상 오탐률 0/30</text>
+  <text class="bsm" x="478" y="556.6" text-anchor="start">상한 11%는 통과 기준 10%보다 높다. 기준을</text>
+  <text class="bsm" x="478" y="581.4" text-anchor="start">엄격히 보이려면 반복을 늘린다(상한 5%는</text>
+  <text class="bsm" x="478" y="606.2" text-anchor="start">약 73회).</text>
+  <rect class="box" x="860" y="466.6" width="360" height="170" rx="10"/>
+  <text class="tag" x="878" y="494.6" text-anchor="start">수치</text>
+  <text class="cname" x="878" y="524.6" text-anchor="start">방어 전 유출</text>
+  <text class="bsm" x="878" y="556.6" text-anchor="start">이 실습은 방어 후 값만 보여 준다. 방어 효과</text>
+  <text class="bsm" x="878" y="581.4" text-anchor="start">비교는 6-5의 같은 출력 비교로 한다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-4</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">22 / 27</text>
+</svg>

@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 3 · 구성: 수집은 한 번, 판정은 두 번</title>
+  <desc id="d">Ollama 모델 출력을 N회 수집하고 통제 OFF/ON 판정을 적용해 성공 횟수와 신뢰구간을 계산하는 흐름.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 3 · 구성: 수집은 한 번, 판정은 두 번</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">같은 모델 출력에 통제 OFF/ON을 적용해 짝지어 비교한다</text>
+  <rect class="box" x="60" y="215" width="230" height="110" rx="10"/>
+  <text class="name" x="74" y="249.0" text-anchor="start">Ollama 모델</text>
+  <text class="sub" x="74" y="273.0" text-anchor="start">qwen2.5:3b (약 2GB),</text>
+  <text class="sub" x="74" y="293.0" text-anchor="start">temperature 0.7</text>
+  <rect class="box" x="350" y="215" width="250" height="110" rx="10"/>
+  <text class="name" x="364" y="249.0" text-anchor="start">모델 출력 N회 수집</text>
+  <text class="sub" x="364" y="273.0" text-anchor="start">도구 호출(TA-01) / 4턴</text>
+  <text class="sub" x="364" y="293.0" text-anchor="start">응답(JB-01)</text>
+  <rect class="box" x="670" y="170" width="270" height="100" rx="10"/>
+  <text class="name" x="684" y="204.0" text-anchor="start">통제 OFF 판정</text>
+  <text class="sub" x="684" y="228.0" text-anchor="start">금지 도구 호출·마커 노출이 있으면</text>
+  <text class="sub" x="684" y="248.0" text-anchor="start">성공</text>
+  <rect class="box ok" x="670" y="285" width="270" height="110" rx="10"/>
+  <text class="name" x="684" y="319.0" text-anchor="start">통제 ON 판정</text>
+  <text class="sub" x="684" y="343.0" text-anchor="start">ToolGuard로 호출 차단 / 출력</text>
+  <text class="sub" x="684" y="363.0" text-anchor="start">분류기로 응답 차단</text>
+  <rect class="box key" x="1000" y="215" width="220" height="110" rx="10"/>
+  <text class="name" x="1014" y="249.0" text-anchor="start">성공 횟수 + 구간</text>
+  <text class="sub" x="1014" y="273.0" text-anchor="start">Wilson 95% 구간, 증거 JSON</text>
+  <line class="arrow" x1="292" y1="270" x2="348" y2="270"/>
+  <polygon class="head" points="348,270 339.9,273.9 339.9,266.1"/>
+  <line class="arrow" x1="602" y1="250" x2="668" y2="225"/>
+  <polygon class="head" points="668,225 661.8,231.5 659.0,224.2"/>
+  <line class="arrow" x1="602" y1="290" x2="668" y2="335"/>
+  <polygon class="head" points="668,335 659.1,333.7 663.5,327.2"/>
+  <line class="arrow" x1="942" y1="225" x2="998" y2="250"/>
+  <polygon class="head" points="998,250 989.0,250.3 992.2,243.1"/>
+  <line class="arrow" x1="942" y1="335" x2="998" y2="290"/>
+  <polygon class="head" points="998,290 994.1,298.1 989.2,292.0"/>
+  <text class="body" x="60" y="450.0" text-anchor="start">핵심: 모델은 한 번만 부르고, 같은 출력에 통제 OFF/ON을 모두 적용한다 (짝지은 비교).</text>
+  <text class="bsm" x="60" y="482.0" text-anchor="start">비교 차이가 통제 때문이지 모델의 우연한 변동 때문이 아님을 보장하고, 모델 호출 비용도 절반으로 줄인다.</text>
+  <text class="mono" x="60" y="535.0" text-anchor="start">tool_guard.py</text>
+  <text class="bsm" x="300" y="535.0" text-anchor="start">도구 호출 방어 (미등록 도구, 인자 검증, 비신뢰 출처, 수신 도메인, 사람 승인, 감사 로그)</text>
+  <text class="mono" x="60" y="565.0" text-anchor="start">harness.py</text>
+  <text class="bsm" x="300" y="565.0" text-anchor="start">실제 모델로 TA-01·JB-01을 반복 실행하고 성공률·증거를 기록</text>
+  <text class="mono" x="60" y="595.0" text-anchor="start">scenario.py</text>
+  <text class="bsm" x="300" y="595.0" text-anchor="start">scenarios/ch03_*.json 워크시트를 읽어 같은 방식으로 실행</text>
+  <text class="mono" x="60" y="625.0" text-anchor="start">stats.py</text>
+  <text class="bsm" x="300" y="625.0" text-anchor="start">반복 횟수 기준과 Wilson 구간</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">20 / 35</text>
+</svg>

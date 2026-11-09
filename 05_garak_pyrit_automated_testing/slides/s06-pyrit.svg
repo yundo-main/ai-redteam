@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">PyRIT: 구성 요소</title>
+  <desc id="d">PyRIT 개요와 Target, Converter, Scorer, 오케스트레이션, Memory.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">PyRIT: 구성 요소</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">멀티턴·적응형 공격을 코드로 구성한다</text>
+  <text class="body" x="60" y="190.0" text-anchor="start">PyRIT(Python Risk Identification Tool)은 Microsoft가 공개한 생성형 AI 레드팀 자동화 프레임워크. 사람이 설계한 시나리오로</text>
+  <text class="body" x="60" y="218.8" text-anchor="start">다단계·적응형 공격을 자동화하는 데 강점이 있다.</text>
+  <rect class="th" x="60" y="253.60000000000002" width="260" height="44"/>
+  <rect class="th" x="320" y="253.60000000000002" width="900" height="44"/>
+  <text class="thtxt" x="74" y="281.6" text-anchor="start">구성</text>
+  <text class="thtxt" x="334" y="281.6" text-anchor="start">역할</text>
+  <rect class="td1" x="60" y="297.6" width="260" height="44"/>
+  <text class="tdb" x="74" y="326.0" text-anchor="start">Target</text>
+  <rect class="td1" x="320" y="297.6" width="900" height="44"/>
+  <text class="tdtxt" x="334" y="326.0" text-anchor="start">공격 대상(모델, 챗봇 API 등)</text>
+  <rect class="td2" x="60" y="341.6" width="260" height="44"/>
+  <text class="tdb" x="74" y="370.0" text-anchor="start">Converter</text>
+  <rect class="td2" x="320" y="341.6" width="900" height="44"/>
+  <text class="tdtxt" x="334" y="370.0" text-anchor="start">프롬프트를 변환(인코딩, 번역, 난독화 등)해 우회 시도</text>
+  <rect class="td1" x="60" y="385.6" width="260" height="44"/>
+  <text class="tdb" x="74" y="414.0" text-anchor="start">Scorer</text>
+  <rect class="td1" x="320" y="385.6" width="900" height="44"/>
+  <text class="tdtxt" x="334" y="414.0" text-anchor="start">응답이 공격 목표를 달성했는지 점수화(규칙 기반 또는 LLM 기반)</text>
+  <rect class="td2" x="60" y="429.6" width="260" height="44"/>
+  <text class="tdb" x="74" y="458.0" text-anchor="start">공격 오케스트레이션</text>
+  <rect class="td2" x="320" y="429.6" width="900" height="44"/>
+  <text class="tdtxt" x="334" y="458.0" text-anchor="start">공격 LLM이 대상과 여러 턴 대화하며 전략을 바꿔 가며 목표를 추구</text>
+  <rect class="td1" x="60" y="473.6" width="260" height="44"/>
+  <text class="tdb" x="74" y="502.0" text-anchor="start">Memory</text>
+  <rect class="td1" x="320" y="473.6" width="900" height="44"/>
+  <text class="tdtxt" x="334" y="502.0" text-anchor="start">대화·결과를 저장하여 분석·재현</text>
+  <text class="bsm" x="60" y="541.6" text-anchor="start">버전에 따라 구성 요소 명칭과 구조(Orchestrator 개념의 개편 등)가 바뀌어 왔다. 개념은 같으므로 사용 버전의 문서를 기준으로 학습한다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">6 / 25</text>
+</svg>

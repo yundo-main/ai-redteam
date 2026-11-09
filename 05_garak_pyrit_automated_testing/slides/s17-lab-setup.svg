@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 4 · 준비 2 상세: LLM 실행 (Ollama)</title>
+  <desc id="d">Ollama 설치, 서버 실행, 모델 받기, 준비 확인과 자주 나는 문제의 조치.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 4 · 준비 2 상세: LLM 실행 (Ollama)</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">실행 3번은 로컬에서 LLM이 돌고 있어야 한다</text>
+  <circle class="circ" cx="84" cy="210" r="16"/>
+  <text class="circt" x="84" y="216.0" text-anchor="middle">1</text>
+  <rect class="cmdbg" x="116" y="185" width="700" height="50" rx="8"/>
+  <text class="cmd" x="132" y="216.0" text-anchor="start">brew install ollama</text>
+  <text class="bsm" x="836" y="207.0" text-anchor="start">설치 (macOS). 다른 OS는 ollama.com/download</text>
+  <circle class="circ" cx="84" cy="272" r="16"/>
+  <text class="circt" x="84" y="278.0" text-anchor="middle">2</text>
+  <rect class="cmdbg" x="116" y="247" width="700" height="50" rx="8"/>
+  <text class="cmd" x="132" y="278.0" text-anchor="start">ollama serve</text>
+  <text class="bsm" x="836" y="269.0" text-anchor="start">서버 실행. 별도 터미널에 계속 켜 둔다 (앱으로</text>
+  <text class="bsm" x="836" y="289.0" text-anchor="start">설치했다면 이미 실행 중)</text>
+  <circle class="circ" cx="84" cy="334" r="16"/>
+  <text class="circt" x="84" y="340.0" text-anchor="middle">3</text>
+  <rect class="cmdbg" x="116" y="309" width="700" height="50" rx="8"/>
+  <text class="cmd" x="132" y="340.0" text-anchor="start">ollama pull qwen2.5:3b</text>
+  <text class="bsm" x="836" y="331.0" text-anchor="start">모델 받기 (약 2GB). 2~4B 급 권장</text>
+  <circle class="circ" cx="84" cy="396" r="16"/>
+  <text class="circt" x="84" y="402.0" text-anchor="middle">4</text>
+  <rect class="cmdbg" x="116" y="371" width="700" height="50" rx="8"/>
+  <text class="cmd" x="132" y="402.0" text-anchor="start">python 04_data_exfiltration_validation/src/llm.py</text>
+  <text class="bsm" x="836" y="393.0" text-anchor="start">저장소 루트에서 확인: (True, '',</text>
+  <text class="bsm" x="836" y="413.0" text-anchor="start">'qwen2.5:3b')이면 준비 완료</text>
+  <rect class="th" x="60" y="450" width="380" height="44"/>
+  <rect class="th" x="440" y="450" width="380" height="44"/>
+  <rect class="th" x="820" y="450" width="400" height="44"/>
+  <text class="thtxt" x="74" y="478.0" text-anchor="start">메시지·증상</text>
+  <text class="thtxt" x="454" y="478.0" text-anchor="start">원인</text>
+  <text class="thtxt" x="834" y="478.0" text-anchor="start">조치</text>
+  <rect class="td1" x="60" y="494" width="380" height="44"/>
+  <text class="tdb" x="74" y="522.4" text-anchor="start">Ollama 서버에 연결할 수 없음</text>
+  <rect class="td1" x="440" y="494" width="380" height="44"/>
+  <text class="tdtxt" x="454" y="522.4" text-anchor="start">서버가 꺼져 있음</text>
+  <rect class="td1" x="820" y="494" width="400" height="44"/>
+  <text class="tdtxt" x="834" y="522.4" text-anchor="start">ollama serve</text>
+  <rect class="td2" x="60" y="538" width="380" height="44"/>
+  <text class="tdb" x="74" y="566.4" text-anchor="start">모델 미설치 · 설치된 모델이 없음</text>
+  <rect class="td2" x="440" y="538" width="380" height="44"/>
+  <text class="tdtxt" x="454" y="566.4" text-anchor="start">모델을 받지 않음</text>
+  <rect class="td2" x="820" y="538" width="400" height="44"/>
+  <text class="tdtxt" x="834" y="566.4" text-anchor="start">ollama pull qwen2.5:3b</text>
+  <rect class="td1" x="60" y="582" width="380" height="62.8"/>
+  <text class="tdb" x="74" y="608.6" text-anchor="start">테스트가 skipped로 끝남</text>
+  <rect class="td1" x="440" y="582" width="380" height="62.8"/>
+  <text class="tdtxt" x="454" y="608.6" text-anchor="start">위 둘 중 하나, 또는 langchain-ollama 미설치</text>
+  <rect class="td1" x="820" y="582" width="400" height="62.8"/>
+  <text class="tdtxt" x="834" y="608.6" text-anchor="start">ready() 확인, pip install -r</text>
+  <text class="tdtxt" x="834" y="631.0" text-anchor="start">requirements.txt</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">17 / 25</text>
+</svg>

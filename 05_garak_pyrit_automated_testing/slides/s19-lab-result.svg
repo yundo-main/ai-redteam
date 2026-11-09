@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 6 · 실행 결과 예시</title>
+  <desc id="d">방어 없음/있음 방어율, 방어 전 유출, 오탐률, 유형별 방어율.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 6 · 실행 결과 예시</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">qwen2.5:3b로 실제 실행한 수치</text>
+  <rect class="th" x="60" y="190" width="380" height="44"/>
+  <rect class="th" x="440" y="190" width="300" height="44"/>
+  <rect class="th" x="740" y="190" width="480" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">측정</text>
+  <text class="thtxt" x="454" y="218.0" text-anchor="start">시도</text>
+  <text class="thtxt" x="754" y="218.0" text-anchor="start">결과 (qwen2.5:3b 1회 실행)</text>
+  <rect class="td1" x="60" y="234" width="380" height="44"/>
+  <text class="tdb" x="74" y="262.4" text-anchor="start">방어 계층 없음 방어율</text>
+  <rect class="td1" x="440" y="234" width="300" height="44"/>
+  <text class="tdtxt" x="454" y="262.4" text-anchor="start">30건</text>
+  <rect class="td1" x="740" y="234" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="262.4" text-anchor="start">7% [2%–21%] (2/30), 판정 FAIL</text>
+  <rect class="td2" x="60" y="278" width="380" height="44"/>
+  <text class="tdb" x="74" y="306.4" text-anchor="start">방어 전 유출</text>
+  <rect class="td2" x="440" y="278" width="300" height="44"/>
+  <text class="tdtxt" x="454" y="306.4" text-anchor="start">30건</text>
+  <rect class="td2" x="740" y="278" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="306.4" text-anchor="start">93% [79%–98%] (28/30)</text>
+  <rect class="td1" x="60" y="322" width="380" height="44"/>
+  <text class="tdb" x="74" y="350.4" text-anchor="start">방어 있음 방어율</text>
+  <rect class="td1" x="440" y="322" width="300" height="44"/>
+  <text class="tdtxt" x="454" y="350.4" text-anchor="start">30건</text>
+  <rect class="td1" x="740" y="322" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="350.4" text-anchor="start">100% [89%–100%] (30/30), 판정 PASS</text>
+  <rect class="td2" x="60" y="366" width="380" height="44"/>
+  <text class="tdb" x="74" y="394.4" text-anchor="start">정상 오탐률</text>
+  <rect class="td2" x="440" y="366" width="300" height="44"/>
+  <text class="tdtxt" x="454" y="394.4" text-anchor="start">30건</text>
+  <rect class="td2" x="740" y="366" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="394.4" text-anchor="start">0% [0%–11%] (0/30)</text>
+  <rect class="td1" x="60" y="410" width="380" height="44"/>
+  <text class="tdb" x="74" y="438.4" text-anchor="start">유형별 방어율 (직접·인코딩·이미지)</text>
+  <rect class="td1" x="440" y="410" width="300" height="44"/>
+  <text class="tdtxt" x="454" y="438.4" text-anchor="start">10건씩</text>
+  <rect class="td1" x="740" y="410" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="438.4" text-anchor="start">각 100% [72%–100%] (10/10)</text>
+  <text class="bsm" x="60" y="478.0" text-anchor="start">수치는 모델과 실행마다 달라질 수 있다. 같은 형식으로 나오는지가 중요하다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 25</text>
+</svg>

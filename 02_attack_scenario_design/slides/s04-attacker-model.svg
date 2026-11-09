@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">공격자 모델과 성공 조건</title>
+  <desc id="d">공격자 모델의 지식·접근 수준·자원 정의와 성공 조건 작성 원칙.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-2</text>
+  <text class="stitle" x="60" y="118">공격자 모델과 성공 조건</text>
+  <text class="ssub" x="60" y="154">같은 기법도 공격자 모델에 따라 위험도가 달라진다</text>
+  <text class="cname" x="60" y="215" text-anchor="start">공격자 모델 정의</text>
+  <rect class="box" x="60" y="235" width="540" height="115" rx="10"/>
+  <text class="cname" x="78" y="271.0" text-anchor="start">지식</text>
+  <text class="bsm" x="78" y="305.0" text-anchor="start">블랙박스 · 그레이박스 · 화이트박스</text>
+  <rect class="box" x="60" y="365" width="540" height="115" rx="10"/>
+  <text class="cname" x="78" y="401.0" text-anchor="start">접근 수준</text>
+  <text class="bsm" x="78" y="435.0" text-anchor="start">익명 · 인증 · 내부</text>
+  <rect class="box" x="60" y="495" width="540" height="115" rx="10"/>
+  <text class="cname" x="78" y="531.0" text-anchor="start">자원</text>
+  <text class="bsm" x="78" y="565.0" text-anchor="start">시도 횟수, 자동화 여부</text>
+  <text class="cname" x="660" y="215" text-anchor="start">성공 조건 작성 원칙</text>
+  <rect class="box key" x="660" y="235" width="560" height="115" rx="10"/>
+  <text class="cname" x="678" y="271.0" text-anchor="start">관측 가능해야 한다</text>
+  <text class="bsm" x="678" y="305.0" text-anchor="start">응답 문자열, 도구 호출 로그, 외부 요청 등 객관적 증거로</text>
+  <text class="bsm" x="678" y="330.375" text-anchor="start">판정한다.</text>
+  <rect class="box key" x="660" y="365" width="560" height="115" rx="10"/>
+  <text class="cname" x="678" y="401.0" text-anchor="start">이진 또는 단계적으로</text>
+  <text class="bsm" x="678" y="435.0" text-anchor="start">완전 성공 / 부분 성공(일부 정보 노출) / 실패로 정의한다.</text>
+  <rect class="box key" x="660" y="495" width="560" height="115" rx="10"/>
+  <text class="cname" x="678" y="531.0" text-anchor="start">성공 비율로 표현</text>
+  <text class="bsm" x="678" y="565.0" text-anchor="start">비결정적 모델이므로 N회 시도 중 성공 비율로 나타낸다.</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-2</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">4 / 13</text>
+</svg>

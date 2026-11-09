@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">Garak: 실행 흐름</title>
+  <desc id="d">Garak 스캔의 다섯 단계와 반복의 의미.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">Garak: 실행 흐름</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">각 Probe는 프롬프트를 여러 번 생성해 보낸다</text>
+  <rect class="box" x="60" y="200" width="210" height="200" rx="10"/>
+  <text class="tag" x="78" y="228.0" text-anchor="start">1단계</text>
+  <text class="cname" x="78" y="258.0" text-anchor="start">대상 연결</text>
+  <text class="bsm" x="78" y="290.0" text-anchor="start">모델 종류, 엔드포인트,</text>
+  <text class="bsm" x="78" y="314.8" text-anchor="start">인증</text>
+  <line class="arrow" x1="273" y1="300.0" x2="294" y2="300.0"/>
+  <polygon class="head" points="294,300.0 285.9,303.9 285.9,296.1"/>
+  <rect class="box" x="297" y="200" width="210" height="200" rx="10"/>
+  <text class="tag" x="315" y="228.0" text-anchor="start">2단계</text>
+  <text class="cname" x="315" y="258.0" text-anchor="start">Probe 선택</text>
+  <text class="bsm" x="315" y="290.0" text-anchor="start">탈옥, 프롬프트 인젝션</text>
+  <text class="bsm" x="315" y="314.8" text-anchor="start">등</text>
+  <line class="arrow" x1="511" y1="300.0" x2="532" y2="300.0"/>
+  <polygon class="head" points="532,300.0 523.9,303.9 523.9,296.1"/>
+  <rect class="box key" x="535" y="200" width="210" height="200" rx="10"/>
+  <text class="tag" x="553" y="228.0" text-anchor="start">3단계</text>
+  <text class="cname" x="553" y="258.0" text-anchor="start">스캔 실행</text>
+  <text class="bsm" x="553" y="290.0" text-anchor="start">각 Probe가 프롬프트를</text>
+  <text class="bsm" x="553" y="314.8" text-anchor="start">여러 번 생성·전송</text>
+  <line class="arrow" x1="748" y1="300.0" x2="769" y2="300.0"/>
+  <polygon class="head" points="769,300.0 760.9,303.9 760.9,296.1"/>
+  <rect class="box" x="772" y="200" width="210" height="200" rx="10"/>
+  <text class="tag" x="790" y="228.0" text-anchor="start">4단계</text>
+  <text class="cname" x="790" y="258.0" text-anchor="start">판정</text>
+  <text class="bsm" x="790" y="290.0" text-anchor="start">Detector가 응답 판정</text>
+  <line class="arrow" x1="986" y1="300.0" x2="1007" y2="300.0"/>
+  <polygon class="head" points="1007,300.0 998.9,303.9 998.9,296.1"/>
+  <rect class="box key" x="1010" y="200" width="210" height="200" rx="10"/>
+  <text class="tag" x="1028" y="228.0" text-anchor="start">5단계</text>
+  <text class="cname" x="1028" y="258.0" text-anchor="start">리포트</text>
+  <text class="bsm" x="1028" y="290.0" text-anchor="start">Probe별 통과/실패</text>
+  <text class="bsm" x="1028" y="314.8" text-anchor="start">비율</text>
+  <rect class="box key" x="60" y="450" width="1160" height="150" rx="10"/>
+  <text class="tag" x="78" y="478.0" text-anchor="start">반복이 핵심이다</text>
+  <text class="bsm" x="78" y="508.0" text-anchor="start">· 같은 Probe를 여러 번 생성해 보내는 이유는 모델 출력이 매번 달라지기 때문이다.</text>
+  <text class="bsm" x="78" y="532.8" text-anchor="start">· 리포트의 통과/실패 비율은 반복 수가 충분할 때만 의미가 있다. 반복이 적으면 결과가 흔들린다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">5 / 25</text>
+</svg>

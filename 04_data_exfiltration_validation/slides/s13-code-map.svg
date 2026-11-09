@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 — defense.py + LangChain</title>
+  <desc id="d">04 일차 src/의 모듈 구성: defense.py를 중심으로 LangChain 체인(test_chain)과 순수 단위 테스트(test_defense)가 갈라진다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-4</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — defense.py + LangChain</text>
+  <text class="ssub" x="60" y="154">모델 → 방어 체인 → ACL RAG, 결정론 테스트와 모델 테스트를 분리</text>
+  <rect class="box" x="60" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="190.0" y="222" text-anchor="middle">llm.py</text>
+  <text class="sub" x="190.0" y="244" text-anchor="middle">Ollama 준비 확인</text>
+  <text class="sub" x="190.0" y="266" text-anchor="middle">ready()</text>
+  <rect class="box" x="340" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="470.0" y="222" text-anchor="middle">stats.py</text>
+  <text class="sub" x="470.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
+  <text class="sub" x="470.0" y="266" text-anchor="middle">wilson() · trials()</text>
+  <rect class="box key" x="620" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="750.0" y="222" text-anchor="middle">defense.py</text>
+  <text class="sub" x="750.0" y="244" text-anchor="middle">카나리 탐지·마크다운 정리</text>
+  <text class="sub" x="750.0" y="266" text-anchor="middle">ACL 필터·오탐/방어율</text>
+  <rect class="box" x="900" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="1030.0" y="222" text-anchor="middle">hypothesis_log.py</text>
+  <text class="sub" x="1030.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
+  <text class="sub" x="1030.0" y="266" text-anchor="middle">record() · flush()</text>
+  <rect class="box ok" x="240" y="330" width="520" height="130" rx="8"/>
+  <text class="name" x="500.0" y="362" text-anchor="middle">test_chain.py</text>
+  <text class="sub" x="500.0" y="384" text-anchor="middle">LangChain: 모델 → 방어 체인</text>
+  <text class="sub" x="500.0" y="406" text-anchor="middle">AclRetriever(ACL 검색기) → RAG 체인</text>
+  <text class="sub" x="500.0" y="428" text-anchor="middle">실제 Ollama 모델로 오탐률·유출 측정</text>
+  <line class="arrow" x1="190" y1="280" x2="498.0" y2="329.7"/>
+  <polygon class="head" points="498.0,329.7 488.5,332.2 489.8,324.3"/>
+  <line class="arrow" x1="470" y1="280" x2="499.0" y2="328.3"/>
+  <polygon class="head" points="499.0,328.3 490.9,322.6 497.8,318.5"/>
+  <line class="arrow" x1="750" y1="280" x2="502.0" y2="329.6"/>
+  <polygon class="head" points="502.0,329.6 510.0,323.9 511.6,331.8"/>
+  <line class="arrow" x1="1030" y1="280" x2="502.0" y2="329.8"/>
+  <polygon class="head" points="502.0,329.8 510.6,325.0 511.3,332.9"/>
+  <rect class="box" x="240" y="510" width="520" height="110" rx="8"/>
+  <text class="name" x="500.0" y="542" text-anchor="middle">test_defense.py</text>
+  <text class="sub" x="500.0" y="564" text-anchor="middle">defense.py 단위 테스트 (모델 호출 없음)</text>
+  <text class="sub" x="500.0" y="586" text-anchor="middle">카나리·마크다운·ACL·방어율 계산 검증</text>
+  <line class="arrow" x1="500.0" y1="460" x2="500.0" y2="508.0"/>
+  <polygon class="head" points="500.0,508.0 496.0,499.0 504.0,499.0"/>
+  <rect class="box" x="820" y="330" width="400" height="290" rx="8"/>
+  <text class="name" x="1020.0" y="362" text-anchor="middle">05로 이어지는 복사</text>
+  <text class="sub" x="840" y="400" text-anchor="start">· defense.py는 05(6-5)에도</text>
+  <text class="sub" x="840" y="424" text-anchor="start">  같은 이름으로 복사된다</text>
+  <text class="sub" x="840" y="458" text-anchor="start">· 05(6-5)에도 같은 이름으로</text>
+  <text class="sub" x="840" y="482" text-anchor="start">  복사되며 집계 지표까지</text>
+  <text class="sub" x="840" y="506" text-anchor="start">  포함해 동일하게 유지</text>
+  <text class="sub" x="840" y="540" text-anchor="start">· 모델 테스트(test_chain)와</text>
+  <text class="sub" x="840" y="564" text-anchor="start">  결정론 테스트(test_defense)를</text>
+  <text class="sub" x="840" y="588" text-anchor="start">  항상 분리한다</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-4</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">13 / 27</text>
+</svg>

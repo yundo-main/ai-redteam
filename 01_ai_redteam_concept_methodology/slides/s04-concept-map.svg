@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">AI 레드팀 개념도</title>
+  <desc id="d">AI 레드팀은 공격 표면을 대상으로 적대적 프롬프팅을 수행하고 결과를 취약점 점수화로 평가한다. 모든 활동은 ROE 안에서 수행되며 OWASP, MITRE ATLAS, NIST AI RMF가 분류·관리 체계를 제공한다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-1</text>
+  <text class="stitle" x="60" y="118">AI 레드팀 개념도</text>
+  <text class="ssub" x="60" y="154">공격 표면을 적대적 프롬프팅으로 검증하고 ROE 안에서 점수화한다</text>
+  <g transform="translate(37.7,130) scale(1.115)">
+    <text class="sub" x="135" y="66" text-anchor="middle">검증 대상: 공격 표면</text>
+    <rect class="box" x="20" y="78" width="230" height="52" rx="8"/>
+    <text class="name" x="135.0" y="97.5" text-anchor="middle">프롬프트 인젝션</text>
+    <text class="sub" x="135.0" y="122.5" text-anchor="middle">직접·간접</text>
+    <line class="arrow" x1="250" y1="104" x2="382.2" y2="135.2"/>
+    <polygon class="head" points="390,137 381.3,139.1 383.1,131.3"/>
+    <rect class="box" x="20" y="140" width="230" height="52" rx="8"/>
+    <text class="name" x="135.0" y="159.5" text-anchor="middle">데이터 유출</text>
+    <text class="sub" x="135.0" y="184.5" text-anchor="middle">시스템 프롬프트·PII·RAG</text>
+    <line class="arrow" x1="250" y1="166" x2="382.0" y2="155.6"/>
+    <polygon class="head" points="390,155 382.3,159.6 381.7,151.6"/>
+    <rect class="box" x="20" y="202" width="230" height="52" rx="8"/>
+    <text class="name" x="135.0" y="221.5" text-anchor="middle">API·도구 오용</text>
+    <text class="sub" x="135.0" y="246.5" text-anchor="middle">에이전트 권한 악용</text>
+    <line class="arrow" x1="250" y1="228" x2="382.6" y2="175.9"/>
+    <polygon class="head" points="390,173 384.0,179.6 381.1,172.2"/>
+    <rect class="box key" x="390" y="100" width="260" height="130" rx="8"/>
+    <text class="name" x="520.0" y="150.5" text-anchor="middle">AI 레드팀</text>
+    <text class="sub" x="520.0" y="175.5" text-anchor="middle">적대적 시각으로 모델의 추론 한계와</text>
+    <text class="sub" x="520.0" y="191.5" text-anchor="middle">가드레일 우회 가능성을 검증</text>
+    <text class="sub" x="905" y="66" text-anchor="middle">수단과 평가</text>
+    <rect class="box" x="790" y="78" width="230" height="66" rx="8"/>
+    <text class="name" x="905.0" y="104.5" text-anchor="middle">적대적 프롬프팅</text>
+    <text class="sub" x="905.0" y="129.5" text-anchor="middle">가드레일 우회를 유도하는 입력</text>
+    <rect class="box" x="790" y="186" width="230" height="66" rx="8"/>
+    <text class="name" x="905.0" y="212.5" text-anchor="middle">취약점 점수화</text>
+    <text class="sub" x="905.0" y="237.5" text-anchor="middle">심각도 = 가능성(ASR) × 영향도</text>
+    <line class="arrow" x1="650" y1="140" x2="782.2" y2="112.6"/>
+    <polygon class="head" points="790,111 783.0,116.5 781.4,108.7"/>
+    <line class="arrow" x1="650" y1="190" x2="782.2" y2="217.4"/>
+    <polygon class="head" points="790,219 781.4,221.3 783.0,213.5"/>
+    <rect class="box key" x="20" y="290" width="500" height="80" rx="8"/>
+    <text class="name" x="270.0" y="315.5" text-anchor="middle">ROE (Rules of Engagement)</text>
+    <text class="sub" x="270.0" y="340.5" text-anchor="middle">범위 · 허용 행위 · 금지(DoS, PII 무단 유출) · 중단 조건</text>
+    <text class="sub" x="270.0" y="356.5" text-anchor="middle">모든 활동의 전제 조건</text>
+    <rect class="box ok" x="540" y="290" width="480" height="80" rx="8"/>
+    <text class="name" x="780.0" y="315.5" text-anchor="middle">분류·관리 체계</text>
+    <text class="sub" x="780.0" y="340.5" text-anchor="middle">OWASP LLM Top 10 · MITRE ATLAS · NIST AI RMF</text>
+    <text class="sub" x="780.0" y="356.5" text-anchor="middle">공통 언어로 위협 분류·보고</text>
+  </g>
+  <text class="foot" x="60" y="694">AI Red Team · 6-1</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">4 / 19</text>
+</svg>

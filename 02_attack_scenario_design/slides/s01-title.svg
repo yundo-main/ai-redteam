@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">공격 시나리오 설계</title>
+  <desc id="d">공격 시나리오 설계 이론 정리의 학습 목표, 핵심 내용, 주도 학습 주제.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-2</text>
+  <text class="stitle" x="60" y="118">공격 시나리오 설계</text>
+  <text class="ssub" x="60" y="154">6-2 · 이론 정리</text>
+  <rect class="box" x="60" y="230" width="370" height="230" rx="10"/>
+  <text class="tag" x="78" y="258" text-anchor="start">학습 목표</text>
+  <text class="cname" x="78" y="288.0" text-anchor="start">시나리오 설계</text>
+  <text class="bsm" x="78" y="322.0" text-anchor="start">AI 서비스에 대한 공격 시나리오를</text>
+  <text class="bsm" x="78" y="351.0" text-anchor="start">설계할 수 있다.</text>
+  <rect class="box" x="455" y="230" width="370" height="230" rx="10"/>
+  <text class="tag" x="473" y="258" text-anchor="start">핵심 내용</text>
+  <text class="cname" x="473" y="288.0" text-anchor="start">공격 시나리오 설계 · Prompt</text>
+  <text class="cname" x="473" y="319.2" text-anchor="start">Attack</text>
+  <text class="bsm" x="473" y="353.2" text-anchor="start">목표·전제·단계·성공 조건을</text>
+  <text class="bsm" x="473" y="382.2" text-anchor="start">정의하고 공격 기법을 매핑한다.</text>
+  <rect class="box" x="850" y="230" width="370" height="230" rx="10"/>
+  <text class="tag" x="868" y="258" text-anchor="start">주도 학습 주제</text>
+  <text class="cname" x="868" y="288.0" text-anchor="start">시나리오 설계 워크시트</text>
+  <text class="bsm" x="868" y="322.0" text-anchor="start">공격 시나리오(목표·전제·성공조건)</text>
+  <text class="bsm" x="868" y="351.0" text-anchor="start">설계 워크시트를 작성한다.</text>
+  <text class="bsm" x="60" y="520" text-anchor="start">흐름: 시나리오 정의 → 구성 요소 → 공격자 모델 → 설계 절차 → Prompt Attack → Exploit Chain → 워크시트</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-2</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">1 / 13</text>
+</svg>

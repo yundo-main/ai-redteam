@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">Garak: 구성 요소</title>
+  <desc id="d">Garak 개요와 Generator, Probe, Detector, Harness, Evaluator.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">Garak: 구성 요소</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">Probe → Detector 쌍이 핵심이다</text>
+  <text class="body" x="60" y="190.0" text-anchor="start">LLM의 프롬프트 인젝션, 탈옥, 정보 유출, 환각 등을 자동 스캔하는 오픈소스 LLM 취약점 스캐너. nmap 같은 소프트웨어 취약점 스캐너와</text>
+  <text class="body" x="60" y="218.8" text-anchor="start">비슷한 방식으로 LLM을 점검한다.</text>
+  <rect class="th" x="60" y="253.60000000000002" width="200" height="44"/>
+  <rect class="th" x="260" y="253.60000000000002" width="960" height="44"/>
+  <text class="thtxt" x="74" y="281.6" text-anchor="start">구성</text>
+  <text class="thtxt" x="274" y="281.6" text-anchor="start">역할</text>
+  <rect class="td1" x="60" y="297.6" width="200" height="44"/>
+  <text class="tdb" x="74" y="326.0" text-anchor="start">Generator</text>
+  <rect class="td1" x="260" y="297.6" width="960" height="44"/>
+  <text class="tdtxt" x="274" y="326.0" text-anchor="start">테스트 대상 모델/엔드포인트에 대한 연결(OpenAI 호환 API, 로컬 모델, REST 등)</text>
+  <rect class="td2" x="60" y="341.6" width="200" height="44"/>
+  <text class="tdb" x="74" y="370.0" text-anchor="start">Probe</text>
+  <rect class="td2" x="260" y="341.6" width="960" height="44"/>
+  <text class="tdtxt" x="274" y="370.0" text-anchor="start">특정 취약점 유형을 유발하도록 설계된 공격 프롬프트 묶음(jailbreak, prompt injection 계열)</text>
+  <rect class="td1" x="60" y="385.6" width="200" height="44"/>
+  <text class="tdb" x="74" y="414.0" text-anchor="start">Detector</text>
+  <rect class="td1" x="260" y="385.6" width="960" height="44"/>
+  <text class="tdtxt" x="274" y="414.0" text-anchor="start">응답을 분석해 취약 여부를 판정하는 모듈</text>
+  <rect class="td2" x="60" y="429.6" width="200" height="44"/>
+  <text class="tdb" x="74" y="458.0" text-anchor="start">Harness</text>
+  <rect class="td2" x="260" y="429.6" width="960" height="44"/>
+  <text class="tdtxt" x="274" y="458.0" text-anchor="start">어떤 Probe와 Detector를 어떻게 묶어 실행할지 조정</text>
+  <rect class="td1" x="60" y="473.6" width="200" height="44"/>
+  <text class="tdb" x="74" y="502.0" text-anchor="start">Evaluator</text>
+  <rect class="td1" x="260" y="473.6" width="960" height="44"/>
+  <text class="tdtxt" x="274" y="502.0" text-anchor="start">판정 결과를 집계하고 보고서로 출력</text>
+  <text class="bsm" x="60" y="541.6" text-anchor="start">핵심은 Probe(공격 전송) → Detector(취약 판정) 쌍이다. 세부 구성은 버전에 따라 달라지므로 공식 문서를 확인한다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">4 / 25</text>
+</svg>

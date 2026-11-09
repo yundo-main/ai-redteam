@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">학습 페이지 순서도</title>
+  <desc id="d">메인 readme에서 시작해 개념, 시나리오 설계, 검증, 측정, 개선 순으로 6-1부터 6-7까지 이어지는 학습 페이지의 순서.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">전체</text>
+  <text class="stitle" x="60" y="118">학습 페이지 순서도</text>
+  <text class="ssub" x="60" y="154">01·02의 기초 이론을 03~07이 이어 받아 적용·측정·개선한다</text>
+  <g transform="translate(37.7,130) scale(1.115)">
+    <rect class="box key" x="20" y="70" width="330" height="70" rx="8"/>
+    <text class="name" x="185.0" y="98.5" text-anchor="middle">메인 페이지</text>
+    <text class="sub" x="185.0" y="123.5" text-anchor="middle">readme.md · 전체 목표와 챕터 목록</text>
+    <line class="arrow" x1="84" y1="140" x2="84.0" y2="170.0"/>
+    <polygon class="head" points="84,178 80.0,170.0 88.0,170.0"/>
+    <rect class="box" x="20" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="32" y="202">6-1</text>
+    <text class="name" x="84.0" y="221.0" text-anchor="middle">개념·</text>
+    <text class="name" x="84.0" y="240.0" text-anchor="middle">방법론</text>
+    <text class="sub" x="84.0" y="265.0" text-anchor="middle">절차·ROE</text>
+    <text class="sub" x="84.0" y="281.0" text-anchor="middle">분류 체계</text>
+    <line class="arrow" x1="148" y1="245" x2="157.0" y2="245.0"/>
+    <polygon class="head" points="165,245 157.0,249.0 157.0,241.0"/>
+    <rect class="box" x="165" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="177" y="202">6-2</text>
+    <text class="name" x="229.0" y="221.0" text-anchor="middle">공격 시나리오</text>
+    <text class="name" x="229.0" y="240.0" text-anchor="middle">설계</text>
+    <text class="sub" x="229.0" y="265.0" text-anchor="middle">목표·전제</text>
+    <text class="sub" x="229.0" y="281.0" text-anchor="middle">성공조건</text>
+    <line class="arrow" x1="293" y1="245" x2="302.0" y2="245.0"/>
+    <polygon class="head" points="310,245 302.0,249.0 302.0,241.0"/>
+    <rect class="box" x="310" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="322" y="202">6-3</text>
+    <text class="name" x="374.0" y="221.0" text-anchor="middle">Jailbreak</text>
+    <text class="name" x="374.0" y="240.0" text-anchor="middle">Tool Abuse</text>
+    <text class="sub" x="374.0" y="265.0" text-anchor="middle">모델 정책 우회</text>
+    <text class="sub" x="374.0" y="281.0" text-anchor="middle">도구 권한 오용</text>
+    <line class="arrow" x1="438" y1="245" x2="447.0" y2="245.0"/>
+    <polygon class="head" points="455,245 447.0,249.0 447.0,241.0"/>
+    <rect class="box" x="455" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="467" y="202">6-4</text>
+    <text class="name" x="519.0" y="221.0" text-anchor="middle">Data</text>
+    <text class="name" x="519.0" y="240.0" text-anchor="middle">Exfiltration</text>
+    <text class="sub" x="519.0" y="265.0" text-anchor="middle">유출 경로</text>
+    <text class="sub" x="519.0" y="281.0" text-anchor="middle">증거 수집</text>
+    <line class="arrow" x1="583" y1="245" x2="592.0" y2="245.0"/>
+    <polygon class="head" points="600,245 592.0,249.0 592.0,241.0"/>
+    <rect class="box" x="600" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="612" y="202">6-5</text>
+    <text class="name" x="664.0" y="221.0" text-anchor="middle">Garak·PyRIT</text>
+    <text class="name" x="664.0" y="240.0" text-anchor="middle">자동화 검증</text>
+    <text class="sub" x="664.0" y="265.0" text-anchor="middle">Probe·Detector</text>
+    <text class="sub" x="664.0" y="281.0" text-anchor="middle">결과 해석</text>
+    <line class="arrow" x1="728" y1="245" x2="737.0" y2="245.0"/>
+    <polygon class="head" points="745,245 737.0,249.0 737.0,241.0"/>
+    <rect class="box" x="745" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="757" y="202">6-6</text>
+    <text class="name" x="809.0" y="221.0" text-anchor="middle">평가셋·</text>
+    <text class="name" x="809.0" y="240.0" text-anchor="middle">방어율</text>
+    <text class="sub" x="809.0" y="265.0" text-anchor="middle">방어율·오탐률</text>
+    <text class="sub" x="809.0" y="281.0" text-anchor="middle">회귀 테스트</text>
+    <line class="arrow" x1="873" y1="245" x2="882.0" y2="245.0"/>
+    <polygon class="head" points="890,245 882.0,249.0 882.0,241.0"/>
+    <rect class="box" x="890" y="180" width="128" height="130" rx="8"/>
+    <text class="num" x="902" y="202">6-7</text>
+    <text class="name" x="954.0" y="221.0" text-anchor="middle">결과 분석</text>
+    <text class="name" x="954.0" y="240.0" text-anchor="middle">개선안</text>
+    <text class="sub" x="954.0" y="265.0" text-anchor="middle">RCA·심각도</text>
+    <text class="sub" x="954.0" y="281.0" text-anchor="middle">보고서</text>
+    <path class="arrow" d="M20 332 V340 H293 V332"/>
+    <text class="name" x="156.5" y="364" text-anchor="middle">기초 이론 (01·02)</text>
+    <path class="arrow" d="M310 332 V340 H728 V332"/>
+    <text class="name" x="519.0" y="364" text-anchor="middle">적용·검증 (03~05)</text>
+    <path class="arrow" d="M745 332 V340 H873 V332"/>
+    <text class="name" x="809.0" y="364" text-anchor="middle">측정</text>
+    <path class="arrow" d="M890 332 V340 H1018 V332"/>
+    <text class="name" x="954.0" y="364" text-anchor="middle">개선</text>
+    <path class="loop" d="M229 176 V160 H954 V176"/>
+    <polygon class="head" points="954,180 950,171 958,171"/>
+    <text class="note" x="600" y="152" text-anchor="middle">01·02의 개념·워크시트를 전제로 03~07이 이어진다</text>
+    <text class="note" x="20" y="410" text-anchor="start">각 챕터 폴더에는 이론 정리(readme.md)와 대표 SVG가 들어 있다.</text>
+  </g>
+  <text class="foot" x="60" y="694">AI Red Team · 전체</text>
+</svg>

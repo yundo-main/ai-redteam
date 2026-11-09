@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 — LangGraph 평가·게이트</title>
+  <desc id="d">05 일차 src/의 모듈 구성: 04에서 복사한 defense.py의 집계 지표를 LangGraph 노드로 엮어 합격/불합격 게이트를 만든다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — LangGraph 평가·게이트</text>
+  <text class="ssub" x="60" y="154">모델 호출 → 방어 → 집계 → 합격/불합격 게이트</text>
+  <rect class="box" x="60" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="190.0" y="222" text-anchor="middle">llm.py</text>
+  <text class="sub" x="190.0" y="244" text-anchor="middle">Ollama 준비 확인</text>
+  <text class="sub" x="190.0" y="266" text-anchor="middle">ready()</text>
+  <rect class="box" x="340" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="470.0" y="222" text-anchor="middle">stats.py</text>
+  <text class="sub" x="470.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
+  <text class="sub" x="470.0" y="266" text-anchor="middle">wilson() · trials()</text>
+  <rect class="box key" x="620" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="750.0" y="222" text-anchor="middle">defense.py</text>
+  <text class="sub" x="750.0" y="244" text-anchor="middle">방어 + 6-5 집계 지표</text>
+  <text class="sub" x="750.0" y="266" text-anchor="middle">defense_rate_by_category()</text>
+  <rect class="box" x="900" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="1030.0" y="222" text-anchor="middle">hypothesis_log.py</text>
+  <text class="sub" x="1030.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
+  <text class="sub" x="1030.0" y="266" text-anchor="middle">record() · flush()</text>
+  <rect class="box ok" x="160" y="330" width="680" height="160" rx="8"/>
+  <text class="name" x="500.0" y="362" text-anchor="middle">test_graph.py — LangGraph 평가 그래프</text>
+  <text class="sub" x="500.0" y="384" text-anchor="middle">START → ask_model → run_cases → aggregate</text>
+  <text class="sub" x="500.0" y="406" text-anchor="middle">→ gate →(pass / fail)→ mark_pass · mark_fail → END</text>
+  <text class="sub" x="500.0" y="428" text-anchor="middle">합격 기준: 방어율 ≥ 90% · 오탐률 ≤ 10%</text>
+  <line class="arrow" x1="190" y1="280" x2="498.0" y2="329.7"/>
+  <polygon class="head" points="498.0,329.7 488.5,332.2 489.8,324.3"/>
+  <line class="arrow" x1="470" y1="280" x2="499.0" y2="328.3"/>
+  <polygon class="head" points="499.0,328.3 490.9,322.6 497.8,318.5"/>
+  <line class="arrow" x1="750" y1="280" x2="502.0" y2="329.6"/>
+  <polygon class="head" points="502.0,329.6 510.0,323.9 511.6,331.8"/>
+  <line class="arrow" x1="1030" y1="280" x2="502.0" y2="329.8"/>
+  <polygon class="head" points="502.0,329.8 510.6,325.0 511.3,332.9"/>
+  <rect class="box" x="160" y="530" width="320" height="100" rx="8"/>
+  <text class="name" x="320.0" y="562" text-anchor="middle">test_defense.py</text>
+  <text class="sub" x="320.0" y="584" text-anchor="middle">defense.py 단위 테스트</text>
+  <text class="sub" x="320.0" y="606" text-anchor="middle">(모델 호출 없음, 03·04와 같은 패턴)</text>
+  <line class="arrow" x1="330" y1="490" x2="320.5" y2="528.1"/>
+  <polygon class="head" points="320.5,528.1 318.8,518.4 326.5,520.3"/>
+  <rect class="box" x="540" y="530" width="300" height="100" rx="8"/>
+  <text class="name" x="690.0" y="562" text-anchor="middle">Garak · PyRIT (이론)</text>
+  <text class="sub" x="690.0" y="584" text-anchor="middle">외부 스캐너(6-5 이론)와 같은 역할을</text>
+  <text class="sub" x="690.0" y="606" text-anchor="middle">LangGraph 그래프로 직접 구현한 것</text>
+  <line class="arrow" x1="660" y1="490" x2="688.8" y2="528.4"/>
+  <polygon class="head" points="688.8,528.4 680.2,523.6 686.6,518.8"/>
+  <text class="note" x="60" y="666" text-anchor="start">같은 모델 출력에 방어 ON/OFF를 모두 적용해 raw_leaks(원본 유출)와 방어 후 지표를 비교 — gate가 기준 미달 시 FAIL</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">13 / 25</text>
+</svg>

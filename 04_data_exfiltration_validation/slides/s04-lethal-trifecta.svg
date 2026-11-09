@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">데이터 유출의 치명적 3요소</title>
+  <desc id="d">비공개 데이터 접근, 비신뢰 콘텐츠 유입, 외부 통신 능력 세 가지가 한 곳에서 겹칠 때 데이터 유출이 성립한다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-4</text>
+  <text class="stitle" x="60" y="118">데이터 유출의 치명적 3요소</text>
+  <text class="ssub" x="60" y="154">세 조건이 한곳에 공존할 때 데이터 유출이 성립한다</text>
+  <g transform="translate(37.7,130) scale(1.115)">
+    <circle class="c1" cx="300" cy="170" r="105"/>
+    <circle class="c2" cx="420" cy="170" r="105"/>
+    <circle class="c3" cx="360" cy="270" r="105"/>
+    <text class="name" x="258" y="140" text-anchor="middle">비공개 데이터</text>
+    <text class="name" x="258" y="160" text-anchor="middle">접근</text>
+    <text class="name" x="462" y="140" text-anchor="middle">비신뢰 콘텐츠</text>
+    <text class="name" x="462" y="160" text-anchor="middle">유입</text>
+    <text class="name" x="360" y="320" text-anchor="middle">외부 통신</text>
+    <text class="name" x="360" y="340" text-anchor="middle">능력</text>
+    <text class="name" x="360" y="225" text-anchor="middle">유출</text>
+    <text class="sub" x="360" y="242" text-anchor="middle">성립</text>
+    <rect class="c1" x="600" y="80" width="14" height="14" rx="3"/>
+    <text class="name" x="624" y="92" text-anchor="start">비공개 데이터 접근</text>
+    <text class="sub" x="624" y="112" text-anchor="start">RAG 문서, 대화 메모리, PII, 시스템 프롬프트, 키</text>
+    <rect class="c2" x="600" y="150" width="14" height="14" rx="3"/>
+    <text class="name" x="624" y="162" text-anchor="start">비신뢰 콘텐츠 유입</text>
+    <text class="sub" x="624" y="182" text-anchor="start">웹 페이지, 이메일, 업로드 파일 → 간접 인젝션</text>
+    <rect class="c3" x="600" y="220" width="14" height="14" rx="3"/>
+    <text class="name" x="624" y="232" text-anchor="start">외부 통신 능력</text>
+    <text class="sub" x="624" y="252" text-anchor="start">마크다운 이미지 자동 로드, HTTP·이메일 도구, DNS</text>
+    <rect class="box ok" x="600" y="300" width="420" height="70" rx="8"/>
+    <text class="sub" x="810.0" y="336.0" text-anchor="middle">세 조건 중 하나만 제거해도 유출 경로가 끊긴다.</text>
+    <text class="sub" x="810.0" y="352.0" text-anchor="middle">검증 = 세 조건이 한 곳에 공존하는 지점을 찾는 작업</text>
+  </g>
+  <text class="foot" x="60" y="694">AI Red Team · 6-4</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">4 / 27</text>
+</svg>

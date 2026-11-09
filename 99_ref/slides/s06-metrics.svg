@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">지표 치트시트</title>
+  <desc id="d">ASR·방어율·FPR·Wilson 구간의 정의와 해석 규칙.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">참고</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">지표 치트시트</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">방어율을 말할 때 쓰는 지표와 해석 규칙</text>
+  <rect class="th" x="60" y="200" width="640" height="40" rx="6"/>
+  <text class="thtxt" x="78" y="226" text-anchor="start">지표</text>
+  <text class="thtxt" x="270" y="226" text-anchor="start">정의</text>
+  <rect class="td1" x="60" y="240" width="640" height="56" rx="0"/>
+  <text class="tdb" x="78" y="276" text-anchor="start">ASR 공격 성공률</text>
+  <text class="tdtxt" x="270" y="276" text-anchor="start">성공한 공격 ÷ 전체 시도 — 하네스·게이트</text>
+  <rect class="td2" x="60" y="296" width="640" height="56" rx="0"/>
+  <text class="tdb" x="78" y="332" text-anchor="start">방어율</text>
+  <text class="tdtxt" x="270" y="332" text-anchor="start">차단 ÷ 전체 공격 (= 1 − ASR)</text>
+  <rect class="td1" x="60" y="352" width="640" height="56" rx="0"/>
+  <text class="tdb" x="78" y="388" text-anchor="start">오탐률 FPR</text>
+  <text class="tdtxt" x="270" y="388" text-anchor="start">정상 입력을 차단한 비율</text>
+  <rect class="td2" x="60" y="408" width="640" height="56" rx="0"/>
+  <text class="tdb" x="78" y="444" text-anchor="start">Wilson 95% CI</text>
+  <text class="tdtxt" x="270" y="444" text-anchor="start">성공 비율의 신뢰구간 — stats.py</text>
+  <rect class="box key" x="730" y="200" width="490" height="300" rx="10"/>
+  <text class="tag" x="748" y="228" text-anchor="start">해석 규칙</text>
+  <text class="bsm" x="748" y="268" text-anchor="start">n=30에서 0건 → 95% 상한 ≈ 11%</text>
+  <text class="bsm" x="748" y="302" text-anchor="start">0건은 '안전'이 아니라 '상한 이하'</text>
+  <text class="bsm" x="748" y="336" text-anchor="start">50% 부근 구간 폭 ≈ ±17%p</text>
+  <text class="bsm" x="748" y="370" text-anchor="start">구간이 겹치면 차이를 단정하지 않는다</text>
+  <text class="bsm" x="748" y="404" text-anchor="start">QUICK=1은 동작 확인용 — 통계 결론 아님</text>
+  <text class="bsm" x="748" y="438" text-anchor="start">가설은 실행 전 파일로 남겨 결과와 대조</text>
+  <text class="bsm" x="60" y="560" text-anchor="start">반복 횟수: TA-01 30회 · JB-01 15회(시도당 4턴) · 오탐 30건 · 6-5 평가 그래프 공격·정상 각 30건</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 참고자료</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">6 / 7</text>
+</svg>

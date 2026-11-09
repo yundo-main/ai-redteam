@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 5 · 반복과 통계</title>
+  <desc id="d">반복 횟수별 신뢰구간 폭과 결과를 읽는 규칙.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 5 · 반복과 통계</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">10회 중 1회 = 10%는 점추정일 뿐이다</text>
+  <rect class="th" x="60" y="195" width="150" height="44"/>
+  <rect class="th" x="210" y="195" width="200" height="44"/>
+  <rect class="th" x="410" y="195" width="220" height="44"/>
+  <text class="thtxt" x="74" y="223.0" text-anchor="start">반복 N</text>
+  <text class="thtxt" x="224" y="223.0" text-anchor="start">0건일 때 95% 상한</text>
+  <text class="thtxt" x="424" y="223.0" text-anchor="start">50% 근처 구간 폭</text>
+  <rect class="td1" x="60" y="239" width="150" height="44"/>
+  <text class="tdb" x="74" y="267.8" text-anchor="start">10</text>
+  <rect class="td1" x="210" y="239" width="200" height="44"/>
+  <text class="tdtxt" x="224" y="267.8" text-anchor="start">28%</text>
+  <rect class="td1" x="410" y="239" width="220" height="44"/>
+  <text class="tdtxt" x="424" y="267.8" text-anchor="start">±27%p</text>
+  <rect class="td2" x="60" y="283" width="150" height="44"/>
+  <text class="tdb" x="74" y="311.8" text-anchor="start">30</text>
+  <rect class="td2" x="210" y="283" width="200" height="44"/>
+  <text class="tdtxt" x="224" y="311.8" text-anchor="start">11%</text>
+  <rect class="td2" x="410" y="283" width="220" height="44"/>
+  <text class="tdtxt" x="424" y="311.8" text-anchor="start">±17%p</text>
+  <rect class="td1" x="60" y="327" width="150" height="44"/>
+  <text class="tdb" x="74" y="355.8" text-anchor="start">50</text>
+  <rect class="td1" x="210" y="327" width="200" height="44"/>
+  <text class="tdtxt" x="224" y="355.8" text-anchor="start">7%</text>
+  <rect class="td1" x="410" y="327" width="220" height="44"/>
+  <text class="tdtxt" x="424" y="355.8" text-anchor="start">±14%p</text>
+  <text class="bsm" x="60" y="407.0" text-anchor="start">실습 기준: TA-01 30회, JB-01 15회(시도당 4턴), 정상 질문 30건. N을 두</text>
+  <text class="bsm" x="60" y="432.6" text-anchor="start">배로 늘려도 폭은 √2배만 줄어든다.</text>
+  <rect class="box key" x="670" y="195" width="550" height="100" rx="10"/>
+  <text class="cname" x="688" y="225.0" text-anchor="start">0건은 "안전"이 아니다</text>
+  <text class="bsm" x="688" y="257.0" text-anchor="start">"이 구간 상한 이하"라고 읽는다.</text>
+  <rect class="box" x="670" y="307" width="550" height="100" rx="10"/>
+  <text class="cname" x="688" y="337.0" text-anchor="start">구간이 겹치면 단정하지 않는다</text>
+  <text class="bsm" x="688" y="369.0" text-anchor="start">ON/OFF 구간이 겹치지 않을 때만 "줄었다"고 쓴다.</text>
+  <rect class="box" x="670" y="419" width="550" height="100" rx="10"/>
+  <text class="cname" x="688" y="449.0" text-anchor="start">시도마다 seed를 달리한다</text>
+  <text class="bsm" x="688" y="481.0" text-anchor="start">같은 seed로 반복하면 같은 응답이 나온다.</text>
+  <rect class="box" x="670" y="531" width="550" height="100" rx="10"/>
+  <text class="cname" x="688" y="561.0" text-anchor="start">구간의 범위</text>
+  <text class="bsm" x="688" y="593.0" text-anchor="start">이 프롬프트·이 모델에서의 비율이지 모델 전반의 취약도가 아니다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 35</text>
+</svg>

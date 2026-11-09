@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 2 · 가설 기록: 실행 전에 파일에 적는다</title>
+  <desc id="d">가설 파일 만들기, 실행 방법, 적중·높게·낮게 예상·사후 작성의 판정 규칙.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 2 · 가설 기록: 실행 전에 파일에 적는다</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">결과를 본 뒤 맞춰 쓰지 못하도록 파일로 고정하고 도구가 비교한다</text>
+  <circle class="circ" cx="84" cy="232" r="16"/>
+  <text class="circt" x="84" y="238.0" text-anchor="middle">1</text>
+  <rect class="cmdbg" x="116" y="185" width="640" height="94" rx="8"/>
+  <text class="cmd" x="132" y="216.0" text-anchor="start">cp -n</text>
+  <text class="cmd" x="132" y="238.0" text-anchor="start">  03_jailbreak_tool_abuse_testing/src/hypothesis.example.json</text>
+  <text class="cmd" x="132" y="260.0" text-anchor="start">  results/hypothesis-ch03.json</text>
+  <text class="bsm" x="776" y="207.0" text-anchor="start">저장소 루트에서 예시 파일을 복사한다 (-n: 이미 고친 파일은</text>
+  <text class="bsm" x="776" y="227.0" text-anchor="start">덮어쓰지 않는다)</text>
+  <circle class="circ" cx="84" cy="316" r="16"/>
+  <text class="circt" x="84" y="322.0" text-anchor="middle">2</text>
+  <rect class="cmdbg" x="116" y="291" width="640" height="50" rx="8"/>
+  <text class="cmd" x="132" y="322.0" text-anchor="start">predictions 의 ch03.* 4개 값을 자기 예상으로 고치고 저장</text>
+  <text class="bsm" x="776" y="295.0" text-anchor="start">예상 4키 — TA-01=문서 경유 도구 오남용, JB-01=멀티턴 탈옥</text>
+  <text class="mono" x="776" y="313.0" text-anchor="start">ch03.TA-01.off/.on · ch03.JB-01.off/.on</text>
+  <text class="bsm" x="776" y="331.0" text-anchor="start">off=통제 없음 · on=방어 적용 · 값=공격 성공률(0~1)</text>
+  <text class="bsm" x="776" y="349.0" text-anchor="start">이유는 memo 에 한 줄 · 판정 PASS/FAIL</text>
+  <circle class="circ" cx="84" cy="389" r="16"/>
+  <text class="circt" x="84" y="395.0" text-anchor="middle">3</text>
+  <rect class="cmdbg" x="116" y="353" width="640" height="72" rx="8"/>
+  <text class="cmd" x="132" y="374.0" text-anchor="start">python 03_jailbreak_tool_abuse_testing/src/harness.py</text>
+  <text class="cmd" x="132" y="394.0" text-anchor="start">  --hypothesis results/hypothesis-ch03.json</text>
+  <text class="cmd" x="132" y="414.0" text-anchor="start">  --json results/ch03.json</text>
+  <text class="bsm" x="776" y="379.0" text-anchor="start">가설 파일의 사전 예상과 실행 결과를 비교해</text>
+  <text class="bsm" x="776" y="399.0" text-anchor="start">함께 저장한다. 결과 기록은 results/ch03.json</text>
+  <rect class="th" x="60" y="451" width="250" height="44"/>
+  <rect class="th" x="310" y="451" width="910" height="44"/>
+  <text class="thtxt" x="74" y="479.0" text-anchor="start">비교 결과</text>
+  <text class="thtxt" x="324" y="479.0" text-anchor="start">의미</text>
+  <rect class="td1" x="60" y="495" width="250" height="44"/>
+  <text class="tdb" x="74" y="523.0" text-anchor="start">적중</text>
+  <rect class="td1" x="310" y="495" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="523.0" text-anchor="start">가설 값이 실제 95% 신뢰구간 안에 있다</text>
+  <rect class="td2" x="60" y="539" width="250" height="44"/>
+  <text class="tdb" x="74" y="567.0" text-anchor="start">높게 / 낮게 예상</text>
+  <rect class="td2" x="310" y="539" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="567.0" text-anchor="start">가설 값이 구간 밖이다. 실제보다 높게(낮게) 예상했다. 이유를 한 줄 쓴다</text>
+  <rect class="td1" x="60" y="583" width="250" height="44"/>
+  <text class="tdb" x="74" y="611.0" text-anchor="start">측정 안 됨 · 가설 없음</text>
+  <rect class="td1" x="310" y="583" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="611.0" text-anchor="start">가설에만 있는 키(오타 의심) · 측정만 있고 가설이 없다</text>
+  <rect class="td2" x="60" y="627" width="250" height="44"/>
+  <text class="tdb" x="74" y="655.0" text-anchor="start">사후 작성</text>
+  <rect class="td2" x="310" y="627" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="655.0" text-anchor="start">가설 파일이 실행 시작 뒤에 수정됐다. 사전 가설로 인정하지 않는다</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 35</text>
+</svg>

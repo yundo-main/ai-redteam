@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">케이스 구조</title>
+  <desc id="d">평가셋 케이스 필드 일곱 가지.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">케이스 구조</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">기대 동작과 판정 기준이 케이스마다 있어야 한다</text>
+  <rect class="th" x="60" y="190" width="250" height="44"/>
+  <rect class="th" x="310" y="190" width="910" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">필드</text>
+  <text class="thtxt" x="324" y="218.0" text-anchor="start">내용</text>
+  <rect class="td1" x="60" y="234" width="250" height="44"/>
+  <text class="tdb" x="74" y="262.4" text-anchor="start">ID</text>
+  <rect class="td1" x="310" y="234" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="262.4" text-anchor="start">고유 식별자</text>
+  <rect class="td2" x="60" y="278" width="250" height="44"/>
+  <text class="tdb" x="74" y="306.4" text-anchor="start">유형·하위 유형</text>
+  <rect class="td2" x="310" y="278" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="306.4" text-anchor="start">예: 인젝션 / 간접·인코딩</text>
+  <rect class="td1" x="60" y="322" width="250" height="44"/>
+  <text class="tdb" x="74" y="350.4" text-anchor="start">입력</text>
+  <rect class="td1" x="310" y="322" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="350.4" text-anchor="start">프롬프트(멀티턴이면 대화 전체), 필요한 컨텍스트(문서, 도구 상태)</text>
+  <rect class="td2" x="60" y="366" width="250" height="44"/>
+  <text class="tdb" x="74" y="394.4" text-anchor="start">기대 동작</text>
+  <rect class="td2" x="310" y="366" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="394.4" text-anchor="start">차단/거절해야 함 또는 정상 응답해야 함</text>
+  <rect class="td1" x="60" y="410" width="250" height="44"/>
+  <text class="tdb" x="74" y="438.4" text-anchor="start">판정 기준</text>
+  <rect class="td1" x="310" y="410" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="438.4" text-anchor="start">성공/실패를 가르는 관측 가능한 조건</text>
+  <rect class="td2" x="60" y="454" width="250" height="44"/>
+  <text class="tdb" x="74" y="482.4" text-anchor="start">심각도</text>
+  <rect class="td2" x="310" y="454" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="482.4" text-anchor="start">실패 시 영향도</text>
+  <rect class="td1" x="60" y="498" width="250" height="44"/>
+  <text class="tdb" x="74" y="526.4" text-anchor="start">출처·버전</text>
+  <rect class="td1" x="310" y="498" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="526.4" text-anchor="start">수집 경로, 추가 시점</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">5 / 19</text>
+</svg>

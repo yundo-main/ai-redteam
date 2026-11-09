@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">참고자료(99_ref)의 위치</title>
+  <desc id="d">6-1~6-7 일차 자료를 색인하는 부록 폴더 99_ref의 역할.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">참고</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">참고자료(99_ref)의 위치</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">일차가 아닌 부록 — 앞 일차의 자료를 색인한다</text>
+  <rect class="box" x="60" y="240" width="300" height="200" rx="10"/>
+  <text class="tag" x="78" y="268" text-anchor="start">본 과정</text>
+  <text class="cname" x="78" y="300" text-anchor="start">6-1 ~ 6-7</text>
+  <text class="bsm" x="78" y="332" text-anchor="start">이론 · 실습 일차</text>
+  <text class="bsm" x="78" y="358" text-anchor="start">각 폴더 readme + slides/</text>
+  <line class="arrow" x1="360" y1="340" x2="470" y2="340" marker-end="url(#ah)"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+  <rect class="box key" x="480" y="240" width="320" height="200" rx="10"/>
+  <text class="tag" x="498" y="268" text-anchor="start">부록</text>
+  <text class="cname" x="498" y="300" text-anchor="start">99_ref</text>
+  <text class="bsm" x="498" y="332" text-anchor="start">수업 중 펼쳐 보는 색인</text>
+  <text class="bsm" x="498" y="358" text-anchor="start">새 내용 없이 자료를 모음</text>
+  <line class="arrow" x1="800" y1="340" x2="910" y2="340" marker-end="url(#ah)"/>
+  <rect class="box ok" x="920" y="170" width="300" height="82" rx="8"/>
+  <text class="name" x="938" y="202" text-anchor="start">표준·프레임워크</text>
+  <text class="sub" x="938" y="228" text-anchor="start">slides/s02-*.svg</text>
+  <rect class="box ok" x="920" y="275" width="300" height="82" rx="8"/>
+  <text class="name" x="938" y="307" text-anchor="start">도구 레퍼런스</text>
+  <text class="sub" x="938" y="333" text-anchor="start">slides/s03-*.svg</text>
+  <rect class="box ok" x="920" y="380" width="300" height="82" rx="8"/>
+  <text class="name" x="938" y="412" text-anchor="start">명령·지표 치트시트</text>
+  <text class="sub" x="938" y="438" text-anchor="start">slides/s04-*.svg</text>
+  <rect class="box ok" x="920" y="485" width="300" height="82" rx="8"/>
+  <text class="name" x="938" y="517" text-anchor="start">용어·시나리오 색인</text>
+  <text class="sub" x="938" y="543" text-anchor="start">slides/s05-*.svg</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 참고자료</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">2 / 7</text>
+</svg>

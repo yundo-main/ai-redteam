@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">왜 자동화하는가</title>
+  <desc id="d">자동화의 이점 네 가지와 수동 대 자동화 비교.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">왜 자동화하는가</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">수동은 창의적이지만 느리고 재현이 어렵다</text>
+  <rect class="box" x="60" y="190" width="275" height="170" rx="10"/>
+  <text class="tag" x="78" y="218.0" text-anchor="start">자동화의 이점</text>
+  <text class="cname" x="78" y="248.0" text-anchor="start">규모</text>
+  <text class="bsm" x="78" y="280.0" text-anchor="start">수백~수천 건의 공격 페이로드를</text>
+  <text class="bsm" x="78" y="304.8" text-anchor="start">반복 전송</text>
+  <rect class="box" x="355" y="190" width="275" height="170" rx="10"/>
+  <text class="tag" x="373" y="218.0" text-anchor="start">자동화의 이점</text>
+  <text class="cname" x="373" y="248.0" text-anchor="start">재현성</text>
+  <text class="bsm" x="373" y="280.0" text-anchor="start">같은 설정으로 다시 실행해</text>
+  <text class="bsm" x="373" y="304.8" text-anchor="start">결과를 비교</text>
+  <rect class="box" x="650" y="190" width="275" height="170" rx="10"/>
+  <text class="tag" x="668" y="218.0" text-anchor="start">자동화의 이점</text>
+  <text class="cname" x="668" y="248.0" text-anchor="start">회귀 검증</text>
+  <text class="bsm" x="668" y="280.0" text-anchor="start">모델·프롬프트·가드레일 변경 후</text>
+  <text class="bsm" x="668" y="304.8" text-anchor="start">같은 스캔으로 방어력 유지 확인</text>
+  <rect class="box" x="945" y="190" width="275" height="170" rx="10"/>
+  <text class="tag" x="963" y="218.0" text-anchor="start">자동화의 이점</text>
+  <text class="cname" x="963" y="248.0" text-anchor="start">비결정성 대응</text>
+  <text class="bsm" x="963" y="280.0" text-anchor="start">같은 프롬프트를 여러 번 시도해</text>
+  <text class="bsm" x="963" y="304.8" text-anchor="start">성공률을 통계로 산출</text>
+  <rect class="th" x="60" y="390" width="200" height="44"/>
+  <rect class="th" x="260" y="390" width="480" height="44"/>
+  <rect class="th" x="740" y="390" width="480" height="44"/>
+  <text class="thtxt" x="74" y="418.0" text-anchor="start">구분</text>
+  <text class="thtxt" x="274" y="418.0" text-anchor="start">수동</text>
+  <text class="thtxt" x="754" y="418.0" text-anchor="start">자동화</text>
+  <rect class="td1" x="60" y="434" width="200" height="44"/>
+  <text class="tdb" x="74" y="462.4" text-anchor="start">강점</text>
+  <rect class="td1" x="260" y="434" width="480" height="44"/>
+  <text class="tdtxt" x="274" y="462.4" text-anchor="start">새로운 공격·맥락 의존적 취약점 발견</text>
+  <rect class="td1" x="740" y="434" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="462.4" text-anchor="start">대량·반복·회귀 테스트</text>
+  <rect class="td2" x="60" y="478" width="200" height="44"/>
+  <text class="tdb" x="74" y="506.4" text-anchor="start">약점</text>
+  <rect class="td2" x="260" y="478" width="480" height="44"/>
+  <text class="tdtxt" x="274" y="506.4" text-anchor="start">비용, 확장성</text>
+  <rect class="td2" x="740" y="478" width="480" height="44"/>
+  <text class="tdtxt" x="754" y="506.4" text-anchor="start">알려진 패턴 중심, 판정 오류</text>
+  <text class="bsm" x="60" y="546.0" text-anchor="start">자동화는 수동을 대체하지 않고 보완한다. 자동 스캔으로 폭넓게 확인하고, 수동으로 깊이 파고든다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">2 / 25</text>
+</svg>

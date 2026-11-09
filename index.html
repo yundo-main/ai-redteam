@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>AI 레드팀 슬라이드 인덱스</title>
+<style>
+:root{color-scheme:light;--bg:#f8fafc;--panel:#ffffff;--ink:#122033;--muted:#516174;--line:#c9d5e1;--accent:#1769aa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;line-height:1.5}
+main{max-width:1180px;margin:0 auto;padding:28px 16px 48px}
+a{color:var(--accent)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--accent);margin:0}
+h1{font-size:28px;margin:4px 0 6px}
+.sub{color:var(--muted);margin:0 0 16px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a,.btn{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);text-decoration:none;font-size:14px}
+nav a:hover,.btn:hover{border-color:var(--accent)}
+h2{font-size:20px;margin:28px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{display:block;aspect-ratio:16/9;background:#eef2f6;border-bottom:1px solid var(--line)}
+.thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.body{padding:8px 12px 10px;font-size:13px}
+.body h3{font-size:14px;margin:0 0 2px}
+.body p{margin:0 0 6px;color:var(--muted);word-break:break-all}
+.body a{margin-right:10px}
+details.day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 16px;margin-bottom:12px}
+summary{cursor:pointer;padding:14px 0;font-size:16px;list-style-position:inside}
+summary small{color:var(--muted);margin-left:8px}
+.chip{background:#d64045;color:#fff;border-radius:999px;padding:1px 10px;font-size:12px;font-weight:700;margin-right:8px}
+details[open] summary{border-bottom:1px solid var(--line)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0 0;font-size:14px}
+.foot{color:var(--muted);font-size:14px;margin-top:28px}
+code{background:#eef2f6;padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">AI RED TEAM · SVG INDEX</p>
+    <h1>실습 SVG 슬라이드 인덱스</h1>
+    <p class="sub">일차별 일차별 슬라이드를 한곳에서 봅니다. 썸네일을 누르면 SVG가 열리고, "프레젠터로 보기"는 일차의 슬라이드를 한 장씩 넘겨 봅니다.</p>
+    <nav aria-label="빠른 링크">
+      <a href="readme.md">readme.md (과정 전체)</a>
+      <a href="course-flow.svg" target="_blank">과정 흐름도</a>
+    </nav>
+  </header>
+
+  <h2>프로젝트 전체 관계도</h2>
+  <div class="grid">
+    <article class="card">
+      <a class="thumb" href="course-flow.svg" target="_blank"><img loading="lazy" src="course-flow.svg" alt="전체 과정 흐름: 6-1부터 6-7까지 일차 관계"></a>
+      <div class="body"><h3>전체 과정 흐름</h3><p>course-flow.svg</p><a href="course-flow.svg" target="_blank">SVG 열기</a><a href="course-flow.svg" download>다운로드</a></div>
+    </article>
+  </div>
+
+  <h2>일차별 슬라이드</h2>
+  <details class="day" open>
+    <summary><span class="chip">6-1</span><b>1일차</b> AI 레드팀 개념과 방법론 <small>슬라이드 19장</small></summary>
+    <p class="tools"><a class="btn" href="01_ai_redteam_concept_methodology/slides/index.html">프레젠터로 보기</a><a href="01_ai_redteam_concept_methodology/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g1"></div>
+  </details>
+  <details class="day" open>
+    <summary><span class="chip">6-2</span><b>2일차</b> 공격 시나리오 설계 <small>슬라이드 13장</small></summary>
+    <p class="tools"><a class="btn" href="02_attack_scenario_design/slides/index.html">프레젠터로 보기</a><a href="02_attack_scenario_design/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g2"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">6-3</span><b>3일차</b> Jailbreak·Tool Abuse 테스트 <small>슬라이드 35장</small></summary>
+    <p class="tools"><a class="btn" href="03_jailbreak_tool_abuse_testing/slides/index.html">프레젠터로 보기</a><a href="03_jailbreak_tool_abuse_testing/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g3"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">6-4</span><b>4일차</b> Data Exfiltration 시나리오 검증 <small>슬라이드 27장</small></summary>
+    <p class="tools"><a class="btn" href="04_data_exfiltration_validation/slides/index.html">프레젠터로 보기</a><a href="04_data_exfiltration_validation/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g4"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">6-5</span><b>5일차</b> Garak·PyRIT 기반 자동화 검증 <small>슬라이드 25장</small></summary>
+    <p class="tools"><a class="btn" href="05_garak_pyrit_automated_testing/slides/index.html">프레젠터로 보기</a><a href="05_garak_pyrit_automated_testing/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g5"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">6-6</span><b>6일차</b> 평가셋 구성 및 방어율 측정 <small>슬라이드 19장</small></summary>
+    <p class="tools"><a class="btn" href="06_evaluation_set_defense_rate/slides/index.html">프레젠터로 보기</a><a href="06_evaluation_set_defense_rate/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g6"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">6-7</span><b>7일차</b> 레드팀 결과 분석 실습 <small>슬라이드 23장</small></summary>
+    <p class="tools"><a class="btn" href="07_redteam_result_analysis/slides/index.html">프레젠터로 보기</a><a href="07_redteam_result_analysis/readme.md">이론 정리(readme.md)</a></p>
+    <div class="grid" id="g7"></div>
+  </details>
+  <details class="day">
+    <summary><span class="chip">참고</span><b>부록</b> 참고자료 — 표준·도구·명령·지표·용어 색인 <small>슬라이드 7장</small></summary>
+    <p class="tools"><a class="btn" href="99_ref/slides/index.html">프레젠터로 보기</a><a href="99_ref/readme.md">참고자료(readme.md)</a></p>
+    <div class="grid" id="g8"></div>
+  </details>
+
+  <p class="foot">로컬에서 열 때는 이 파일을 브라우저로 직접 열거나, 저장소 루트에서 <code>python -m http.server 8000</code> 실행 후 <code>http://127.0.0.1:8000/index.html</code>로 접속합니다.</p>
+</main>
+<script>
+function draw(id, dir, files, extra, group) {
+  var box = document.getElementById(id);
+  function add(path, file, label) {
+    var a = document.createElement('article'); a.className = 'card';
+    a.innerHTML = '<a class="thumb" target="_blank"><img loading="lazy"></a>' +
+      '<div class="body"><h3></h3><p></p><a target="_blank">SVG 열기</a><a download>다운로드</a></div>';
+    var l = a.querySelectorAll('a');
+    l[0].href = l[1].href = l[2].href = path;
+    var img = a.querySelector('img'); img.src = path; img.alt = label;
+    a.querySelector('h3').textContent = label;
+    a.querySelector('p').textContent = file;
+    box.appendChild(a);
+  }
+  files.forEach(function (f, i) {
+    var no = String(i + 1); if (no.length < 2) no = '0' + no;
+    add(dir + '/slides/' + f, f, group + ' · ' + no);
+  });
+  extra.forEach(function (f) { add(dir + '/' + f, f, group + ' · 대표 SVG'); });
+}
+draw('g1', '01_ai_redteam_concept_methodology', ["s01-title.svg", "s02-what-is.svg", "s03-compare.svg", "s04-concept-map.svg", "s05-core-concepts.svg", "s06-redteam-process.svg", "s07-steps.svg", "s08-roe.svg", "s09-frameworks.svg", "s10-owasp.svg", "s11-attack-types.svg", "s12-classification.svg", "s13-metrics.svg", "s14-defense.svg", "s15-legal.svg", "s16-summary.svg", "s17-review.svg", "s18-glossary.svg", "s19-connections.svg"], [], '1일차');
+draw('g2', '02_attack_scenario_design', ["s01-title.svg", "s02-what-is.svg", "s03-components.svg", "s04-attacker-model.svg", "s05-design-process.svg", "s06-prompt-attack.svg", "s07-attack-chain.svg", "s08-chain-math.svg", "s09-worksheet.svg", "s10-summary.svg", "s11-review.svg", "s12-glossary.svg", "s13-connections.svg"], [], '2일차');
+draw('g3', '03_jailbreak_tool_abuse_testing', ["s01-title.svg", "s02-position.svg", "s03-jb-definition.svg", "s04-jb-types.svg", "s05-jb-testing.svg", "s06-ta-structure.svg", "s07-excessive-agency.svg", "s08-ta-types.svg", "s09-ta-testing.svg", "s10-defense-jb.svg", "s11-defense-ta.svg", "s12-agent-attack-surface.svg", "s13-scenario-examples.svg", "s14-worksheet-ta01.svg", "s15-worksheet-jb01.svg", "s16-scenario-diff.svg", "s17-record.svg", "s18-lab-method.svg", "s19-lab-hyp.svg", "s20-lab-flow.svg", "s21-code-map.svg", "s22-lab-harness.svg", "s23-lab-stats.svg", "s24-lab-prep.svg", "s25-lab-setup.svg", "s26-lab-run4.svg", "s27-lab-run5.svg", "s28-lab-result.svg", "s29-lab-read.svg", "s30-lab-read2.svg", "s31-lab-read3.svg", "s32-summary.svg", "s33-review.svg", "s34-glossary.svg", "s35-connections.svg"], [], '3일차');
+draw('g4', '04_data_exfiltration_validation', ["s01-title.svg", "s02-what.svg", "s03-trifecta.svg", "s04-lethal-trifecta.svg", "s05-channels.svg", "s06-markdown-leak.svg", "s07-verify.svg", "s08-roe-canary.svg", "s09-evidence.svg", "s10-defense.svg", "s11-worksheet-ex01.svg", "s12-chain.svg", "s13-code-map.svg", "s14-lab-method.svg", "s15-lab-hyp.svg", "s16-lab-measure.svg", "s17-lab-flow.svg", "s18-lab-prep.svg", "s19-lab-setup.svg", "s20-lab-run3.svg", "s21-lab-result.svg", "s22-lab-read.svg", "s23-lab-read2.svg", "s24-summary.svg", "s25-review.svg", "s26-glossary.svg", "s27-connections.svg"], [], '4일차');
+draw('g5', '05_garak_pyrit_automated_testing', ["s01-title.svg", "s02-why.svg", "s03-structure.svg", "s04-garak.svg", "s05-garak-flow.svg", "s06-pyrit.svg", "s07-compare.svg", "s08-metrics.svg", "s09-cautions.svg", "s10-ops.svg", "s11-worksheet-au01.svg", "s12-mapping.svg", "s13-code-map.svg", "s14-lab-method.svg", "s15-lab-graph.svg", "s16-lab-prep.svg", "s17-lab-setup.svg", "s18-lab-run3.svg", "s19-lab-result.svg", "s20-lab-interp.svg", "s21-lab-read.svg", "s22-lab-read2.svg", "s23-summary.svg", "s24-review.svg", "s25-glossary.svg"], [], '5일차');
+draw('g6', '06_evaluation_set_defense_rate', ["s01-title.svg", "s02-overview.svg", "s03-eval-metrics.svg", "s04-principles.svg", "s05-case.svg", "s06-build.svg", "s07-metrics.svg", "s08-aux.svg", "s09-stats.svg", "s10-judge.svg", "s11-tradeoff.svg", "s12-regression.svg", "s13-mapping.svg", "s14-lab-run.svg", "s15-lab-format.svg", "s16-lab-read.svg", "s17-summary.svg", "s18-review.svg", "s19-glossary.svg"], [], '6일차');
+draw('g7', '07_redteam_result_analysis', ["s01-title.svg", "s02-overview.svg", "s03-analysis-cycle.svg", "s04-organize.svg", "s05-rca.svg", "s06-whys.svg", "s07-severity.svg", "s08-cvss.svg", "s09-layers.svg", "s10-plan.svg", "s11-residual.svg", "s12-audience.svg", "s13-components.svg", "s14-finding.svg", "s15-writing.svg", "s16-lab-tool.svg", "s17-lab-fill.svg", "s18-lab-rule.svg", "s19-reverify.svg", "s20-mapping.svg", "s21-summary.svg", "s22-review.svg", "s23-glossary.svg"], [], '7일차');
+draw('g8', '99_ref', ["s01-title.svg", "s02-ref-map.svg", "s03-standards.svg", "s04-tools.svg", "s05-commands.svg", "s06-metrics.svg", "s07-index.svg"], [], '부록');
+</script>
+</body>
+</html>

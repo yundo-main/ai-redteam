@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">Prompt Attack 기법</title>
+  <desc id="d">직접·간접 인젝션, 멀티턴, 구문 경계 교란, 인코딩 변환, 페이로드 분할, 역할극 기법의 원리와 설명.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-2</text>
+  <text class="stitle" x="60" y="118">Prompt Attack 기법</text>
+  <text class="ssub" x="60" y="154">모델이 지시와 데이터를 구조적으로 구분하지 못한다는 점을 이용한다</text>
+  <rect class="th" x="60" y="195" width="250" height="44"/>
+  <text class="thtxt" x="74" y="222.36249999999998" text-anchor="start">기법</text>
+  <rect class="th" x="310" y="195" width="210" height="44"/>
+  <text class="thtxt" x="324" y="222.36249999999998" text-anchor="start">원리</text>
+  <rect class="th" x="520" y="195" width="700" height="44"/>
+  <text class="thtxt" x="534" y="222.36249999999998" text-anchor="start">설명</text>
+  <rect class="td1" x="60" y="239" width="250" height="44"/>
+  <text class="tdb" x="74" y="266.3625" text-anchor="start">직접 프롬프트 인젝션</text>
+  <rect class="td1" x="310" y="239" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="266.3625" text-anchor="start">지시 덮어쓰기</text>
+  <rect class="td1" x="520" y="239" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="266.3625" text-anchor="start">입력에 새 지시를 삽입해 기존 지시를 무시하게 만듦</text>
+  <rect class="td2" x="60" y="283" width="250" height="44"/>
+  <text class="tdb" x="74" y="310.3625" text-anchor="start">간접 프롬프트 인젝션</text>
+  <rect class="td2" x="310" y="283" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="310.3625" text-anchor="start">비신뢰 데이터 경유</text>
+  <rect class="td2" x="520" y="283" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="310.3625" text-anchor="start">웹·문서·이메일에 숨긴 지시가 RAG·에이전트를 통해 유입</text>
+  <rect class="td1" x="60" y="327" width="250" height="44"/>
+  <text class="tdb" x="74" y="354.3625" text-anchor="start">다중 세션/멀티턴</text>
+  <rect class="td1" x="310" y="327" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="354.3625" text-anchor="start">맥락 누적</text>
+  <rect class="td1" x="520" y="327" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="354.3625" text-anchor="start">여러 턴에 걸쳐 무해해 보이는 요청을 쌓아 점진적으로 경계를 이동</text>
+  <rect class="td2" x="60" y="371" width="250" height="44"/>
+  <text class="tdb" x="74" y="398.3625" text-anchor="start">구문 경계 교란</text>
+  <rect class="td2" x="310" y="371" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="398.3625" text-anchor="start">구분자 혼동</text>
+  <rect class="td2" x="520" y="371" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="398.3625" text-anchor="start">따옴표·태그·마크다운·역할 표지를 위조해 시스템/사용자 영역 경계를 흐림</text>
+  <rect class="td1" x="60" y="415" width="250" height="44"/>
+  <text class="tdb" x="74" y="442.3625" text-anchor="start">인코딩 변환</text>
+  <rect class="td1" x="310" y="415" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="442.3625" text-anchor="start">필터 우회</text>
+  <rect class="td1" x="520" y="415" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="442.3625" text-anchor="start">Base64, 유니코드 변형, 다국어 혼용으로 키워드 기반 탐지를 회피</text>
+  <rect class="td2" x="60" y="459" width="250" height="44"/>
+  <text class="tdb" x="74" y="486.3625" text-anchor="start">페이로드 분할</text>
+  <rect class="td2" x="310" y="459" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="486.3625" text-anchor="start">탐지 분산</text>
+  <rect class="td2" x="520" y="459" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="486.3625" text-anchor="start">요청을 여러 조각으로 나누어 전달하고 모델이 재조합하도록 유도</text>
+  <rect class="td1" x="60" y="503" width="250" height="44"/>
+  <text class="tdb" x="74" y="530.3625000000001" text-anchor="start">역할극/가정 설정</text>
+  <rect class="td1" x="310" y="503" width="210" height="44"/>
+  <text class="tdtxt" x="324" y="530.3625000000001" text-anchor="start">정책 맥락 이동</text>
+  <rect class="td1" x="520" y="503" width="700" height="44"/>
+  <text class="tdtxt" x="534" y="530.3625000000001" text-anchor="start">허구·연구·디버그 모드 등의 맥락으로 정책을 완화시키려는 시도</text>
+  <text class="bsm" x="60" y="650" text-anchor="start">기법은 서로 조합된다. 예: 간접 인젝션 + 인코딩 + 멀티턴으로 도구 실행까지 유도.</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-2 · 총람 · 심화는 6-3</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">6 / 13</text>
+</svg>

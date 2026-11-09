@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3일차 Jailbreak·Tool Abuse 테스트 슬라이드</title>
+<style>
+:root{--bg:#f4f5f7;--panel:#ffffff;--ink:#1c2430;--mute:#5b6675;--line:#d9dee5;--accent:#d64045;--bar:#2f6fdb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mute:#9aa6b2;--line:#2a313a;--accent:#ff6b70;--bar:#6ea0ff}}
+:root[data-theme="dark"]{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mute:#9aa6b2;--line:#2a313a;--accent:#ff6b70;--bar:#6ea0ff}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+button{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:inherit}
+
+body{display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+header .home{text-decoration:none;color:var(--mute);font-size:14px}
+header h1{margin:0;font-size:16px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header h1 span{color:var(--accent);margin-right:8px}
+.count{color:var(--mute);font-size:14px;font-variant-numeric:tabular-nums}
+.bar{height:3px;background:var(--line)}
+.bar i{display:block;height:100%;width:0;background:var(--bar);transition:width .15s}
+main{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:10px 12px;container-type:size}
+.stage{width:min(100cqw,calc(100cqh*16/9));aspect-ratio:16/9;background:var(--panel);border-radius:6px;overflow:hidden;position:relative;box-shadow:0 1px 3px rgba(0,0,0,.18),0 0 0 1px var(--line)}
+.stage img{width:100%;height:100%;display:block;object-fit:contain}
+.hit{position:absolute;top:0;bottom:0;width:30%;background:none;border:0;border-radius:0;padding:0;opacity:0}
+.hit.l{left:0;cursor:w-resize}.hit.r{right:0;cursor:e-resize}
+footer{display:flex;align-items:center;gap:8px;padding:6px 16px 10px;border-top:1px solid var(--line);background:var(--panel)}
+.cap{color:var(--mute);font-size:13px;text-align:center;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;order:0}
+footer button{white-space:nowrap}
+button:disabled{opacity:.4;cursor:default}
+@media (max-width:640px){footer{flex-wrap:wrap;justify-content:center}.cap{flex-basis:100%;order:-1}}
+.grid{position:fixed;inset:0;background:var(--bg);overflow:auto;padding:16px;display:none;z-index:5}
+.grid.on{display:block}
+.grid h2{margin:0 0 12px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px;text-align:left}
+.card.cur{border-color:var(--accent)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;border-radius:4px}
+.card span{display:block;font-size:12px;color:var(--mute);margin-top:4px}
+.sr{position:absolute;left:-9999px}
+@media print{
+  header,.bar,footer,.hit,.grid{display:none!important}
+  body{display:block;background:#fff}main{display:block;padding:0}
+  .stage{display:none}
+  .all img{display:block;width:100%;page-break-after:always}
+}
+.all{display:none}
+@media print{.all{display:block}}
+</style>
+</head>
+<body>
+<header>
+  <a class="home" href="../../index.html">← 전체 목차</a>
+  <h1><span>6-3</span>Jailbreak·Tool Abuse 테스트</h1>
+  <span class="count" id="count">1 / 32</span>
+  <button id="theme" type="button" aria-label="밝은/어두운 화면 전환">◐</button>
+</header>
+<div class="bar"><i id="prog"></i></div>
+<main>
+  <div class="stage">
+    <img id="img" alt="">
+    <button class="hit l" id="hl" type="button" aria-label="이전 슬라이드"></button>
+    <button class="hit r" id="hr" type="button" aria-label="다음 슬라이드"></button>
+  </div>
+</main>
+<footer>
+  <button id="prev" type="button">← 이전</button>
+  <div class="cap" id="cap"></div>
+  <button id="gbtn" type="button">목록 (G)</button>
+  <button id="fbtn" type="button">전체화면 (F)</button>
+  <button id="next" type="button">다음 →</button>
+</footer>
+<div class="grid" id="grid" role="dialog" aria-label="슬라이드 목록">
+  <h2>3일차 · Jailbreak·Tool Abuse 테스트 — 슬라이드 목록 (Esc 닫기)</h2>
+  <div class="cards" id="cards"></div>
+</div>
+<div class="all" id="all"></div>
+<div class="sr" id="live" aria-live="polite"></div>
+<script>var SLIDES = [{"f": "s01-title.svg", "t": "Jailbreak·Tool Abuse 테스트"}, {"f": "s02-position.svg", "t": "두 공격의 위치"}, {"f": "s03-jb-definition.svg", "t": "Jailbreak: 정의와 원인"}, {"f": "s04-jb-types.svg", "t": "Jailbreak 주요 유형"}, {"f": "s05-jb-testing.svg", "t": "Jailbreak 테스트 방법"}, {"f": "s06-ta-structure.svg", "t": "Tool Abuse: 에이전트의 구조와 위험"}, {"f": "s07-excessive-agency.svg", "t": "Excessive Agency"}, {"f": "s08-ta-types.svg", "t": "Tool Abuse 주요 공격 유형"}, {"f": "s09-ta-testing.svg", "t": "Tool Abuse 테스트 방법"}, {"f": "s10-defense-jb.svg", "t": "방어 관점: Jailbreak"}, {"f": "s11-defense-ta.svg", "t": "방어 관점: Tool Abuse"}, {"f": "s12-agent-attack-surface.svg", "t": "에이전트 공격 경로와 통제 지점"}, {"f": "s13-scenario-examples.svg", "t": "시나리오 작성 예시: 도구 오용 vs 탈옥"}, {"f": "s14-worksheet-ta01.svg", "t": "TA-01 · 외부 문서 경유 도구 무단 실행"}, {"f": "s15-worksheet-jb01.svg", "t": "JB-01 · 멀티턴 유도에 대한 정책 유지"}, {"f": "s16-scenario-diff.svg", "t": "두 시나리오의 차이"}, {"f": "s17-record.svg", "t": "결과 기록 항목"}, {"f": "s18-lab-method.svg", "t": "실습 1 · 방식: 가설 → 실행 → 관찰 → 변형 → 기록"}, {"f": "s19-lab-hyp.svg", "t": "실습 2 · 가설 기록: 실행 전에 파일에 적는다"}, {"f": "s20-lab-flow.svg", "t": "실습 3 · 구성: 수집은 한 번, 판정은 두 번"}, {"f": "s21-code-map.svg", "t": "소스 코드 구조 — harness.py가 4개 토대를 합성"}, {"f": "s22-lab-harness.svg", "t": "실습 4 · 하네스: 수집과 판정"}, {"f": "s23-lab-stats.svg", "t": "실습 5 · 반복과 통계"}, {"f": "s24-lab-prep.svg", "t": "실습 6 · 준비 단계 (실행 1~3)"}, {"f": "s25-lab-setup.svg", "t": "실습 7 · 준비 3 상세: LLM 실행 (Ollama)"}, {"f": "s26-lab-run4.svg", "t": "실습 8 · 실행 4: 하네스 실행과 결과 확인"}, {"f": "s27-lab-run5.svg", "t": "실습 9 · 실행 5: 시나리오 러너와 결과 확인"}, {"f": "s28-lab-result.svg", "t": "실습 10 · 결과 해석"}, {"f": "s29-lab-read.svg", "t": "실습 11 · 결과 읽는 순서"}, {"f": "s30-lab-read2.svg", "t": "실습 12 · 숫자별 의미와 표본 크기"}, {"f": "s31-lab-read3.svg", "t": "실습 13 · 결론으로 쓸 수 있는 문장과 한계"}, {"f": "s32-summary.svg", "t": "요약"}, {"f": "s33-review.svg", "t": "복습 질문"}, {"f": "s34-glossary.svg", "t": "용어 설명"}, {"f": "s35-connections.svg", "t": "이후 일차와의 연결"}];</script>
+<script>
+(function(){
+  var S = SLIDES, n = S.length, i = 0;
+  var img = document.getElementById('img'), count = document.getElementById('count'),
+      bar = document.getElementById('prog'), cap = document.getElementById('cap'),
+      grid = document.getElementById('grid'), live = document.getElementById('live');
+  function clamp(k){ return Math.max(0, Math.min(n - 1, k)); }
+  function show(k, push){
+    i = clamp(k);
+    img.src = S[i].f; img.alt = S[i].t;
+    count.textContent = (i + 1) + ' / ' + n;
+    bar.style.width = ((i + 1) / n * 100) + '%';
+    cap.textContent = S[i].t;
+    live.textContent = (i + 1) + '번 슬라이드, ' + S[i].t;
+    if (push !== false) { try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {} }
+    var nx = new Image(); if (S[i + 1]) nx.src = S[i + 1].f;
+    document.getElementById('prev').disabled = i === 0;
+    document.getElementById('next').disabled = i === n - 1;
+  }
+  function go(d){ show(i + d); }
+  function toggleGrid(on){
+    grid.classList.toggle('on', on);
+    if (on) { var c = grid.querySelector('.cur'); if (c) c.scrollIntoView({block:'center'}); }
+  }
+  function fs(){
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+  document.getElementById('prev').onclick = function(){ go(-1); };
+  document.getElementById('next').onclick = function(){ go(1); };
+  document.getElementById('hl').onclick = function(){ go(-1); };
+  document.getElementById('hr').onclick = function(){ go(1); };
+  document.getElementById('gbtn').onclick = function(){ toggleGrid(true); };
+  document.getElementById('fbtn').onclick = fs;
+  document.getElementById('theme').onclick = function(){
+    var r = document.documentElement, cur = r.getAttribute('data-theme');
+    var dark = cur ? cur === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    r.setAttribute('data-theme', dark ? 'light' : 'dark');
+    try { localStorage.setItem('slides-theme', dark ? 'light' : 'dark'); } catch (e) {}
+  };
+  try { var t = localStorage.getItem('slides-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  var cards = document.getElementById('cards');
+  S.forEach(function(s, k){
+    var b = document.createElement('button'); b.className = 'card'; b.type = 'button';
+    b.innerHTML = '<img loading="lazy" alt=""><span></span>';
+    b.firstChild.src = s.f; b.lastChild.textContent = (k + 1) + '. ' + s.t;
+    b.onclick = function(){ toggleGrid(false); show(k); };
+    cards.appendChild(b);
+  });
+  var all = document.getElementById('all');
+  S.forEach(function(s){ var a = new Image(); a.src = s.f; a.alt = s.t; all.appendChild(a); });
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (grid.classList.contains('on')) { if (k === 'Escape' || k === 'g' || k === 'G') toggleGrid(false); return; }
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); go(1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); go(-1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(n - 1);
+    else if (k === 'f' || k === 'F') fs();
+    else if (k === 'g' || k === 'G' || k === 'Escape') toggleGrid(true);
+  });
+  var x0 = null;
+  document.querySelector('.stage').addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  document.querySelector('.stage').addEventListener('touchend', function(e){
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  });
+  window.addEventListener('hashchange', function(){ var h = parseInt(location.hash.slice(1), 10); if (h) show(h - 1, false); });
+  var h0 = parseInt(location.hash.slice(1), 10);
+  show(h0 ? h0 - 1 : 0, false);
+})();
+</script>
+</body>
+</html>

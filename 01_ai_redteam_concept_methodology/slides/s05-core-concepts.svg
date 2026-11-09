@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">핵심 개념 4가지</title>
+  <desc id="d">Attack Surface, Adversarial Prompting, Vulnerability Scoring, ROE의 정의.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-1</text>
+  <text class="stitle" x="60" y="118">핵심 개념 4가지</text>
+  <text class="ssub" x="60" y="154">공격 표면, 적대적 프롬프팅, 취약점 점수화, ROE</text>
+  <rect class="box" x="60" y="200" width="575" height="220" rx="10"/>
+  <text class="tag" x="78" y="228" text-anchor="start">Attack Surface</text>
+  <text class="cname" x="78" y="258.0" text-anchor="start">공격 표면</text>
+  <text class="bsm" x="78" y="292.0" text-anchor="start">AI 서비스에서 공격이 발생할 수 있는 노출면. 프롬프트</text>
+  <text class="bsm" x="78" y="319.55" text-anchor="start">인젝션, 데이터 유출(학습 데이터·시스템 프롬프트·PII),</text>
+  <text class="bsm" x="78" y="347.1" text-anchor="start">API·도구 오용을 포함한다.</text>
+  <rect class="box" x="645" y="200" width="575" height="220" rx="10"/>
+  <text class="tag" x="663" y="228" text-anchor="start">Adversarial Prompting</text>
+  <text class="cname" x="663" y="258.0" text-anchor="start">적대적 프롬프팅</text>
+  <text class="bsm" x="663" y="292.0" text-anchor="start">모델의 가드레일 우회를 유도하도록 의도적으로 설계한 입력.</text>
+  <text class="bsm" x="663" y="319.55" text-anchor="start">역할극, 인코딩·난독화, 다단계 유도 등이 대표적이다.</text>
+  <rect class="box" x="60" y="435" width="575" height="220" rx="10"/>
+  <text class="tag" x="78" y="463" text-anchor="start">Vulnerability Scoring</text>
+  <text class="cname" x="78" y="493.0" text-anchor="start">취약점 점수화</text>
+  <text class="bsm" x="78" y="527.0" text-anchor="start">발견된 취약점의 심각도와 비즈니스 영향도를 정량 평가해 대응</text>
+  <text class="bsm" x="78" y="554.55" text-anchor="start">우선순위를 정한다. 악용 용이성, 재현 가능성(성공률), 영향</text>
+  <text class="bsm" x="78" y="582.1" text-anchor="start">범위를 고려한다.</text>
+  <rect class="box key" x="645" y="435" width="575" height="220" rx="10"/>
+  <text class="tag" x="663" y="463" text-anchor="start">Rules of Engagement</text>
+  <text class="cname" x="663" y="493.0" text-anchor="start">ROE</text>
+  <text class="bsm" x="663" y="527.0" text-anchor="start">허용되는 목표, 공격 수단, 제약사항을 규정한 약속. 검증이</text>
+  <text class="bsm" x="663" y="554.55" text-anchor="start">실제 서비스에 피해를 주지 않도록 하는 안전장치이다.</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-1</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">5 / 19</text>
+</svg>

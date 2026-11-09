@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 — harness.py가 4개 토대를 합성</title>
+  <desc id="d">03 일차 src/의 모듈 의존 관계: 토대 4개를 harness.py가 합성하고 scenario.py가 6-2 워크시트와 연결한다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — harness.py가 4개 토대를 합성</text>
+  <text class="ssub" x="60" y="154">llm·stats·tool_guard·hypothesis_log → harness → scenario</text>
+  <rect class="box" x="60" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="190.0" y="222" text-anchor="middle">llm.py</text>
+  <text class="sub" x="190.0" y="244" text-anchor="middle">Ollama 호출</text>
+  <text class="sub" x="190.0" y="266" text-anchor="middle">chat() · ready()</text>
+  <rect class="box" x="335" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="465.0" y="222" text-anchor="middle">stats.py</text>
+  <text class="sub" x="465.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
+  <text class="sub" x="465.0" y="266" text-anchor="middle">wilson() · trials()</text>
+  <rect class="box" x="610" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="740.0" y="222" text-anchor="middle">tool_guard.py</text>
+  <text class="sub" x="740.0" y="244" text-anchor="middle">TA-01 방어 정책</text>
+  <text class="sub" x="740.0" y="266" text-anchor="middle">ToolGuard · check()</text>
+  <rect class="box" x="885" y="190" width="260" height="90" rx="8"/>
+  <text class="name" x="1015.0" y="222" text-anchor="middle">hypothesis_log.py</text>
+  <text class="sub" x="1015.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
+  <text class="sub" x="1015.0" y="266" text-anchor="middle">record() · save_run()</text>
+  <rect class="box key" x="440" y="330" width="400" height="110" rx="8"/>
+  <text class="name" x="640.0" y="362" text-anchor="middle">harness.py</text>
+  <text class="sub" x="640.0" y="384" text-anchor="middle">collect_*() 실제 모델 호출</text>
+  <text class="sub" x="640.0" y="406" text-anchor="middle">evaluate_*() 판정 (TA-01 / JB-01)</text>
+  <text class="sub" x="640.0" y="428" text-anchor="middle">run_all() · report() · measurements()</text>
+  <line class="arrow" x1="190.0" y1="280" x2="638.0" y2="329.8"/>
+  <polygon class="head" points="638.0,329.8 628.6,332.8 629.5,324.8"/>
+  <line class="arrow" x1="465.0" y1="280" x2="638.1" y2="329.5"/>
+  <polygon class="head" points="638.1,329.5 628.3,330.8 630.5,323.1"/>
+  <line class="arrow" x1="740.0" y1="280" x2="641.8" y2="329.1"/>
+  <polygon class="head" points="641.8,329.1 648.0,321.5 651.6,328.7"/>
+  <line class="arrow" x1="1015.0" y1="280" x2="642.0" y2="329.7"/>
+  <polygon class="head" points="642.0,329.7 650.4,324.6 651.4,332.5"/>
+  <rect class="box ok" x="60" y="500" width="330" height="130" rx="8"/>
+  <text class="name" x="225.0" y="532" text-anchor="middle">scenario.py</text>
+  <text class="sub" x="225.0" y="554" text-anchor="middle">6-2 워크시트 실행</text>
+  <text class="sub" x="225.0" y="576" text-anchor="middle">validate → collect → evaluate</text>
+  <text class="sub" x="225.0" y="598" text-anchor="middle">format_report()</text>
+  <rect class="box" x="440" y="500" width="240" height="130" rx="8"/>
+  <text class="name" x="560.0" y="532" text-anchor="middle">scenarios/*.json</text>
+  <text class="sub" x="560.0" y="554" text-anchor="middle">ch03_ta01.json</text>
+  <text class="sub" x="560.0" y="576" text-anchor="middle">ch03_jb01.json</text>
+  <text class="sub" x="560.0" y="598" text-anchor="middle">(6-2 워크시트)</text>
+  <rect class="box" x="740" y="500" width="380" height="130" rx="8"/>
+  <text class="name" x="930.0" y="532" text-anchor="middle">test_*.py (단위 테스트)</text>
+  <text class="sub" x="930.0" y="554" text-anchor="middle">tool_guard·stats·hypothesis_log</text>
+  <text class="sub" x="930.0" y="576" text-anchor="middle">(모델 없음) + harness·scenario</text>
+  <text class="sub" x="930.0" y="598" text-anchor="middle">(실제 Ollama 모델)</text>
+  <line class="arrow" x1="540" y1="440" x2="227.0" y2="499.6"/>
+  <polygon class="head" points="227.0,499.6 235.1,494.0 236.6,501.9"/>
+  <line class="arrow" x1="438" y1="565.0" x2="392.0" y2="565.0"/>
+  <polygon class="head" points="392.0,565.0 401.0,561.0 401.0,569.0"/>
+  <line class="arrow" x1="780" y1="440" x2="898.2" y2="499.1"/>
+  <polygon class="head" points="898.2,499.1 888.4,498.7 892.0,491.5"/>
+  <text class="note" x="60" y="666" text-anchor="start">위: 토대 4개(llm·stats·tool_guard·hypothesis_log) → harness.py가 합성 → scenario.py가 6-2 워크시트와 연결</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">21 / 35</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">법·윤리적 고려</title>
+  <desc id="d">사전 승인, 법규 준수, 책임 있는 공개, 유해 결과물 취급.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-1</text>
+  <text class="stitle" x="60" y="118">법·윤리적 고려</text>
+  <text class="ssub" x="60" y="154">승인된 범위 안에서, 책임 있게 수행한다</text>
+  <rect class="box key" x="60" y="200" width="575" height="220" rx="10"/>
+  <text class="tag" x="78" y="228" text-anchor="start">01</text>
+  <text class="cname" x="78" y="258.0" text-anchor="start">사전 승인</text>
+  <text class="bsm" x="78" y="292.0" text-anchor="start">테스트는 사전에 승인받은 범위 안에서만 수행한다.</text>
+  <rect class="box key" x="645" y="200" width="575" height="220" rx="10"/>
+  <text class="tag" x="663" y="228" text-anchor="start">02</text>
+  <text class="cname" x="663" y="258.0" text-anchor="start">법규 준수</text>
+  <text class="bsm" x="663" y="292.0" text-anchor="start">서비스 약관과 개인정보·저작권 관련 법규를 준수한다.</text>
+  <rect class="box key" x="60" y="435" width="575" height="220" rx="10"/>
+  <text class="tag" x="78" y="463" text-anchor="start">03</text>
+  <text class="cname" x="78" y="493.0" text-anchor="start">책임 있는 공개</text>
+  <text class="bsm" x="78" y="527.0" text-anchor="start">발견한 취약점과 획득 데이터는 책임 있는</text>
+  <text class="bsm" x="78" y="556.0" text-anchor="start">공개(Responsible Disclosure) 원칙에 따라 취급한다.</text>
+  <rect class="box key" x="645" y="435" width="575" height="220" rx="10"/>
+  <text class="tag" x="663" y="463" text-anchor="start">04</text>
+  <text class="cname" x="663" y="493.0" text-anchor="start">유해 결과물 취급</text>
+  <text class="bsm" x="663" y="527.0" text-anchor="start">유해 콘텐츠 생성 테스트의 결과물은 불필요하게 보관하거나</text>
+  <text class="bsm" x="663" y="556.0" text-anchor="start">유포하지 않는다.</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-1</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">15 / 19</text>
+</svg>

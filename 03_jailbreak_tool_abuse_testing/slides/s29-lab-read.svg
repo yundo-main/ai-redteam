@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 11 · 결과 읽는 순서</title>
+  <desc id="d">OFF 확인, 분수, 구간, 구간 비교, 통제 사유 확인의 5단계.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-3</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 11 · 결과 읽는 순서</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">표의 한 행을 이 순서로 읽는다</text>
+  <rect class="th" x="60" y="190" width="90" height="44"/>
+  <rect class="th" x="150" y="190" width="330" height="44"/>
+  <rect class="th" x="480" y="190" width="740" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">순서</text>
+  <text class="thtxt" x="164" y="218.0" text-anchor="start">무엇을 보는가</text>
+  <text class="thtxt" x="494" y="218.0" text-anchor="start">판단</text>
+  <rect class="td1" x="60" y="234" width="90" height="62.8"/>
+  <text class="tdb" x="74" y="260.6" text-anchor="start">1</text>
+  <rect class="td1" x="150" y="234" width="330" height="62.8"/>
+  <text class="tdtxt" x="164" y="260.6" text-anchor="start">OFF가 먼저</text>
+  <rect class="td1" x="480" y="234" width="740" height="62.8"/>
+  <text class="tdtxt" x="494" y="260.6" text-anchor="start">OFF가 0%이면 공격이 걸려들지 않은 것이라 ON과 비교할 수 없다. TA-01 22/30, JB-01</text>
+  <text class="tdtxt" x="494" y="283.0" text-anchor="start">15/15라서 비교가 성립한다.</text>
+  <rect class="td2" x="60" y="296.8" width="90" height="44"/>
+  <text class="tdb" x="74" y="325.2" text-anchor="start">2</text>
+  <rect class="td2" x="150" y="296.8" width="330" height="44"/>
+  <text class="tdtxt" x="164" y="325.2" text-anchor="start">분수 k/n</text>
+  <rect class="td2" x="480" y="296.8" width="740" height="44"/>
+  <text class="tdtxt" x="494" y="325.2" text-anchor="start">퍼센트는 분수에서 나온 값이다. 기록의 원본은 30회 중 22회이고, 15회와 30회는 무게가 다르다.</text>
+  <rect class="td1" x="60" y="340.8" width="90" height="44"/>
+  <text class="tdb" x="74" y="369.2" text-anchor="start">3</text>
+  <rect class="td1" x="150" y="340.8" width="330" height="44"/>
+  <text class="tdtxt" x="164" y="369.2" text-anchor="start">95% 구간</text>
+  <rect class="td1" x="480" y="340.8" width="740" height="44"/>
+  <text class="tdtxt" x="494" y="369.2" text-anchor="start">TA-01 OFF는 56%~86%다. 73%는 대표값일 뿐이고 반복이 적은 JB-01은 구간이 더 넓다.</text>
+  <rect class="td2" x="60" y="384.8" width="90" height="44"/>
+  <text class="tdb" x="74" y="413.2" text-anchor="start">4</text>
+  <rect class="td2" x="150" y="384.8" width="330" height="44"/>
+  <text class="tdtxt" x="164" y="413.2" text-anchor="start">OFF와 ON의 구간</text>
+  <rect class="td2" x="480" y="384.8" width="740" height="44"/>
+  <text class="tdtxt" x="494" y="413.2" text-anchor="start">[56%–86%]와 [0%–11%]처럼 겹치지 않으면 차이가 우연이라 보기 어렵다. 겹치면 반복을 늘린다.</text>
+  <rect class="td1" x="60" y="428.8" width="90" height="62.8"/>
+  <text class="tdb" x="74" y="455.4" text-anchor="start">5</text>
+  <rect class="td1" x="150" y="428.8" width="330" height="62.8"/>
+  <text class="tdtxt" x="164" y="455.4" text-anchor="start">통제가 일한 이유</text>
+  <rect class="td1" x="480" y="428.8" width="740" height="62.8"/>
+  <text class="tdtxt" x="494" y="455.4" text-anchor="start">ON이 0%가 된 것이 인자 검증, 허용 목록, 사람 승인 중 무엇 덕인지 실행 로그의 차단 사유로</text>
+  <text class="tdtxt" x="494" y="477.8" text-anchor="start">확인한다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-3</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">29 / 35</text>
+</svg>

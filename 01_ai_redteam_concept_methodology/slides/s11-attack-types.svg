@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">공격 유형 분류</title>
+  <desc id="d">직접·간접 프롬프트 인젝션, 탈옥, 포이즈닝, 회피, 모델 추출, 인버전·멤버십 추론, 에이전트 오용.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-1</text>
+  <text class="stitle" x="60" y="118">공격 유형 분류</text>
+  <text class="ssub" x="60" y="154">추론 단계와 학습 단계에 걸친 8가지 유형</text>
+  <rect class="box key" x="60" y="195" width="276" height="190" rx="10"/>
+  <text class="tag" x="78" y="223" text-anchor="start">추론</text>
+  <text class="cname" x="78" y="253.0" text-anchor="start">직접 프롬프트 인젝션</text>
+  <text class="bsm" x="78" y="287.0" text-anchor="start">입력에 직접 지시를 삽입해 시스템</text>
+  <text class="bsm" x="78" y="309.475" text-anchor="start">지시를 덮어쓴다.</text>
+  <rect class="box key" x="352" y="195" width="276" height="190" rx="10"/>
+  <text class="tag" x="370" y="223" text-anchor="start">추론 (RAG·에이전트)</text>
+  <text class="cname" x="370" y="253.0" text-anchor="start">간접 프롬프트 인젝션</text>
+  <text class="bsm" x="370" y="287.0" text-anchor="start">웹페이지·문서·이메일 등 외부</text>
+  <text class="bsm" x="370" y="309.475" text-anchor="start">데이터에 숨긴 지시가 모델에</text>
+  <text class="bsm" x="370" y="331.95" text-anchor="start">유입된다.</text>
+  <rect class="box key" x="644" y="195" width="276" height="190" rx="10"/>
+  <text class="tag" x="662" y="223" text-anchor="start">추론</text>
+  <text class="cname" x="662" y="253.0" text-anchor="start">탈옥 (Jailbreak)</text>
+  <text class="bsm" x="662" y="287.0" text-anchor="start">역할극, 인코딩, 다단계 유도로</text>
+  <text class="bsm" x="662" y="309.475" text-anchor="start">안전 정책 자체를 우회한다.</text>
+  <rect class="box" x="936" y="195" width="276" height="190" rx="10"/>
+  <text class="tag" x="954" y="223" text-anchor="start">학습</text>
+  <text class="cname" x="954" y="253.0" text-anchor="start">데이터 포이즈닝</text>
+  <text class="bsm" x="954" y="287.0" text-anchor="start">학습·미세조정 데이터에 악성</text>
+  <text class="bsm" x="954" y="309.475" text-anchor="start">샘플을 주입해 행동을 조작하거나</text>
+  <text class="bsm" x="954" y="331.95" text-anchor="start">백도어를 만든다.</text>
+  <rect class="box" x="60" y="400" width="276" height="190" rx="10"/>
+  <text class="tag" x="78" y="428" text-anchor="start">추론</text>
+  <text class="cname" x="78" y="458.0" text-anchor="start">회피 공격 (Evasion)</text>
+  <text class="bsm" x="78" y="492.0" text-anchor="start">미세한 변형(적대적 예제)으로</text>
+  <text class="bsm" x="78" y="514.475" text-anchor="start">오분류를 유도한다.</text>
+  <rect class="box" x="352" y="400" width="276" height="190" rx="10"/>
+  <text class="tag" x="370" y="428" text-anchor="start">추론 / API</text>
+  <text class="cname" x="370" y="458.0" text-anchor="start">모델 추출</text>
+  <text class="bsm" x="370" y="492.0" text-anchor="start">반복 질의로 모델의 기능과</text>
+  <text class="bsm" x="370" y="514.475" text-anchor="start">파라미터를 복제한다.</text>
+  <rect class="box" x="644" y="400" width="276" height="190" rx="10"/>
+  <text class="tag" x="662" y="428" text-anchor="start">추론</text>
+  <text class="cname" x="662" y="458.0" text-anchor="start">인버전·멤버십 추론</text>
+  <text class="bsm" x="662" y="492.0" text-anchor="start">출력으로 학습 데이터를</text>
+  <text class="bsm" x="662" y="514.475" text-anchor="start">복원하거나 학습 포함 여부를</text>
+  <text class="bsm" x="662" y="536.95" text-anchor="start">추론한다.</text>
+  <rect class="box" x="936" y="400" width="276" height="190" rx="10"/>
+  <text class="tag" x="954" y="428" text-anchor="start">추론 (에이전트)</text>
+  <text class="cname" x="954" y="458.0" text-anchor="start">에이전트·도구 오용</text>
+  <text class="bsm" x="954" y="492.0" text-anchor="start">연동 도구·API 권한을 악용해</text>
+  <text class="bsm" x="954" y="514.475" text-anchor="start">의도하지 않은 행동을 실행한다.</text>
+  <text class="bsm" x="60" y="630.0" text-anchor="start">탈옥은 모델의 안전 정책 우회, 프롬프트 인젝션은 애플리케이션의 지시 체계 탈취. 실제 공격은 두 가지를 함께 쓰는 경우가 많다.</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-1 · 개요 · 상세는 6-3, 6-4</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">11 / 19</text>
+</svg>

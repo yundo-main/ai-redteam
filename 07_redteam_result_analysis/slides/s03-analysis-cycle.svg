@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">결과 분석에서 개선까지의 순환</title>
+  <desc id="d">결과 정리, 근본 원인 분석, 심각도 평가, 개선안 도출, 보고, 재검증의 여섯 단계와 평가셋으로 돌아가는 순환.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-7</text>
+  <text class="stitle" x="60" y="118">결과 분석 → 개선 순환</text>
+  <text class="ssub" x="60" y="154">증상이 아닌 근본 원인에 대응하고 재검증으로 순환한다</text>
+  <g transform="translate(37.7,130) scale(1.115)">
+    <rect class="box" x="15" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="27" y="92">01</text>
+    <text class="name" x="90.0" y="110.5" text-anchor="middle">결과 정리</text>
+    <text class="sub" x="90.0" y="135.5" text-anchor="middle">군집화·오탐 제거</text>
+    <text class="sub" x="90.0" y="151.5" text-anchor="middle">재현 확인</text>
+    <line class="arrow" x1="165" y1="125" x2="179.0" y2="125.0"/>
+    <polygon class="head" points="187,125 179.0,129.0 179.0,121.0"/>
+    <rect class="box key" x="187" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="199" y="92">02</text>
+    <text class="name" x="262.0" y="110.5" text-anchor="middle">근본 원인</text>
+    <text class="sub" x="262.0" y="135.5" text-anchor="middle">RCA, 5 Whys</text>
+    <text class="sub" x="262.0" y="151.5" text-anchor="middle">왜 뚫렸는가</text>
+    <line class="arrow" x1="337" y1="125" x2="351.0" y2="125.0"/>
+    <polygon class="head" points="359,125 351.0,129.0 351.0,121.0"/>
+    <rect class="box" x="359" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="371" y="92">03</text>
+    <text class="name" x="434.0" y="110.5" text-anchor="middle">심각도 평가</text>
+    <text class="sub" x="434.0" y="135.5" text-anchor="middle">가능성 × 영향도</text>
+    <text class="sub" x="434.0" y="151.5" text-anchor="middle">(CVSS 보완)</text>
+    <line class="arrow" x1="509" y1="125" x2="523.0" y2="125.0"/>
+    <polygon class="head" points="531,125 523.0,129.0 523.0,121.0"/>
+    <rect class="box" x="531" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="543" y="92">04</text>
+    <text class="name" x="606.0" y="110.5" text-anchor="middle">개선안 도출</text>
+    <text class="sub" x="606.0" y="135.5" text-anchor="middle">단기·중기·장기</text>
+    <text class="sub" x="606.0" y="151.5" text-anchor="middle">잔여 위험 명시</text>
+    <line class="arrow" x1="681" y1="125" x2="695.0" y2="125.0"/>
+    <polygon class="head" points="703,125 695.0,129.0 695.0,121.0"/>
+    <rect class="box" x="703" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="715" y="92">05</text>
+    <text class="name" x="778.0" y="110.5" text-anchor="middle">보고</text>
+    <text class="sub" x="778.0" y="135.5" text-anchor="middle">독자별 구성</text>
+    <text class="sub" x="778.0" y="151.5" text-anchor="middle">재현 절차·증거</text>
+    <line class="arrow" x1="853" y1="125" x2="867.0" y2="125.0"/>
+    <polygon class="head" points="875,125 867.0,129.0 867.0,121.0"/>
+    <rect class="box" x="875" y="70" width="150" height="110" rx="8"/>
+    <text class="num" x="887" y="92">06</text>
+    <text class="name" x="950.0" y="110.5" text-anchor="middle">재검증</text>
+    <text class="sub" x="950.0" y="135.5" text-anchor="middle">동일 평가셋 재실행</text>
+    <text class="sub" x="950.0" y="151.5" text-anchor="middle">회귀 테스트</text>
+    <path class="loop" d="M950.0 180 V232 H90.0 V186"/>
+    <polygon class="head" points="90.0,182 86.0,191 94.0,191"/>
+    <text class="note" x="520" y="256" text-anchor="middle">발견 사항을 평가셋에 편입 → 모델·프롬프트 변경 시마다 반복 (일회성이 아닌 순환 활동)</text>
+    <text class="note" x="20" y="304" text-anchor="start">주황색: 증상(특정 프롬프트 차단)이 아니라 원인(설계·권한·ACL)에 대응해야 재발이 막힌다.</text>
+  </g>
+  <text class="foot" x="60" y="694">AI Red Team · 6-7</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">3 / 23</text>
+</svg>

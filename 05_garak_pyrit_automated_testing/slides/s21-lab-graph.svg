@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 2 · 구성: 한 번 호출, 두 번 평가</title>
+  <title id="t">실습 7 · 게이트 구성: 한 번 호출, 두 번 평가</title>
   <desc id="d">LangGraph 평가 그래프의 노드별 역할, 상태 흐름, 시도 구성, 합격 기준.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -85,7 +85,7 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 2 · 구성: 한 번 호출, 두 번 평가</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 7 · 게이트 구성: 한 번 호출, 두 번 평가</text>
   <text class="ssub" x="60" y="154.0" text-anchor="start">같은 모델 출력에 방어 없음/있음을 적용해 비교한다</text>
   <rect class="box" x="60" y="172" width="210" height="150" rx="10"/>
   <text class="tag" x="78" y="200.0" text-anchor="start">1단계</text>
@@ -156,5 +156,5 @@
   <text class="bsm" x="60" y="625.0" text-anchor="start">공격 3유형×10회 + 정상 3개×10회 = 60건을 한 번만 호출하고, 같은 출력에 방어 없음/있음을 적용한다.</text>
   <text class="bsm" x="60" y="657.0" text-anchor="start">합격 기준(예시): 방어율 ≥ 90%, 오탐률 ≤ 10%. 게이트는 점추정으로 판정하고 95% 구간은 함께 출력만 한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">15 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">21 / 32</text>
 </svg>

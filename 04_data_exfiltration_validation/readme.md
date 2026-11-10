@@ -235,7 +235,7 @@ python --version                    # Python 3.10 이상이어야 한다
 
 가상환경 만들기(처음 한 번, 저장소 루트에서): Python 3.10 이상이 없으면 먼저 설치한다(macOS: `brew install python@3.12`).
 ```
-python3.12 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt       # 같은 버전 재현은 루트 readme의 "같은 버전으로 재현"
 ```

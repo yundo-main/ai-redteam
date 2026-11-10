@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 4 · 준비 2 상세: LLM 실행 (Ollama)</title>
+  <title id="t">실습 9 · 준비 2 상세: LLM 실행 (Ollama)</title>
   <desc id="d">Ollama 설치, 서버 실행, 모델 받기, 준비 확인과 자주 나는 문제의 조치.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -85,7 +85,7 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 4 · 준비 2 상세: LLM 실행 (Ollama)</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 9 · 준비 2 상세: LLM 실행 (Ollama)</text>
   <text class="ssub" x="60" y="154.0" text-anchor="start">실행 3번은 로컬에서 LLM이 돌고 있어야 한다</text>
   <circle class="circ" cx="84" cy="210" r="16"/>
   <text class="circt" x="84" y="216.0" text-anchor="middle">1</text>
@@ -106,7 +106,7 @@
   <circle class="circ" cx="84" cy="396" r="16"/>
   <text class="circt" x="84" y="402.0" text-anchor="middle">4</text>
   <rect class="cmdbg" x="116" y="371" width="700" height="50" rx="8"/>
-  <text class="cmd" x="132" y="402.0" text-anchor="start">python 04_data_exfiltration_validation/src/llm.py</text>
+  <text class="cmd" x="132" y="402.0" text-anchor="start">python 05_garak_pyrit_automated_testing/src/llm.py</text>
   <text class="bsm" x="836" y="393.0" text-anchor="start">저장소 루트에서 확인: (True, '',</text>
   <text class="bsm" x="836" y="413.0" text-anchor="start">'qwen2.5:3b')이면 준비 완료</text>
   <rect class="th" x="60" y="450" width="380" height="44"/>
@@ -135,5 +135,5 @@
   <text class="tdtxt" x="834" y="608.6" text-anchor="start">ready() 확인, pip install -r</text>
   <text class="tdtxt" x="834" y="631.0" text-anchor="start">requirements.txt</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">17 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 32</text>
 </svg>

@@ -67,7 +67,7 @@ cd src && python app.py
 - **모델 크기**: 학습용은 2~4B 급을 권장한다. 7B 이상은 반복 실습 시간이 몇 배로 늘어난다. TA-01은 도구 호출을 지원하는 모델이어야 하며(qwen2.5:3b, llama3.2:3b), gemma3는 Ollama에서 도구 호출을 지원하지 않는다. 1.5B 급 미세조정 모델은 호출 형식을 지키지 못해 TA-01이 0/30으로 나왔다.
 - **반복 정량화**: 모든 모델 실습은 반복 실행한 성공 비율을 Wilson 95% 신뢰구간과 함께 보고한다(`stats.py`). 기준 횟수는 TA-01 30회, JB-01 15회(시도당 4턴), 정상 질문 오탐률 30건, 6-5 평가 그래프 공격·정상 각 30건이다. 30회면 0건일 때 95% 상한이 약 11%이고, 50% 근처의 구간 폭은 약 ±17%p이다. 전체 실행은 소형 모델에서 약 3분 걸리며, `QUICK=1`이면 횟수를 1/3로 줄여 동작만 확인한다(통계적 결론용이 아님). 0건은 "안전"이 아니라 "상한 이하"이고, 구간이 겹치면 차이가 있다고 단정하지 않는다.
 - **모든 실습은 저장소 루트의 Python 가상환경(`.venv`)에서 실행한다.** Python 3.10 이상과 `pip install -r requirements.txt`를 쓴다(LangChain/LangGraph 테스트에 필요). 명령은 `python`이다. 만드는 법은 아래 LLM 실행 가이드의 0번을 따른다.
-- 구조도: 6-4 LangChain 적용 구조는 [슬라이드 s14](04_data_exfiltration_validation/slides/index.html#14), 6-5 LangGraph 평가 그래프는 [슬라이드 s14](05_garak_pyrit_automated_testing/slides/index.html#14)
+- 구조도: 6-4 LangChain 적용 구조는 [슬라이드 s14](04_data_exfiltration_validation/slides/index.html#14), 6-5 LangGraph 평가 그래프는 [슬라이드 s21](05_garak_pyrit_automated_testing/slides/index.html#21)
 - 모델 출력은 비결정적이므로 성공률은 실행마다 달라질 수 있다(seed로 재현을 시도). 테스트 입력은 더미 카나리와 예약 도메인(`.invalid`)을 쓰고, 공격 페이로드는 만들지 않는다.
 
 # LLM 실행 가이드 (Ollama)
@@ -78,7 +78,7 @@ cd src && python app.py
 
 ```
 # 처음 한 번 (Python 3.10 이상, macOS: brew install python@3.12)
-python3.12 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt           # 같은 버전 재현: 아래 "같은 버전으로 재현"
 

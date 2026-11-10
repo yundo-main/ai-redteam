@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">소스 코드 구조 — LangGraph 평가·게이트</title>
-  <desc id="d">05 일차 src/의 모듈 구성: 04에서 복사한 defense.py의 집계 지표를 LangGraph 노드로 엮어 합격/불합격 게이트를 만든다.</desc>
+  <title id="t">소스 코드 구조 — Garak·PyRIT 스캐너</title>
+  <desc id="d">05 일차 src/의 스캐너 구성: scan_pyrit.py 와 scan_garak.py 가 공용 모듈을 쓰되 서로 독립으로 실행되고 결과를 results/ 에 남긴다.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -43,50 +43,52 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90.0" y="60" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118">소스 코드 구조 — LangGraph 평가·게이트</text>
-  <text class="ssub" x="60" y="154">모델 호출 → 방어 → 집계 → 합격/불합격 게이트</text>
-  <rect class="box" x="60" y="190" width="260" height="90" rx="8"/>
-  <text class="name" x="190.0" y="222" text-anchor="middle">llm.py</text>
-  <text class="sub" x="190.0" y="244" text-anchor="middle">Ollama 준비 확인</text>
-  <text class="sub" x="190.0" y="266" text-anchor="middle">ready()</text>
-  <rect class="box" x="340" y="190" width="260" height="90" rx="8"/>
-  <text class="name" x="470.0" y="222" text-anchor="middle">stats.py</text>
-  <text class="sub" x="470.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
-  <text class="sub" x="470.0" y="266" text-anchor="middle">wilson() · trials()</text>
-  <rect class="box key" x="620" y="190" width="260" height="90" rx="8"/>
-  <text class="name" x="750.0" y="222" text-anchor="middle">defense.py</text>
-  <text class="sub" x="750.0" y="244" text-anchor="middle">방어 + 6-5 집계 지표</text>
-  <text class="sub" x="750.0" y="266" text-anchor="middle">defense_rate_by_category()</text>
-  <rect class="box" x="900" y="190" width="260" height="90" rx="8"/>
-  <text class="name" x="1030.0" y="222" text-anchor="middle">hypothesis_log.py</text>
-  <text class="sub" x="1030.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
-  <text class="sub" x="1030.0" y="266" text-anchor="middle">record() · flush()</text>
-  <rect class="box ok" x="160" y="330" width="680" height="160" rx="8"/>
-  <text class="name" x="500.0" y="362" text-anchor="middle">test_graph.py — LangGraph 평가 그래프</text>
-  <text class="sub" x="500.0" y="384" text-anchor="middle">START → ask_model → run_cases → aggregate</text>
-  <text class="sub" x="500.0" y="406" text-anchor="middle">→ gate →(pass / fail)→ mark_pass · mark_fail → END</text>
-  <text class="sub" x="500.0" y="428" text-anchor="middle">합격 기준: 방어율 ≥ 90% · 오탐률 ≤ 10%</text>
-  <line class="arrow" x1="190" y1="280" x2="498.0" y2="329.7"/>
-  <polygon class="head" points="498.0,329.7 488.5,332.2 489.8,324.3"/>
-  <line class="arrow" x1="470" y1="280" x2="499.0" y2="328.3"/>
-  <polygon class="head" points="499.0,328.3 490.9,322.6 497.8,318.5"/>
-  <line class="arrow" x1="750" y1="280" x2="502.0" y2="329.6"/>
-  <polygon class="head" points="502.0,329.6 510.0,323.9 511.6,331.8"/>
-  <line class="arrow" x1="1030" y1="280" x2="502.0" y2="329.8"/>
-  <polygon class="head" points="502.0,329.8 510.6,325.0 511.3,332.9"/>
-  <rect class="box" x="160" y="530" width="320" height="100" rx="8"/>
-  <text class="name" x="320.0" y="562" text-anchor="middle">test_defense.py</text>
-  <text class="sub" x="320.0" y="584" text-anchor="middle">defense.py 단위 테스트</text>
-  <text class="sub" x="320.0" y="606" text-anchor="middle">(모델 호출 없음, 03·04와 같은 패턴)</text>
-  <line class="arrow" x1="330" y1="490" x2="320.5" y2="528.1"/>
-  <polygon class="head" points="320.5,528.1 318.8,518.4 326.5,520.3"/>
-  <rect class="box" x="540" y="530" width="300" height="100" rx="8"/>
-  <text class="name" x="690.0" y="562" text-anchor="middle">Garak · PyRIT (이론)</text>
-  <text class="sub" x="690.0" y="584" text-anchor="middle">외부 스캐너(6-5 이론)와 같은 역할을</text>
-  <text class="sub" x="690.0" y="606" text-anchor="middle">LangGraph 그래프로 직접 구현한 것</text>
-  <line class="arrow" x1="660" y1="490" x2="688.8" y2="528.4"/>
-  <polygon class="head" points="688.8,528.4 680.2,523.6 686.6,518.8"/>
-  <text class="note" x="60" y="666" text-anchor="start">같은 모델 출력에 방어 ON/OFF를 모두 적용해 raw_leaks(원본 유출)와 방어 후 지표를 비교 — gate가 기준 미달 시 FAIL</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — Garak·PyRIT 스캐너</text>
+  <text class="ssub" x="60" y="154">방어 전 모델 원본 응답을 스캔·채점 (두 스캐너는 서로 독립 실행)</text>
+  <rect class="box" x="60" y="190" width="340" height="90" rx="8"/>
+  <text class="name" x="230.0" y="222" text-anchor="middle">llm.py</text>
+  <text class="sub" x="230.0" y="244" text-anchor="middle">Ollama 준비 확인</text>
+  <text class="sub" x="230.0" y="266" text-anchor="middle">ready()</text>
+  <rect class="box" x="470" y="190" width="340" height="90" rx="8"/>
+  <text class="name" x="640.0" y="222" text-anchor="middle">stats.py</text>
+  <text class="sub" x="640.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
+  <text class="sub" x="640.0" y="266" text-anchor="middle">wilson() · trials() · fmt()</text>
+  <rect class="box" x="880" y="190" width="340" height="90" rx="8"/>
+  <text class="name" x="1050.0" y="222" text-anchor="middle">hypothesis_log.py</text>
+  <text class="sub" x="1050.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
+  <text class="sub" x="1050.0" y="266" text-anchor="middle">record() · flush()</text>
+  <line class="arrow" x1="230" y1="280" x2="230" y2="305"/>
+  <line class="arrow" x1="640" y1="280" x2="640" y2="305"/>
+  <line class="arrow" x1="1050" y1="280" x2="1050" y2="305"/>
+  <line class="arrow" x1="230" y1="305" x2="1050" y2="305"/>
+  <line class="arrow" x1="340" y1="305" x2="340" y2="329"/>
+  <polygon class="head" points="340,329 335,320 345,320"/>
+  <line class="arrow" x1="940" y1="305" x2="940" y2="329"/>
+  <polygon class="head" points="940,329 935,320 945,320"/>
+  <text class="note" x="660" y="298" text-anchor="start">세 모듈은 두 스캐너가 함께 쓴다</text>
+  <rect class="box key" x="60" y="330" width="560" height="170" rx="8"/>
+  <text class="name" x="340.0" y="362" text-anchor="middle">scan_pyrit.py — PyRIT</text>
+  <text class="sub" x="340.0" y="384" text-anchor="middle">Target: OpenAIChatTarget → Ollama /v1</text>
+  <text class="sub" x="340.0" y="406" text-anchor="middle">Attack: PromptSendingAttack · Converter: Base64Converter</text>
+  <text class="sub" x="340.0" y="428" text-anchor="middle">Scorer: SubStringScorer(카나리, Base64 카나리) OR</text>
+  <text class="sub" x="340.0" y="450" text-anchor="middle">공격 4유형 x 10회 = 40건 → ch05-pyrit.leak_rate</text>
+  <rect class="box key" x="660" y="330" width="560" height="170" rx="8"/>
+  <text class="name" x="940.0" y="362" text-anchor="middle">scan_garak.py — Garak</text>
+  <text class="sub" x="940.0" y="384" text-anchor="middle">garak CLI 를 subprocess 로 실행 (Generator → Probe → Detector)</text>
+  <text class="sub" x="940.0" y="406" text-anchor="middle">프로브: latentinjection · encoding.InjectBase64, 프롬프트 30개씩</text>
+  <text class="sub" x="940.0" y="428" text-anchor="middle">리포트 eval 줄의 fails / total_evaluated 를 읽음</text>
+  <text class="sub" x="940.0" y="450" text-anchor="middle">→ ch05-garak.latent_injection_asr · base64_asr</text>
+  <line class="arrow" x1="340" y1="500" x2="340" y2="548"/>
+  <polygon class="head" points="340,548 335,539 345,539"/>
+  <line class="arrow" x1="940" y1="500" x2="940" y2="548"/>
+  <polygon class="head" points="940,548 935,539 945,539"/>
+  <rect class="box ok" x="60" y="550" width="560" height="80" rx="8"/>
+  <text class="name" x="340.0" y="582" text-anchor="middle">results/ch05-pyrit.json</text>
+  <text class="sub" x="340.0" y="604" text-anchor="middle">유출률 + 가설 대조 결과 (실행 기록)</text>
+  <rect class="box ok" x="660" y="550" width="560" height="80" rx="8"/>
+  <text class="name" x="940.0" y="582" text-anchor="middle">results/ch05-garak.json</text>
+  <text class="sub" x="940.0" y="604" text-anchor="middle">성공률 + 가설 대조 · 원본 리포트는 results/garak/ 아래</text>
+  <text class="note" x="60" y="666" text-anchor="start">두 스캐너 모두 같은 .venv 에서 실행하고 LLM(Ollama)이 필요하다. 게이트(test_graph.py)는 다음 장(참고)에서 따로 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">13 / 25</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">13 / 32</text>
 </svg>

@@ -99,6 +99,12 @@
   <circle class="circ" cx="84" cy="401" r="16"/>
   <text class="circt" x="84" y="407.0" text-anchor="middle">4</text>
   <text class="body" x="120" y="408.0" text-anchor="start">게이트 실습에서 방어율 100%(30/30)가 방어 효과의 증명이 아닌 이유는?</text>
+  <circle class="circ" cx="84" cy="465" r="16"/>
+  <text class="circt" x="84" y="471" text-anchor="middle">5</text>
+  <text class="body" x="120" y="472" text-anchor="start">PyRIT과 Garak은 공격 문장을 누가 정하는가? 이 실습에서 각각 무엇을 측정했는가?</text>
+  <circle class="circ" cx="84" cy="529" r="16"/>
+  <text class="circt" x="84" y="535" text-anchor="middle">6</text>
+  <text class="body" x="120" y="536" text-anchor="start">게이트(test_graph)는 Garak·PyRIT과 어떻게 다른가? 두 수치를 직접 비교할 수 있는가?</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">24 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">31 / 32</text>
 </svg>

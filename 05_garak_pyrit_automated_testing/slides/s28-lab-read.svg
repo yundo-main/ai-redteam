@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 8 · 결과 읽는 순서</title>
+  <title id="t">실습 14 · 결과 읽는 순서</title>
   <desc id="d">방어 없음/있음 비교표와 결과를 읽는 5단계.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -85,7 +85,7 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 8 · 결과 읽는 순서</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 14 · 결과 읽는 순서</text>
   <text class="ssub" x="60" y="154.0" text-anchor="start">두 실행을 한 표로 놓고 위에서 아래로 읽는다</text>
   <rect class="th" x="60" y="185" width="260" height="44"/>
   <rect class="th" x="320" y="185" width="200" height="44"/>
@@ -155,5 +155,5 @@
   <rect class="td1" x="480" y="573.0" width="740" height="44"/>
   <text class="tdtxt" x="494" y="600.6" text-anchor="start">유형별은 10건이라 하한 72%다. 오탐 0/30이므로 과차단은 보이지 않는다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">21 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">28 / 32</text>
 </svg>

@@ -124,5 +124,5 @@
   <text class="bsm" x="78" y="508.0" text-anchor="start">· 같은 Probe를 여러 번 생성해 보내는 이유는 모델 출력이 매번 달라지기 때문이다.</text>
   <text class="bsm" x="78" y="532.8" text-anchor="start">· 리포트의 통과/실패 비율은 반복 수가 충분할 때만 의미가 있다. 반복이 적으면 결과가 흔들린다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">5 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">5 / 32</text>
 </svg>

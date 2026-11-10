@@ -86,12 +86,12 @@
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
   <text class="stitle" x="60" y="118.0" text-anchor="start">실습 1 · 방식: 가설 → 실행 → 관찰 → 변형 → 기록</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">도구를 실행하지 않고 자동화의 구조와 게이트를 직접 만들어 본다</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">Garak·PyRIT으로 모델의 취약성을 재고, 방어 계층과 게이트로 판정한다</text>
   <rect class="box key" x="60" y="190" width="210" height="200" rx="10"/>
   <text class="tag" x="78" y="218.0" text-anchor="start">1단계</text>
   <text class="cname" x="78" y="248.0" text-anchor="start">가설</text>
   <text class="bsm" x="78" y="280.0" text-anchor="start">results/hypothesis-</text>
-  <text class="bsm" x="78" y="304.8" text-anchor="start">ch05.json의 ch05.*</text>
+  <text class="bsm" x="78" y="304.8" text-anchor="start">ch05.json의 ch05*</text>
   <text class="bsm" x="78" y="329.6" text-anchor="start">값을 실행 전에 적고</text>
   <text class="bsm" x="78" y="354.4" text-anchor="start">저장한다</text>
   <line class="arrow" x1="273" y1="290.0" x2="294" y2="290.0"/>
@@ -125,14 +125,15 @@
   <text class="bsm" x="1028" y="304.8" text-anchor="start">빗나간 항목의 이유를</text>
   <text class="bsm" x="1028" y="329.6" text-anchor="start">한 줄 쓴다</text>
   <rect class="box" x="60" y="420" width="570" height="230" rx="10"/>
-  <text class="tag" x="78" y="448.0" text-anchor="start">Garak·PyRIT은 실행하지 않는다</text>
-  <text class="bsm" x="78" y="478.0" text-anchor="start">자동화 검증의 공통 구조(공격 생성 → 대상 호출 → 응답 판정 →</text>
-  <text class="bsm" x="78" y="502.8" text-anchor="start">집계·보고)와 합격/불합격 게이트를 LangGraph로 직접 만들어 보는</text>
-  <text class="bsm" x="78" y="527.6" text-anchor="start">최소형이다.</text>
+  <text class="tag" x="78" y="448.0" text-anchor="start">Garak·PyRIT을 실제로 실행한다</text>
+  <text class="bsm" x="78" y="478.0" text-anchor="start">PyRIT은 우리가 정한 공격을 보내 카나리 유출을 채점하고,</text>
+  <text class="bsm" x="78" y="502.8" text-anchor="start">Garak은 내장 프로브로 모델을 스캔한다. 별도로 LangGraph로</text>
+  <text class="bsm" x="78" y="527.6" text-anchor="start">방어 계층과 합격/불합격 게이트를 직접 구현한다.</text>
+  <text class="bsm" x="78" y="560.0" text-anchor="start">(세 실행은 독립이다. 서로의 출력을 읽지 않는다)</text>
   <rect class="box key" x="650" y="420" width="570" height="230" rx="10"/>
   <text class="tag" x="668" y="448.0" text-anchor="start">안전 규칙 (ROE) · 변형 실험</text>
   <text class="bsm" x="668" y="478.0" text-anchor="start">· 로컬 모델과 더미 카나리만, 외부 주소는 .invalid만 쓴다</text>
   <text class="bsm" x="668" y="502.8" text-anchor="start">· 변형: OLLAMA_MODEL, REPEAT, QUICK=1 중 하나만 바꾼다</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">14 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">15 / 32</text>
 </svg>

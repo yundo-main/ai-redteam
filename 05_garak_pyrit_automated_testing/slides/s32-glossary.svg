@@ -115,6 +115,22 @@
   <text class="tdb" x="74" y="482.4" text-anchor="start">ROE (Rules of Engagement)</text>
   <rect class="td2" x="390" y="454" width="830" height="44"/>
   <text class="tdtxt" x="404" y="482.4" text-anchor="start">테스트 전에 합의하는 허용·금지 범위 문서</text>
+  <rect class="td1" x="60" y="498" width="330" height="44"/>
+  <text class="tdb" x="74" y="526.4" text-anchor="start">Converter (PyRIT)</text>
+  <rect class="td1" x="390" y="498" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="526.4" text-anchor="start">프롬프트를 인코딩·번역·난독화로 바꿔 보내는 구성 요소 (실습: Base64Converter)</text>
+  <rect class="td2" x="60" y="542" width="330" height="44"/>
+  <text class="tdb" x="74" y="570.4" text-anchor="start">Scorer (PyRIT)</text>
+  <rect class="td2" x="390" y="542" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="570.4" text-anchor="start">응답이 공격 목표를 달성했는지 판정하는 구성 요소 (실습: SubStringScorer로 카나리 검사)</text>
+  <rect class="td1" x="60" y="586" width="330" height="44"/>
+  <text class="tdb" x="74" y="614.4" text-anchor="start">카나리 (Canary)</text>
+  <rect class="td1" x="390" y="586" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="614.4" text-anchor="start">유출 여부를 확인하려고 심어 둔 더미 값. 실제 비밀은 쓰지 않는다</text>
+  <rect class="td2" x="60" y="630" width="330" height="44"/>
+  <text class="tdb" x="74" y="658.4" text-anchor="start">게이트 (Gate)</text>
+  <rect class="td2" x="390" y="630" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="658.4" text-anchor="start">방어율·오탐률이 합격 기준을 넘는지 PASS/FAIL로 판정하는 단계 (실습: test_graph.py)</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">25 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">32 / 32</text>
 </svg>

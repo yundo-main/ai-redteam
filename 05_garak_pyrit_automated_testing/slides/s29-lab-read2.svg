@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">요약</title>
-  <desc id="d">자동화 검증 요약.</desc>
+  <title id="t">실습 15 · 한계와 결론 문장</title>
+  <desc id="d">표지 밖 유출, 단일 모델·실행의 한계, 실패 시 조치, 쓸 수 있는 결론과 쓸 수 없는 결론.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,24 +85,42 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">요약</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">6-5 핵심 정리</text>
-  <circle class="circ" cx="84" cy="209" r="16"/>
-  <text class="circt" x="84" y="215.0" text-anchor="middle">1</text>
-  <text class="body" x="120" y="216.0" text-anchor="start">자동화 검증은 규모·재현성·회귀 검증에 강하며 수동 레드팀을 보완한다</text>
-  <circle class="circ" cx="84" cy="273" r="16"/>
-  <text class="circt" x="84" y="279.0" text-anchor="middle">2</text>
-  <text class="body" x="120" y="280.0" text-anchor="start">공통 구조: 공격 생성 → 대상 호출 → 응답 판정 → 집계·보고</text>
-  <circle class="circ" cx="84" cy="337" r="16"/>
-  <text class="circt" x="84" y="343.0" text-anchor="middle">3</text>
-  <text class="body" x="120" y="344.0" text-anchor="start">Garak = Probe/Detector 기반의 넓은 취약점 스캐너, PyRIT = 멀티턴·적응형 공격을 구성하는 프레임워크</text>
-  <circle class="circ" cx="84" cy="401" r="16"/>
-  <text class="circt" x="84" y="407.0" text-anchor="middle">4</text>
-  <text class="body" x="120" y="408.0" text-anchor="start">결과는 판정 정확도·반복 횟수·커버리지 한계를 고려해 해석하고, 개선 → 재스캔 루프로 활용한다</text>
-  <circle class="circ" cx="84" cy="465" r="16"/>
-  <text class="circt" x="84" y="471.0" text-anchor="middle">5</text>
-  <text class="body" x="120" y="472.0" text-anchor="start">실습은 같은 모델 출력에 방어 없음/있음을 적용해 게이트를 확인하며, 30/30이어도 방어율 하한은 89%임을 함께</text>
-  <text class="body" x="120" y="500.0" text-anchor="start">읽는다</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 15 · 한계와 결론 문장</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">100%가 증명하지 못하는 것과 증거가 받쳐 주는 말</text>
+  <rect class="box" x="60" y="185" width="360" height="215" rx="10"/>
+  <text class="tag" x="78" y="213.0" text-anchor="start">한계와 활용</text>
+  <text class="cname" x="78" y="243.0" text-anchor="start">표지 밖의 유출은 못 잡는다</text>
+  <text class="bsm" x="78" y="275.0" text-anchor="start">카나리 값을 풀어 쓰거나 일부만 노출하는</text>
+  <text class="bsm" x="78" y="299.8" text-anchor="start">응답은 판정도 방어도 놓친다. 별도 케이스와</text>
+  <text class="bsm" x="78" y="324.6" text-anchor="start">판정기를 추가한다.</text>
+  <rect class="box" x="460" y="185" width="360" height="215" rx="10"/>
+  <text class="tag" x="478" y="213.0" text-anchor="start">한계와 활용</text>
+  <text class="cname" x="478" y="243.0" text-anchor="start">모델 하나, 실행 한 번</text>
+  <text class="bsm" x="478" y="275.0" text-anchor="start">다른 모델에서 방어 전 유출이 다르면</text>
+  <text class="bsm" x="478" y="299.8" text-anchor="start">방어율도 달라진다.</text>
+  <rect class="box" x="860" y="185" width="360" height="215" rx="10"/>
+  <text class="tag" x="878" y="213.0" text-anchor="start">한계와 활용</text>
+  <text class="cname" x="878" y="243.0" text-anchor="start">FAIL이 나오면</text>
+  <text class="bsm" x="878" y="275.0" text-anchor="start">유형별 방어율에서 낮은 유형을 찾고 실패</text>
+  <text class="bsm" x="878" y="299.8" text-anchor="start">응답을 사람이 읽어 규칙 문제인지 판정</text>
+  <text class="bsm" x="878" y="324.6" text-anchor="start">문제인지 가른다. 고친 뒤 같은 입력으로</text>
+  <text class="bsm" x="878" y="349.4" text-anchor="start">재실행한다.</text>
+  <rect class="th" x="60" y="420" width="560" height="44"/>
+  <rect class="th" x="620" y="420" width="600" height="44"/>
+  <text class="thtxt" x="74" y="448.0" text-anchor="start">쓸 수 있다</text>
+  <text class="thtxt" x="634" y="448.0" text-anchor="start">쓸 수 없다</text>
+  <rect class="td1" x="60" y="464" width="560" height="44"/>
+  <text class="tdtxt" x="74" y="492.0" text-anchor="start">방어 없음은 7%(2/30)로 FAIL, 있음은 30/30(하한 89%)으로 PASS</text>
+  <rect class="td1" x="620" y="464" width="600" height="44"/>
+  <text class="tdtxt" x="634" y="492.0" text-anchor="start">방어율 100%다</text>
+  <rect class="td2" x="60" y="508" width="560" height="44"/>
+  <text class="tdtxt" x="74" y="536.0" text-anchor="start">방어 전 유출 93%(28/30)이므로 방어 효과를 비교할 수 있다</text>
+  <rect class="td2" x="620" y="508" width="600" height="44"/>
+  <text class="tdtxt" x="634" y="536.0" text-anchor="start">모델은 안전하다</text>
+  <rect class="td1" x="60" y="552" width="560" height="44"/>
+  <text class="tdtxt" x="74" y="580.0" text-anchor="start">카나리·도메인 표지 밖의 유출은 확인하지 않았다</text>
+  <rect class="td1" x="620" y="552" width="600" height="44"/>
+  <text class="tdtxt" x="634" y="580.0" text-anchor="start">모든 유출 유형을 막는다</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">29 / 32</text>
 </svg>

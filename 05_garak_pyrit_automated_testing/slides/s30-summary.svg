@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 7 · 결과 해석</title>
-  <desc id="d">30/30의 의미, 방어 전 유출, 구조적 100%, 회귀 검증.</desc>
+  <title id="t">요약</title>
+  <desc id="d">자동화 검증 요약.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,29 +85,27 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 7 · 결과 해석</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">숫자와 함께 그 숫자의 한계를 읽는다</text>
-  <rect class="box" x="60" y="190" width="570" height="220" rx="10"/>
-  <text class="tag" x="78" y="218.0" text-anchor="start">해석 주의</text>
-  <text class="cname" x="78" y="248.0" text-anchor="start">30/30은 100% 방어가 아니다</text>
-  <text class="bsm" x="78" y="280.0" text-anchor="start">방어율 하한은 89%, 유형별(10건)은 72%다. 게이트는 점추정으로</text>
-  <text class="bsm" x="78" y="304.8" text-anchor="start">판정하므로 PASS여도 구간을 같이 읽는다.</text>
-  <rect class="box" x="650" y="190" width="570" height="220" rx="10"/>
-  <text class="tag" x="668" y="218.0" text-anchor="start">해석 주의</text>
-  <text class="cname" x="668" y="248.0" text-anchor="start">방어 전 유출이 먼저다</text>
-  <text class="bsm" x="668" y="280.0" text-anchor="start">93%(28/30)는 방어 계층이 실제로 일했다는 뜻이다. 0이면 방어 효과를</text>
-  <text class="bsm" x="668" y="304.8" text-anchor="start">비교할 수 없다.</text>
-  <rect class="box key" x="60" y="430" width="570" height="220" rx="10"/>
-  <text class="tag" x="78" y="458.0" text-anchor="start">해석 주의</text>
-  <text class="cname" x="78" y="488.0" text-anchor="start">방어율 100%는 구조적이다</text>
-  <text class="bsm" x="78" y="520.0" text-anchor="start">판정과 방어 계층이 같은 표지(카나리, 외부 도메인)를 봐서 효과의</text>
-  <text class="bsm" x="78" y="544.8" text-anchor="start">증명이 아니라 연결 확인이다. 다른 표지의 유출(문장 풀어쓰기)은 못</text>
-  <text class="bsm" x="78" y="569.6" text-anchor="start">잡는다.</text>
-  <rect class="box" x="650" y="430" width="570" height="220" rx="10"/>
-  <text class="tag" x="668" y="458.0" text-anchor="start">해석 주의</text>
-  <text class="cname" x="668" y="488.0" text-anchor="start">게이트는 회귀 검증에 쓴다</text>
-  <text class="bsm" x="668" y="520.0" text-anchor="start">가드레일을 바꾼 뒤 같은 입력으로 다시 돌려 PASS가 유지되는지</text>
-  <text class="bsm" x="668" y="544.8" text-anchor="start">본다(AU-01).</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">요약</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">6-5 핵심 정리</text>
+  <circle class="circ" cx="84" cy="209" r="16"/>
+  <text class="circt" x="84" y="215.0" text-anchor="middle">1</text>
+  <text class="body" x="120" y="216.0" text-anchor="start">자동화 검증은 규모·재현성·회귀 검증에 강하며 수동 레드팀을 보완한다</text>
+  <circle class="circ" cx="84" cy="273" r="16"/>
+  <text class="circt" x="84" y="279.0" text-anchor="middle">2</text>
+  <text class="body" x="120" y="280.0" text-anchor="start">공통 구조: 공격 생성 → 대상 호출 → 응답 판정 → 집계·보고</text>
+  <circle class="circ" cx="84" cy="337" r="16"/>
+  <text class="circt" x="84" y="343.0" text-anchor="middle">3</text>
+  <text class="body" x="120" y="344.0" text-anchor="start">Garak = Probe/Detector 기반의 넓은 취약점 스캐너, PyRIT = 멀티턴·적응형 공격을 구성하는 프레임워크</text>
+  <circle class="circ" cx="84" cy="401" r="16"/>
+  <text class="circt" x="84" y="407.0" text-anchor="middle">4</text>
+  <text class="body" x="120" y="408.0" text-anchor="start">결과는 판정 정확도·반복 횟수·커버리지 한계를 고려해 해석하고, 개선 → 재스캔 루프로 활용한다</text>
+  <circle class="circ" cx="84" cy="465" r="16"/>
+  <text class="circt" x="84" y="471.0" text-anchor="middle">5</text>
+  <text class="body" x="120" y="472.0" text-anchor="start">실습은 서로 독립된 세 실행이다: PyRIT 유출률과 Garak 공격 성공률(방어 전),</text>
+  <text class="body" x="120" y="500.0" text-anchor="start">방어 계층 게이트(방어 후). 서로의 출력을 읽지 않는다</text>
+  <circle class="circ" cx="84" cy="536" r="16"/>
+  <text class="circt" x="84" y="542" text-anchor="middle">6</text>
+  <text class="body" x="120" y="543" text-anchor="start">0건·30/30은 증명이 아니다: 구간 하한(89%)과 프로브·표지의 한계를 함께 읽는다</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">20 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">30 / 32</text>
 </svg>

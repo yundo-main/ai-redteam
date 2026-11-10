@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 5 · 실행 3: 게이트 실행과 결과 확인</title>
+  <title id="t">실습 11 · 게이트 실행과 결과 확인 (실행 4)</title>
   <desc id="d">게이트 실행 명령과 출력 예시, 줄별로 읽는 법과 통과 기준.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -85,10 +85,10 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 5 · 실행 3: 게이트 실행과 결과 확인</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 11 · 게이트 실행과 결과 확인 (실행 4)</text>
   <text class="ssub" x="60" y="154.0" text-anchor="start">화면의 어느 줄을 어떤 순서로 읽는지</text>
   <circle class="circ" cx="84" cy="210" r="16"/>
-  <text class="circt" x="84" y="216.0" text-anchor="middle">3</text>
+  <text class="circt" x="84" y="216.0" text-anchor="middle">4</text>
   <rect class="cmdbg" x="116" y="185" width="1104" height="50" rx="8"/>
   <text class="cmd" x="132" y="216.0" text-anchor="start">python -W ignore -m unittest -v 05_garak_pyrit_automated_testing/src/test_graph.py</text>
   <text class="bsm" x="116" y="262.0" text-anchor="start">[LLM 필요] ch05.* 가설 저장 후, 명령 앞에 HYPOTHESIS=results/hypothesis-ch05.json RESULT_JSON=results/ch05.json</text>
@@ -132,5 +132,5 @@
   <text class="bsm" x="684" y="630.0" text-anchor="start">적중이 아닌 줄은 이유를 쓴다. 예: 유출 50% 예상, 실제 93%(낮게 예상).</text>
   <text class="bsm" x="60" y="511.0" text-anchor="start">신뢰구간은 줄여서 생략했다. 전체 출력은 readme에 있다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">25 / 32</text>
 </svg>

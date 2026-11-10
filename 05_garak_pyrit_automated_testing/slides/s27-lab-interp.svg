@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 6 · 실행 결과 예시</title>
-  <desc id="d">방어 없음/있음 방어율, 방어 전 유출, 오탐률, 유형별 방어율.</desc>
+  <title id="t">실습 13 · 게이트 결과 해석</title>
+  <desc id="d">30/30의 의미, 방어 전 유출, 구조적 100%, 회귀 검증.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,45 +85,29 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 6 · 실행 결과 예시</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">qwen2.5:3b로 실제 실행한 수치</text>
-  <rect class="th" x="60" y="190" width="380" height="44"/>
-  <rect class="th" x="440" y="190" width="300" height="44"/>
-  <rect class="th" x="740" y="190" width="480" height="44"/>
-  <text class="thtxt" x="74" y="218.0" text-anchor="start">측정</text>
-  <text class="thtxt" x="454" y="218.0" text-anchor="start">시도</text>
-  <text class="thtxt" x="754" y="218.0" text-anchor="start">결과 (qwen2.5:3b 1회 실행)</text>
-  <rect class="td1" x="60" y="234" width="380" height="44"/>
-  <text class="tdb" x="74" y="262.4" text-anchor="start">방어 계층 없음 방어율</text>
-  <rect class="td1" x="440" y="234" width="300" height="44"/>
-  <text class="tdtxt" x="454" y="262.4" text-anchor="start">30건</text>
-  <rect class="td1" x="740" y="234" width="480" height="44"/>
-  <text class="tdtxt" x="754" y="262.4" text-anchor="start">7% [2%–21%] (2/30), 판정 FAIL</text>
-  <rect class="td2" x="60" y="278" width="380" height="44"/>
-  <text class="tdb" x="74" y="306.4" text-anchor="start">방어 전 유출</text>
-  <rect class="td2" x="440" y="278" width="300" height="44"/>
-  <text class="tdtxt" x="454" y="306.4" text-anchor="start">30건</text>
-  <rect class="td2" x="740" y="278" width="480" height="44"/>
-  <text class="tdtxt" x="754" y="306.4" text-anchor="start">93% [79%–98%] (28/30)</text>
-  <rect class="td1" x="60" y="322" width="380" height="44"/>
-  <text class="tdb" x="74" y="350.4" text-anchor="start">방어 있음 방어율</text>
-  <rect class="td1" x="440" y="322" width="300" height="44"/>
-  <text class="tdtxt" x="454" y="350.4" text-anchor="start">30건</text>
-  <rect class="td1" x="740" y="322" width="480" height="44"/>
-  <text class="tdtxt" x="754" y="350.4" text-anchor="start">100% [89%–100%] (30/30), 판정 PASS</text>
-  <rect class="td2" x="60" y="366" width="380" height="44"/>
-  <text class="tdb" x="74" y="394.4" text-anchor="start">정상 오탐률</text>
-  <rect class="td2" x="440" y="366" width="300" height="44"/>
-  <text class="tdtxt" x="454" y="394.4" text-anchor="start">30건</text>
-  <rect class="td2" x="740" y="366" width="480" height="44"/>
-  <text class="tdtxt" x="754" y="394.4" text-anchor="start">0% [0%–11%] (0/30)</text>
-  <rect class="td1" x="60" y="410" width="380" height="44"/>
-  <text class="tdb" x="74" y="438.4" text-anchor="start">유형별 방어율 (직접·인코딩·이미지)</text>
-  <rect class="td1" x="440" y="410" width="300" height="44"/>
-  <text class="tdtxt" x="454" y="438.4" text-anchor="start">10건씩</text>
-  <rect class="td1" x="740" y="410" width="480" height="44"/>
-  <text class="tdtxt" x="754" y="438.4" text-anchor="start">각 100% [72%–100%] (10/10)</text>
-  <text class="bsm" x="60" y="478.0" text-anchor="start">수치는 모델과 실행마다 달라질 수 있다. 같은 형식으로 나오는지가 중요하다.</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 13 · 게이트 결과 해석</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">숫자와 함께 그 숫자의 한계를 읽는다</text>
+  <rect class="box" x="60" y="190" width="570" height="220" rx="10"/>
+  <text class="tag" x="78" y="218.0" text-anchor="start">해석 주의</text>
+  <text class="cname" x="78" y="248.0" text-anchor="start">30/30은 100% 방어가 아니다</text>
+  <text class="bsm" x="78" y="280.0" text-anchor="start">방어율 하한은 89%, 유형별(10건)은 72%다. 게이트는 점추정으로</text>
+  <text class="bsm" x="78" y="304.8" text-anchor="start">판정하므로 PASS여도 구간을 같이 읽는다.</text>
+  <rect class="box" x="650" y="190" width="570" height="220" rx="10"/>
+  <text class="tag" x="668" y="218.0" text-anchor="start">해석 주의</text>
+  <text class="cname" x="668" y="248.0" text-anchor="start">방어 전 유출이 먼저다</text>
+  <text class="bsm" x="668" y="280.0" text-anchor="start">93%(28/30)는 방어 계층이 실제로 일했다는 뜻이다. 0이면 방어 효과를</text>
+  <text class="bsm" x="668" y="304.8" text-anchor="start">비교할 수 없다.</text>
+  <rect class="box key" x="60" y="430" width="570" height="220" rx="10"/>
+  <text class="tag" x="78" y="458.0" text-anchor="start">해석 주의</text>
+  <text class="cname" x="78" y="488.0" text-anchor="start">방어율 100%는 구조적이다</text>
+  <text class="bsm" x="78" y="520.0" text-anchor="start">판정과 방어 계층이 같은 표지(카나리, 외부 도메인)를 봐서 효과의</text>
+  <text class="bsm" x="78" y="544.8" text-anchor="start">증명이 아니라 연결 확인이다. 다른 표지의 유출(문장 풀어쓰기)은 못</text>
+  <text class="bsm" x="78" y="569.6" text-anchor="start">잡는다.</text>
+  <rect class="box" x="650" y="430" width="570" height="220" rx="10"/>
+  <text class="tag" x="668" y="458.0" text-anchor="start">해석 주의</text>
+  <text class="cname" x="668" y="488.0" text-anchor="start">게이트는 회귀 검증에 쓴다</text>
+  <text class="bsm" x="668" y="520.0" text-anchor="start">가드레일을 바꾼 뒤 같은 입력으로 다시 돌려 PASS가 유지되는지</text>
+  <text class="bsm" x="668" y="544.8" text-anchor="start">본다(AU-01).</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">27 / 32</text>
 </svg>

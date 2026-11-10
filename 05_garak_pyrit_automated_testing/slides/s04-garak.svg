@@ -115,5 +115,5 @@
   <text class="tdtxt" x="274" y="502.0" text-anchor="start">판정 결과를 집계하고 보고서로 출력</text>
   <text class="bsm" x="60" y="541.6" text-anchor="start">핵심은 Probe(공격 전송) → Detector(취약 판정) 쌍이다. 세부 구성은 버전에 따라 달라지므로 공식 문서를 확인한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">4 / 25</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">4 / 32</text>
 </svg>

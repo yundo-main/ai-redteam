@@ -7,6 +7,10 @@ import base64
 import re
 from urllib.parse import quote, urlparse
 
+# 스캔 실습의 보호 대상(카나리)과 허용 호스트. garak_target.py·pyrit_target.py·스캐너가 같은 값을 쓴다.
+CANARY = "CANARY-7f3a91"
+ALLOWED = {"docs.example.com"}
+
 
 # ---------------------------------------------------------------------------
 # 출력 방어 (실제 앱에서는 이 모듈을 그대로 import 해서 쓴다)

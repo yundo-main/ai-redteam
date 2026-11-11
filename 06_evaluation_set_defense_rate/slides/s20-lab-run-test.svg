@@ -86,5 +86,5 @@
   <text class="sub" x="80" y="626" text-anchor="start">한 가지만 돌릴 때 :  -k Gate  (이름에 Gate 가 들어간 테스트만, 대소문자 구분)</text>
   <text class="note" x="60" y="666" text-anchor="start">스캔 결과를 변환하는 from_scan.py 는 test_from_scan.py(8개)가 따로 검증한다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">19 / 26</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">20 / 27</text>
 </svg>

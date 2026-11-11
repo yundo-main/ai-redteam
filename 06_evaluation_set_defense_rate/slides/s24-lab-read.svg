@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">요약</title>
-  <desc id="d">평가셋·지표·통계·균형 요약.</desc>
+  <title id="t">실습 3 · 결과와 게이트 읽기</title>
+  <desc id="d">예제 출력, 읽는 법, 게이트 판정 네 가지.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,20 +85,40 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">요약</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">6-6 핵심 정리</text>
-  <circle class="circ" cx="84" cy="209" r="16"/>
-  <text class="circt" x="84" y="215.0" text-anchor="middle">1</text>
-  <text class="body" x="120" y="216.0" text-anchor="start">평가셋은 유형별 공격 + 정상 + 경계 사례로 구성하고, 학습/튜닝 데이터와 분리해 오염을 막는다</text>
-  <circle class="circ" cx="84" cy="273" r="16"/>
-  <text class="circt" x="84" y="279.0" text-anchor="middle">2</text>
-  <text class="body" x="120" y="280.0" text-anchor="start">핵심 지표는 방어율(= 1 − ASR)과 오탐률이며, 반드시 유형별로 본다</text>
-  <circle class="circ" cx="84" cy="337" r="16"/>
-  <text class="circt" x="84" y="343.0" text-anchor="middle">3</text>
-  <text class="body" x="120" y="344.0" text-anchor="start">비결정성 때문에 반복 실행과 신뢰 구간을 고려하고, 판정은 규칙·LLM·사람을 조합한다</text>
-  <circle class="circ" cx="84" cy="401" r="16"/>
-  <text class="circt" x="84" y="407.0" text-anchor="middle">4</text>
-  <text class="body" x="120" y="408.0" text-anchor="start">방어율과 사용성은 상충하므로 허용 기준을 합의하고, 변경마다 회귀 테스트를 수행한다</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 3 · 결과와 게이트 읽기</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">점추정만 보지 않고 구간과 함께 판정한다</text>
+  <rect class="box" x="60" y="185" width="560" height="215" rx="10"/>
+  <text class="tag" x="78" y="213.0" text-anchor="start">예제 출력</text>
+  <text class="bsm" x="78" y="243.0" text-anchor="start">방어율 75% [30%–95%] (3/4)</text>
+  <text class="bsm" x="78" y="267.8" text-anchor="start">공격 성공률 25% [5%–70%] (1/4)</text>
+  <text class="bsm" x="78" y="292.6" text-anchor="start">오탐률 50% [9%–91%] (1/2)</text>
+  <text class="bsm" x="78" y="317.4" text-anchor="start">심각도 가중 방어율 73%</text>
+  <text class="bsm" x="78" y="342.2" text-anchor="start">게이트(ASR≤20%, FPR≤10%): ASR FAIL, FPR FAIL</text>
+  <rect class="box key" x="640" y="185" width="580" height="215" rx="10"/>
+  <text class="tag" x="658" y="213.0" text-anchor="start">읽는 법</text>
+  <text class="bsm" x="658" y="243.0" text-anchor="start">표본이 4건과 2건이라 구간이 매우 넓다. 75%라는 점추정만으로 결론을</text>
+  <text class="bsm" x="658" y="267.8" text-anchor="start">내지 않는다.</text>
+  <text class="bsm" x="658" y="292.6" text-anchor="start">구간 하한 30%는 최악의 경우 공격 대부분이 통과할 수 있다는 뜻이다.</text>
+  <rect class="th" x="60" y="420" width="250" height="44"/>
+  <rect class="th" x="310" y="420" width="910" height="44"/>
+  <text class="thtxt" x="74" y="448.0" text-anchor="start">게이트 판정</text>
+  <text class="thtxt" x="324" y="448.0" text-anchor="start">의미</text>
+  <rect class="td1" x="60" y="464" width="250" height="44"/>
+  <text class="tdb" x="74" y="492.0" text-anchor="start">PASS</text>
+  <rect class="td1" x="310" y="464" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="492.0" text-anchor="start">95% 상한까지 기준 이내 (표본이 충분하다)</text>
+  <rect class="td2" x="60" y="508" width="250" height="44"/>
+  <text class="tdb" x="74" y="536.0" text-anchor="start">표본 부족</text>
+  <rect class="td2" x="310" y="508" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="536.0" text-anchor="start">점추정은 기준 이내지만 상한이 기준을 넘는다 → 반복·케이스를 늘린다</text>
+  <rect class="td1" x="60" y="552" width="250" height="44"/>
+  <text class="tdb" x="74" y="580.0" text-anchor="start">FAIL</text>
+  <rect class="td1" x="310" y="552" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="580.0" text-anchor="start">점추정이 이미 기준을 넘는다</text>
+  <rect class="td2" x="60" y="596" width="250" height="44"/>
+  <text class="tdb" x="74" y="624.0" text-anchor="start">측정 안 됨</text>
+  <rect class="td2" x="310" y="596" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="624.0" text-anchor="start">해당 케이스 결과가 없다</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">24 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">24 / 27</text>
 </svg>

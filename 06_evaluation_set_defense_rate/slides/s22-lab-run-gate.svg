@@ -83,5 +83,5 @@
   <text class="sub" x="680" y="618" text-anchor="start">잘못된 파일·인자는 종료 코드 2</text>
   <text class="note" x="60" y="666" text-anchor="start">점추정만 비교하는 단순 게이트(예: 방어율 ≥ 90%)와 달리, 이 gate 는 신뢰구간 상한을 함께 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">21 / 26</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">22 / 27</text>
 </svg>

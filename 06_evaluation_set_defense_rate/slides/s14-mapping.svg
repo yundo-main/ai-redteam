@@ -120,5 +120,5 @@
   <text class="bsm" x="78" y="580.0" text-anchor="start">6-3 TA-01은 "외부 문서 경유 발송 도구 호출" 케이스를 문서 형태별로 만들고, 판정 기준은 실행 로그에 발송 호출이 없는가다. JB-01은 위험 범주별</text>
   <text class="bsm" x="78" y="604.8" text-anchor="start">멀티턴 케이스를 만들고, 판정 기준은 응답에 정책 위반이 없는가다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">14 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">14 / 27</text>
 </svg>

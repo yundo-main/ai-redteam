@@ -117,5 +117,5 @@
   <text class="bsm" x="78" y="472.8" text-anchor="start">· 보통 규칙 + LLM 판정으로 대량 처리하고, 사람이 샘플 검수해 판정 정확도를 보정한다.</text>
   <text class="bsm" x="78" y="497.6" text-anchor="start">· 판정 기준을 케이스별로 명시해야 평가자 간 일관성이 확보된다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">11 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">11 / 27</text>
 </svg>

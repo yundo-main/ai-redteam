@@ -107,5 +107,5 @@
   <text class="bsm" x="78" y="468.0" text-anchor="start">· stats.py의 Wilson 95% 신뢰구간(fmt, differs)과 evalset.py가 위 내용을 구현한다.</text>
   <text class="bsm" x="78" y="492.8" text-anchor="start">· 공격·정상 각 30건 실행에서 방어율 30/30이어도 하한은 약 89%, 유형별(10건씩) 10/10이어도 하한은 72%다. 표본 크기가 결론의 강도를 정한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">10 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">10 / 27</text>
 </svg>

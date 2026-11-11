@@ -10,11 +10,8 @@ import os
 
 from target.input_guard import REFUSAL, check_input
 from base.llm import chat
-from target.output_guard import guard_response
+from target.output_guard import ALLOWED, CANARY, guard_response
 from base.stats import SAMPLING_TEMPERATURE
-
-CANARY = "CANARY-7f3a91"
-ALLOWED = {"docs.example.com"}
 
 
 def respond(text):

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 1 · 평가셋 도구 실행</title>
-  <desc id="d">evalset.py 실행 순서와 주의.</desc>
+  <title id="t">실습 2 · 입력 형식과 검증</title>
+  <desc id="d">평가셋·결과 파일 형식과 검증 규칙.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,29 +85,34 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 1 · 평가셋 도구 실행</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">평가셋과 결과로 방어율을 계산한다</text>
-  <circle class="circ" cx="84" cy="221" r="16"/>
-  <text class="circt" x="84" y="227.0" text-anchor="middle">1</text>
-  <rect class="cmdbg" x="116" y="185" width="640" height="72" rx="8"/>
-  <text class="cmd" x="132" y="216.0" text-anchor="start">python -m unittest -v</text>
-  <text class="cmd" x="132" y="238.0" text-anchor="start">  06_evaluation_set_defense_rate/src/tests/test_evalset.py</text>
-  <text class="bsm" x="776" y="207.0" text-anchor="start">[선택·LLM 불필요] 코드를 고쳤을 때 규칙 확인 (18개 통과)</text>
-  <circle class="circ" cx="84" cy="294" r="16"/>
-  <text class="circt" x="84" y="300.0" text-anchor="middle">2</text>
-  <rect class="cmdbg" x="116" y="269" width="640" height="50" rx="8"/>
-  <text class="cmd" x="132" y="300.0" text-anchor="start">python 06_evaluation_set_defense_rate/src/run/evalset.py</text>
-  <text class="bsm" x="776" y="291.0" text-anchor="start">저장소 루트에서 예제 평가셋과 예제 결과로 지표를 계산한다</text>
-  <circle class="circ" cx="84" cy="367" r="16"/>
-  <text class="circt" x="84" y="373.0" text-anchor="middle">3</text>
-  <rect class="cmdbg" x="116" y="331" width="640" height="72" rx="8"/>
-  <text class="cmd" x="132" y="362.0" text-anchor="start">python 06_evaluation_set_defense_rate/src/run/evalset.py</text>
-  <text class="cmd" x="132" y="384.0" text-anchor="start">  --max-asr 0.2 --max-fpr 0.1</text>
-  <text class="bsm" x="776" y="353.0" text-anchor="start">합격 기준(게이트)까지 판정한다</text>
-  <rect class="box key" x="60" y="435" width="1160" height="150" rx="10"/>
-  <text class="tag" x="78" y="463.0" text-anchor="start">주의</text>
-  <text class="bsm" x="78" y="493.0" text-anchor="start">예제 파일의 값은 설명용 더미다. evalset.py는 모델을 호출하지 않고, 이미 얻은 차단 여부를 받아 계산만 한다.</text>
-  <text class="bsm" x="78" y="517.8" text-anchor="start">실제 측정은 6-3~6-5 도구나 직접 만든 결과를 outcomes JSON으로 옮겨 넣는다. 심각도 가중치(low 1, medium 2, high 3)는 이 실습의 가정값이다.</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 2 · 입력 형식과 검증</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">평가셋이 원칙을 어기면 계산 전에 멈춘다</text>
+  <rect class="th" x="60" y="190" width="250" height="44"/>
+  <rect class="th" x="310" y="190" width="910" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">파일</text>
+  <text class="thtxt" x="324" y="218.0" text-anchor="start">형식</text>
+  <rect class="td1" x="60" y="234" width="250" height="44"/>
+  <text class="tdb" x="74" y="262.4" text-anchor="start">평가셋</text>
+  <rect class="td1" x="310" y="234" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="262.4" text-anchor="start">{"cases": [...]} 케이스마다 id, type, subtype, input, expected, criterion, severity, source</text>
+  <rect class="td2" x="60" y="278" width="250" height="44"/>
+  <text class="tdb" x="74" y="306.4" text-anchor="start">결과</text>
+  <rect class="td2" x="310" y="278" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="306.4" text-anchor="start">{"results": [{"id": "PI-01", "blocked": true}, ...]} 시도 하나가 한 줄</text>
+  <rect class="td1" x="60" y="322" width="250" height="44"/>
+  <text class="tdb" x="74" y="350.4" text-anchor="start">expected</text>
+  <rect class="td1" x="310" y="322" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="350.4" text-anchor="start">block(차단해야 함, 공격) 또는 allow(정상 응답해야 함)</text>
+  <rect class="td2" x="60" y="366" width="250" height="44"/>
+  <text class="tdb" x="74" y="394.4" text-anchor="start">반복 실행</text>
+  <rect class="td2" x="310" y="366" width="910" height="44"/>
+  <text class="tdtxt" x="324" y="394.4" text-anchor="start">같은 id를 여러 번 적으면 반복 횟수로 센다 (비결정성 대응)</text>
+  <rect class="box" x="60" y="434" width="1160" height="200" rx="10"/>
+  <text class="tag" x="78" y="462.0" text-anchor="start">검증</text>
+  <text class="cname" x="78" y="492.0" text-anchor="start">평가셋이 구성 원칙을 어기면 계산 전에 멈춘다</text>
+  <text class="bsm" x="78" y="524.0" text-anchor="start">필수 필드 누락, id 중복, expected·severity 값 오류를 막는다.</text>
+  <text class="bsm" x="78" y="548.8" text-anchor="start">정상 케이스(allow)가 없으면 오류다: 다 막는 모델이 최고로 평가되기 때문이다.</text>
+  <text class="bsm" x="78" y="573.6" text-anchor="start">결과에 평가셋에 없는 id가 있으면 오류, 평가셋에는 있는데 실행 안 된 케이스는 따로 보고한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 27</text>
 </svg>

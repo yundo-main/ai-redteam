@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">용어 설명</title>
-  <desc id="d">Evaluation Dataset 등 용어.</desc>
+  <title id="t">실습 0 · 내 모델로 직접 측정</title>
+  <desc id="d">스캐너로 내 모델을 측정하고 평가셋 도구 입력으로 변환하는 순서와 주의.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,32 +85,38 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">용어 설명</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">6-6에서 쓰는 용어</text>
-  <rect class="th" x="60" y="190" width="330" height="44"/>
-  <rect class="th" x="390" y="190" width="830" height="44"/>
-  <text class="thtxt" x="74" y="218.0" text-anchor="start">용어</text>
-  <text class="thtxt" x="404" y="218.0" text-anchor="start">설명</text>
-  <rect class="td1" x="60" y="234" width="330" height="44"/>
-  <text class="tdb" x="74" y="262.4" text-anchor="start">Evaluation Dataset</text>
-  <rect class="td1" x="390" y="234" width="830" height="44"/>
-  <text class="tdtxt" x="404" y="262.4" text-anchor="start">프롬프트 인젝션, 탈옥 등 공격 프롬프트와 정답 레이블로 구성된 평가 데이터셋</text>
-  <rect class="td2" x="60" y="278" width="330" height="44"/>
-  <text class="tdb" x="74" y="306.4" text-anchor="start">Defense Rate Metric</text>
-  <rect class="td2" x="390" y="278" width="830" height="44"/>
-  <text class="tdtxt" x="404" y="306.4" text-anchor="start">전체 적대적 시도 중 가드레일에 의해 성공적으로 차단된 비중(%)</text>
-  <rect class="td1" x="60" y="322" width="330" height="44"/>
-  <text class="tdb" x="74" y="350.4" text-anchor="start">False Positive Rate</text>
-  <rect class="td1" x="390" y="322" width="830" height="44"/>
-  <text class="tdtxt" x="404" y="350.4" text-anchor="start">정상적인 사용자 프롬프트를 공격으로 오탐하여 차단한 비율</text>
-  <rect class="td2" x="60" y="366" width="330" height="44"/>
-  <text class="tdb" x="74" y="394.4" text-anchor="start">Benchmark Suite</text>
-  <rect class="td2" x="390" y="366" width="830" height="44"/>
-  <text class="tdtxt" x="404" y="394.4" text-anchor="start">AI 모델 배포 전 보안 표준 충족 여부를 판단하는 종합 평가 벤치마크</text>
-  <rect class="td1" x="60" y="410" width="330" height="44"/>
-  <text class="tdb" x="74" y="438.4" text-anchor="start">Regression Testing</text>
-  <rect class="td1" x="390" y="410" width="830" height="44"/>
-  <text class="tdtxt" x="404" y="438.4" text-anchor="start">보안 패치 후 기존 공격 프롬프트 방어력이 유지되는지 재검증하는 테스트</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 0 · 스캐너를 실행해 직접 측정</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">measure.py 가 스캐너를 매번 실행하고 평가셋 지표까지 낸다 (Ollama 필요)</text>
+  <circle class="circ" cx="84" cy="232" r="16"/>
+  <text class="circt" x="84" y="238" text-anchor="middle">1</text>
+  <rect class="cmdbg" x="116" y="185" width="640" height="94" rx="8"/>
+  <text class="cmd" x="132" y="216" text-anchor="start" style="font-size:15px">pip install -r 06_evaluation_set_defense_rate/requirements-scan.txt</text>
+  <text class="cmd" x="132" y="238" text-anchor="start" style="font-size:15px">ollama serve         # 별도 터미널에서 계속 실행</text>
+  <text class="cmd" x="132" y="260" text-anchor="start" style="font-size:15px">ollama pull qwen2.5:3b</text>
+  <text class="bsm" x="776" y="237" text-anchor="start" style="font-size:15px">준비 — 처음 한 번. 패키지가 무겁고 모델은 약 2GB</text>
+  <circle class="circ" cx="84" cy="314" r="16"/>
+  <text class="circt" x="84" y="320" text-anchor="middle">2</text>
+  <rect class="cmdbg" x="116" y="289" width="640" height="50" rx="8"/>
+  <text class="cmd" x="132" y="320" text-anchor="start" style="font-size:15px">python 06_evaluation_set_defense_rate/src/run/measure.py --quick</text>
+  <text class="bsm" x="776" y="319" text-anchor="start" style="font-size:15px">스캔 4번을 매번 실행 → 변환 → 지표·게이트 (빠르게, 약 10분 이내)</text>
+  <circle class="circ" cx="84" cy="374" r="16"/>
+  <text class="circt" x="84" y="380" text-anchor="middle">3</text>
+  <rect class="cmdbg" x="116" y="349" width="640" height="50" rx="8"/>
+  <text class="cmd" x="132" y="380" text-anchor="start" style="font-size:15px">python 06_evaluation_set_defense_rate/src/run/measure.py</text>
+  <text class="bsm" x="776" y="379" text-anchor="start" style="font-size:15px">전체 측정 (횟수가 많아 훨씬 오래 걸리고 구간이 좁다)</text>
+  <circle class="circ" cx="84" cy="445" r="16"/>
+  <text class="circt" x="84" y="451" text-anchor="middle">4</text>
+  <rect class="cmdbg" x="116" y="409" width="640" height="72" rx="8"/>
+  <text class="cmd" x="132" y="440" text-anchor="start" style="font-size:15px">python 06_evaluation_set_defense_rate/src/run/measure.py --quick</text>
+  <text class="cmd" x="132" y="462" text-anchor="start" style="font-size:15px">  --max-asr 0.2 --max-fpr 0.1 --out-dir results</text>
+  <text class="bsm" x="776" y="450" text-anchor="start" style="font-size:15px">게이트 기준·저장 폴더를 바꿀 때 (기본값이 이 값)</text>
+  <rect class="box ok" x="60" y="495" width="1160" height="82" rx="10"/>
+  <text class="tag" x="78" y="519" text-anchor="start">measure.py 가 하는 일</text>
+  <text class="bsm" x="78" y="543" text-anchor="start" style="font-size:15px">scan_pyrit·scan_garak 을 각각 방어 없음/GUARD=1 로 실행(4번) → from_scan 변환 → evalset 지표. 기준선과 방어 후 결과가 두 벌 나온다.</text>
+  <text class="bsm" x="78" y="565" text-anchor="start" style="font-size:15px">예제 기록은 쓰지 않는다. Ollama 가 준비되지 않았으면 스캔 전에 멈춘다. 중간 결과는 results/ch06-*.json 에 남는다.</text>
+  <rect class="box key" x="60" y="587" width="1160" height="58" rx="10"/>
+  <text class="tag" x="78" y="609" text-anchor="start">주의</text>
+  <text class="bsm" x="78" y="632" text-anchor="start" style="font-size:15px">--quick 은 시도가 적어 신뢰구간이 매우 넓다("표본 부족"이 나올 수 있다). 스캐너를 하나씩 돌리는 방법은 s17 흐름도와 readme 에 있다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">26 / 26</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 27</text>
 </svg>

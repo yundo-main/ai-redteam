@@ -5,7 +5,7 @@
 
 > 선행 개념: 6-1 지표 기초(8.1), 6-2 성공 조건(2.2)·시나리오 워크시트(6장), 6-5 스캔 결과
 
-> 전체 내용을 슬라이드 26장(소스 구조·실습 4장 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s26, 소스 구조는 s15~s16, 실습은 s17~s23)
+> 전체 내용을 슬라이드 27장(소스 구조·실습 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s27, 소스 구조는 s15~s16, 실습은 s17~s24)
 ---
 
 ![평가셋과 방어율·오탐률](slides/s03-eval-metrics.svg)
@@ -164,15 +164,17 @@
 06_evaluation_set_defense_rate/
 ├── readme.md                       이론 정리 (이 문서)
 ├── requirements-scan.txt           Garak·PyRIT 설치 목록 (garak==0.17.1, pyrit==1.1.0)
-├── slides/                         슬라이드 26장(index.html + s01~s26 SVG)
+├── slides/                         슬라이드 27장(index.html + s01~s27 SVG)
 └── src/
     ├── run/                        [1계층] 실행 — python 으로 직접 실행하는 파일
+    │   ├── measure.py              스캔 4번을 매번 실행하고 변환·지표까지 한 번에 낸다 — LLM 필요
     │   ├── scan_pyrit.py           PyRIT 스캐너: 공격 4유형 + 정상 질문 (GUARD=1 지원) — LLM 필요
     │   ├── scan_garak.py           Garak 스캐너: 프로브 2개 + 정상 질문 (GUARD=1 지원) — LLM 필요
     │   ├── from_scan.py            스캔 기록을 평가셋·결과 JSON 으로 변환해 지표 출력
     │   └── evalset.py              검증·지표 계산·게이트 판정 (본체)
     ├── target/                     [2계층] 공격 대상과 방어 — run 이 import
     │   ├── garak_target.py         GUARD=1 일 때 Garak 이 공격하는 함수 (입력 방어 → 모델 → 출력 방어)
+    │   ├── pyrit_target.py         GUARD=1 일 때 PyRIT 공격 앞뒤에 붙는 방어 (입력 검사 · 응답 검사)
     │   ├── input_guard.py          입력 방어: 끼어든 지시·Base64 검사
     │   └── output_guard.py         출력 방어: 카나리 차단·외부 링크 제거
     ├── base/                       [3계층] 기반 — 다른 계층에 의존하지 않음
@@ -186,15 +188,19 @@
     │   └── scan_examples/          스캔 기록 예제 4개 (garak-raw·garak-guard·pyrit-raw·pyrit-guard)
     └── tests/                      [선택: 코드를 고칠 때]
         ├── test_evalset.py         단위 테스트 (모델 없음)
-        └── test_from_scan.py       변환 단위 테스트 (스캐너 없음)
+        ├── test_from_scan.py       변환 단위 테스트 (스캐너 없음)
+        └── test_pyrit_target.py    PyRIT 방어 계층 단위 테스트 (모델·PyRIT 없음)
 ```
 입력은 평가셋 JSON과 실행 결과 JSON이고, 출력은 화면의 지표 표와 게이트 결과다. 모든 파일은 `.venv`를 활성화하고 `python`으로 실행한다. 스캐너(`scan_*.py`)만 LLM(Ollama)과 `requirements-scan.txt` 설치가 필요하고, 나머지는 필요 없다.
 
-이 일차의 코드는 [src/](src/)에 있고 모델 없이 실행된다. 평가셋(케이스 JSON)과 실행 결과(차단 여부)를 받아 3장의 지표를 계산한다.
+이 일차의 코드는 [src/](src/)에 있다. **실습 0**에서 스캐너로 내 모델을 측정해 평가셋·결과 JSON을 만들고(Ollama 필요), **실습 1~3**에서 평가셋 도구(`evalset.py`, 모델 호출 없음)가 그 JSON을 받아 3장의 지표를 계산한다. 모델을 쓸 수 없으면 실습 0을 건너뛰고 예제 파일로 같은 계산을 한다.
 
 ```sh
+# 실습 0 에서 만든 내 측정 결과로 계산 (모델 호출 없음)
+python 06_evaluation_set_defense_rate/src/run/evalset.py results/guard/ch06-evalset.json results/guard/ch06-outcomes.json --max-asr 0.2 --max-fpr 0.1
+python 06_evaluation_set_defense_rate/src/run/evalset.py results/raw/ch06-evalset.json results/raw/ch06-outcomes.json --max-asr 0.2 --max-fpr 0.1   # 방어 없는 기준선
+python 06_evaluation_set_defense_rate/src/run/evalset.py                                      # [예제] 인자 없음: 읽기 쉬운 6건 예제
 python -m unittest -v 06_evaluation_set_defense_rate/src/tests/test_evalset.py     # [선택] 코드를 고쳤을 때 확인
-python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr 0.1
 ```
 **왜 이 테스트가 있나 (선택)**: 단위 테스트는 실습을 따라 하는 데는 필요 없고, **코드를 고칠 때**(사람이든 AI든) 검증·계산·게이트 규칙이 깨지지 않았는지 몇 초 만에 확인하는 용도다. 게이트가 "표본 부족"과 "FAIL"을 뒤바꾸는 같은 실수는 숫자만 봐서는 알아채기 어렵다. 05 의 스캔 결과 형식이 바뀌면 `test_from_scan.py`가 변환이 어긋났다는 것을 알려 준다. 다만 테스트가 통과해도 방어가 실제로 통한다는 뜻은 아니다. 방어율·오탐률은 평가셋 측정이 말한다.
 
@@ -205,7 +211,7 @@ python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr
 
 예제 값(공격 4건, 정상 2건)은 설명용 더미라 구간이 매우 넓다(방어율 75% [30%–95%]). 실제 측정은 6-3~6-5 도구의 결과를 `outcomes` 형식으로 옮겨 넣는다.
 
-**스캔 준비 (스캐너를 직접 돌릴 때만)**: 평가셋 도구와 `from_scan.py`는 예제로 돌아가므로 이 준비가 필요 없다. 스캐너만 아래 세 가지가 필요하다.
+**실습 0 · 스캐너를 실행해 직접 측정**: 아래 준비를 한 뒤 `measure.py`가 스캐너를 매번 실행한다.
 
 ```sh
 source .venv/bin/activate
@@ -215,7 +221,14 @@ ollama pull qwen2.5:3b                                                # 약 2GB,
 python 06_evaluation_set_defense_rate/src/base/llm.py                 # 준비 확인
 ```
 
-**스캔도 이 폴더에서 실행한다**: 이 폴더만 가져가도 `scan_garak.py`·`scan_pyrit.py`(`GUARD=1` 포함)로 직접 측정하고 `from_scan.py`로 평가셋에 넣을 수 있다. 설치 목록은 `06_evaluation_set_defense_rate/requirements-scan.txt`다(Garak·PyRIT 패키지 자체는 복사하지 않고 설치한다). 예: `GUARD=1 RESULT_JSON=results/ch06-pyrit-guard.json python 06_evaluation_set_defense_rate/src/run/scan_pyrit.py`.
+```sh
+python 06_evaluation_set_defense_rate/src/run/measure.py --quick   # 빠르게(약 10분 이내, 구간이 넓다)
+python 06_evaluation_set_defense_rate/src/run/measure.py           # 전체 측정(훨씬 오래 걸린다)
+```
+
+`measure.py`는 `scan_pyrit.py`·`scan_garak.py`를 방어 없음·`GUARD=1`로 각각 실행(4번)한 뒤 `from_scan.py`로 변환해 평가셋 지표와 게이트를 **기준선·방어 후 두 벌**로 출력한다. 예제 기록을 쓰지 않고, Ollama가 준비되지 않았으면 스캔 전에 멈춘다. 중간 결과는 `results/ch06-*.json`, 변환 결과는 `results/raw/`, `results/guard/`에 남는다.
+
+**스캐너를 하나씩 실행하려면**: 이 폴더만 가져가도 `scan_garak.py`·`scan_pyrit.py`(`GUARD=1` 포함)로 직접 측정하고 `from_scan.py`로 평가셋에 넣을 수 있다. 설치 목록은 `06_evaluation_set_defense_rate/requirements-scan.txt`다(Garak·PyRIT 패키지 자체는 복사하지 않고 설치한다). 예: `GUARD=1 RESULT_JSON=results/ch06-pyrit-guard.json python 06_evaluation_set_defense_rate/src/run/scan_pyrit.py`.
 
 **Garak·PyRIT 결과 연결 (`from_scan.py`)**: 인자를 생략하면 `src/data/scan_examples/` 예제(방어 없음 기준선)를 쓰므로 스캐너를 실행하지 않아도 돈다. 내 실행 결과를 쓰려면 `--garak results/ch06-garak.json --pyrit results/ch06-pyrit.json`처럼 경로를 준다. 방어 후 예제는 `src/data/scan_examples/garak-guard.example.json`·`pyrit-guard.example.json`이다.
 

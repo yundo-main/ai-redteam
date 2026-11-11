@@ -90,5 +90,5 @@
   <text class="sub" x="680" y="618">6-6 은 직접 막지 않는다 — 6-3~6-5 도구의 결과를 받아 계산만 한다</text>
   <text class="note" x="60" y="666">input 은 더미 문구, 성공 판정은 카나리(CANARY-…) 유무로 한다. 건수가 적어(4·2) 신뢰구간이 넓다 — 실제 평가셋은 유형당 수십 건 이상</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">6 / 26</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">6 / 27</text>
 </svg>

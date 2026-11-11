@@ -47,36 +47,43 @@
   <text class="ssub" x="60" y="154">src/ 를 run → target → base 세 계층으로 나눈다. 위 계층이 아래 계층만 import 한다</text>
   <rect class="box" x="60" y="176" width="1160" height="126" rx="10" style="fill-opacity:.35"/>
   <text class="num" x="80" y="200" style="font-size:15px">run/  실행 — 사람이 python 으로 직접 실행하는 파일</text>
-  <rect class="box key" x="80" y="208" width="270" height="84" rx="6"/>
-  <text class="name" x="215.0" y="232" text-anchor="middle" style="font-size:15px">scan_pyrit.py</text>
-  <text class="sub" x="215.0" y="252" text-anchor="middle" style="font-size:12px">PyRIT 공격 4유형 + 정상 질문</text>
-  <text class="sub" x="215.0" y="270" text-anchor="middle" style="font-size:12px">GUARD=1 지원 · LLM 필요</text>
-  <rect class="box key" x="366" y="208" width="270" height="84" rx="6"/>
-  <text class="name" x="501.0" y="232" text-anchor="middle" style="font-size:15px">scan_garak.py</text>
-  <text class="sub" x="501.0" y="252" text-anchor="middle" style="font-size:12px">Garak 프로브 2개 + 정상 질문</text>
-  <text class="sub" x="501.0" y="270" text-anchor="middle" style="font-size:12px">GUARD=1 지원 · LLM 필요</text>
-  <rect class="box key" x="652" y="208" width="270" height="84" rx="6"/>
-  <text class="name" x="787.0" y="232" text-anchor="middle" style="font-size:15px">from_scan.py</text>
-  <text class="sub" x="787.0" y="252" text-anchor="middle" style="font-size:12px">스캔 기록 → 평가셋·결과 JSON</text>
-  <text class="sub" x="787.0" y="270" text-anchor="middle" style="font-size:12px">변환 후 지표 출력</text>
-  <rect class="box key" x="938" y="208" width="262" height="84" rx="6"/>
-  <text class="name" x="1069.0" y="232" text-anchor="middle" style="font-size:15px">evalset.py</text>
-  <text class="sub" x="1069.0" y="252" text-anchor="middle" style="font-size:12px">검증 · 지표 · 게이트 판정</text>
-  <text class="sub" x="1069.0" y="270" text-anchor="middle" style="font-size:12px">모델 호출 없음</text>
+  <rect class="box key" x="80" y="208" width="216" height="84" rx="6"/>
+  <text class="name" x="188" y="232" text-anchor="middle" style="font-size:15px">measure.py</text>
+  <text class="sub" x="188" y="252" text-anchor="middle" style="font-size:11.5px">스캔 4번 실행 → 변환 → 지표</text>
+  <text class="sub" x="188" y="270" text-anchor="middle" style="font-size:11.5px">한 번에 측정 · LLM 필요</text>
+  <rect class="box" x="308" y="208" width="216" height="84" rx="6"/>
+  <text class="name" x="416" y="232" text-anchor="middle" style="font-size:15px">scan_pyrit.py</text>
+  <text class="sub" x="416" y="252" text-anchor="middle" style="font-size:11.5px">PyRIT 공격 4유형 + 정상 질문</text>
+  <text class="sub" x="416" y="270" text-anchor="middle" style="font-size:11.5px">GUARD=1 지원 · LLM 필요</text>
+  <rect class="box" x="536" y="208" width="216" height="84" rx="6"/>
+  <text class="name" x="644" y="232" text-anchor="middle" style="font-size:15px">scan_garak.py</text>
+  <text class="sub" x="644" y="252" text-anchor="middle" style="font-size:11.5px">Garak 프로브 2개 + 정상 질문</text>
+  <text class="sub" x="644" y="270" text-anchor="middle" style="font-size:11.5px">GUARD=1 지원 · LLM 필요</text>
+  <rect class="box key" x="764" y="208" width="216" height="84" rx="6"/>
+  <text class="name" x="872" y="232" text-anchor="middle" style="font-size:15px">from_scan.py</text>
+  <text class="sub" x="872" y="252" text-anchor="middle" style="font-size:11.5px">스캔 기록 → 평가셋·결과 JSON</text>
+  <text class="sub" x="872" y="270" text-anchor="middle" style="font-size:11.5px">변환 후 지표 출력</text>
+  <rect class="box key" x="992" y="208" width="216" height="84" rx="6"/>
+  <text class="name" x="1100" y="232" text-anchor="middle" style="font-size:15px">evalset.py</text>
+  <text class="sub" x="1100" y="252" text-anchor="middle" style="font-size:11.5px">검증 · 지표 · 게이트 판정</text>
+  <text class="sub" x="1100" y="270" text-anchor="middle" style="font-size:11.5px">모델 호출 없음</text>
   <line class="arrow" x1="640" y1="302" x2="640" y2="319"/>
   <polygon class="head" points="640,328 635,319 645,319"/>
   <text class="note" x="652" y="320" style="font-size:13px">아래 계층만 import</text>
   <rect class="box" x="60" y="328" width="1160" height="112" rx="10" style="fill-opacity:.35"/>
   <text class="num" x="80" y="352" style="font-size:15px">target/  공격 대상과 방어</text>
-  <rect class="box" x="80" y="360" width="340" height="70" rx="6"/>
-  <text class="name" x="250.0" y="384" text-anchor="middle" style="font-size:15px">garak_target.py</text>
-  <text class="sub" x="250.0" y="404" text-anchor="middle" style="font-size:12px">Garak 이 부르는 함수: 입력 방어 → 모델 → 출력 방어</text>
-  <rect class="box" x="450" y="360" width="340" height="70" rx="6"/>
-  <text class="name" x="620.0" y="384" text-anchor="middle" style="font-size:15px">input_guard.py</text>
-  <text class="sub" x="620.0" y="404" text-anchor="middle" style="font-size:12px">입력 방어: 끼어든 지시·Base64 검사</text>
-  <rect class="box" x="820" y="360" width="380" height="70" rx="6"/>
-  <text class="name" x="1010.0" y="384" text-anchor="middle" style="font-size:15px">output_guard.py</text>
-  <text class="sub" x="1010.0" y="404" text-anchor="middle" style="font-size:12px">출력 방어: 카나리 차단·외부 링크 제거</text>
+  <rect class="box" x="80" y="360" width="262" height="70" rx="6"/>
+  <text class="name" x="211" y="384" text-anchor="middle" style="font-size:15px">garak_target.py</text>
+  <text class="sub" x="211" y="404" text-anchor="middle" style="font-size:12px">Garak 호출: 입력 → 모델 → 출력</text>
+  <rect class="box" x="366" y="360" width="262" height="70" rx="6"/>
+  <text class="name" x="497" y="384" text-anchor="middle" style="font-size:15px">pyrit_target.py</text>
+  <text class="sub" x="497" y="404" text-anchor="middle" style="font-size:12px">PyRIT 앞뒤: 입력 검사·응답 검사</text>
+  <rect class="box" x="652" y="360" width="262" height="70" rx="6"/>
+  <text class="name" x="783" y="384" text-anchor="middle" style="font-size:15px">input_guard.py</text>
+  <text class="sub" x="783" y="404" text-anchor="middle" style="font-size:12px">입력 방어: 지시·Base64 검사</text>
+  <rect class="box" x="938" y="360" width="262" height="70" rx="6"/>
+  <text class="name" x="1069" y="384" text-anchor="middle" style="font-size:15px">output_guard.py</text>
+  <text class="sub" x="1069" y="404" text-anchor="middle" style="font-size:12px">출력 방어: 카나리·외부 링크</text>
   <line class="arrow" x1="640" y1="440" x2="640" y2="457"/>
   <polygon class="head" points="640,466 635,457 645,457"/>
   <rect class="box" x="60" y="466" width="1160" height="92" rx="10" style="fill-opacity:.35"/>
@@ -95,8 +102,8 @@
   <text class="sub" x="340" y="621" text-anchor="middle" style="font-size:12px">evalset.example.json · outcomes.example.json · scan_examples/ (4개)</text>
   <rect class="box ok" x="660" y="574" width="560" height="62" rx="8"/>
   <text class="name" x="940" y="600" text-anchor="middle" style="font-size:15px">tests/  [선택] 단위 테스트</text>
-  <text class="sub" x="940" y="621" text-anchor="middle" style="font-size:12px">test_evalset.py · test_from_scan.py  (코드를 고칠 때 확인)</text>
+  <text class="sub" x="940" y="621" text-anchor="middle" style="font-size:12px">test_evalset · test_from_scan · test_pyrit_target  (코드를 고칠 때 확인)</text>
   <text class="note" x="60" y="666" text-anchor="start">Garak·PyRIT 패키지는 복사하지 않고 설치한다(requirements-scan.txt). 다음 장에서 평가셋 지표 계산 흐름을 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">15 / 26</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">15 / 27</text>
 </svg>

@@ -55,7 +55,7 @@
   <text class="sub" x="270.0" y="368" text-anchor="middle">→ results/ch06-pyrit-raw.json</text>
   <rect class="box" x="60" y="400" width="420" height="90" rx="8"/>
   <text class="name" x="270.0" y="430" text-anchor="middle">③ GUARD=1 scan_pyrit.py</text>
-  <text class="sub" x="270.0" y="452" text-anchor="middle">defense.guard_response 통과 후 채점</text>
+  <text class="sub" x="270.0" y="452" text-anchor="middle">output_guard.guard_response 통과 후 채점</text>
   <text class="sub" x="270.0" y="473" text-anchor="middle">→ results/ch06-pyrit-guard.json</text>
   <line class="arrow" x1="480" y1="235" x2="551" y2="235"/>
   <polygon class="head" points="560,235 551,230 551,240"/>
@@ -82,12 +82,14 @@
   <text class="sub" x="1070.0" y="305" text-anchor="middle">게이트 PASS / 표본 부족 / FAIL</text>
   <text class="sub" x="1070.0" y="326" text-anchor="middle"></text>
   <text class="sub" x="1070.0" y="347" text-anchor="middle">--max-asr 0.2 --max-fpr 0.1</text>
-  <rect class="box ok" x="60" y="510" width="1160" height="120" rx="8"/>
-  <text class="name" x="80" y="538">읽는 법 (qwen2.5:3b 예시)</text>
-  <text class="sub" x="80" y="562">④⑤ 를 raw 와 guard 로 각각 실행해 비교한다: data_exfiltration 방어율 30% → 100%</text>
-  <text class="sub" x="80" y="584">오탐률 0/50 [0%–7%] — 방어 없음 쪽 0 은 당연하고 GUARD=1 쪽만 의미가 있다</text>
-  <text class="sub" x="80" y="606">전체 ASR 은 방어 옵션이 없는 Garak 케이스가 섞여 FAIL 로 남는다</text>
-  <text class="note" x="60" y="666">①②③ 은 이 폴더(src/)의 스캐너로 실행하고 서로 독립이라 순서는 상관없다. 같은 모델·시나리오라야 비교가 된다</text>
+  <rect class="box ok" x="60" y="500" width="1160" height="110" rx="8"/>
+  <text class="name" x="80" y="526">읽는 법 (qwen2.5:3b 예시)</text>
+  <text class="sub" x="80" y="550">④⑤ 를 raw 와 guard 로 각각 실행해 비교한다: data_exfiltration 방어율 30% → 100%</text>
+  <text class="sub" x="80" y="572">오탐률 0/50 [0%–7%] — 방어 없음 쪽 0 은 당연하고 GUARD=1 쪽만 의미가 있다</text>
+  <text class="sub" x="80" y="594">전체 ASR 은 방어 옵션이 없는 Garak 케이스가 섞여 FAIL 로 남는다</text>
+  <text class="note" x="60" y="628">준비 — 스캔을 직접 돌릴 때만(①②③). 예제로 진행하면 ④⑤ 만 하면 되고 Ollama 도 필요 없다</text>
+  <text class="note" x="60" y="650">pip install -r 06_evaluation_set_defense_rate/requirements-scan.txt  ·  ollama serve  ·  ollama pull qwen2.5:3b</text>
+  <text class="note" x="60" y="672">①②③ 은 서로 독립이라 순서는 상관없다. 같은 모델·시나리오라야 비교가 된다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
   <text class="foot" x="1220" y="694" text-anchor="end">17 / 26</text>
 </svg>

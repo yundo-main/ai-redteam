@@ -205,6 +205,16 @@ python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr
 
 예제 값(공격 4건, 정상 2건)은 설명용 더미라 구간이 매우 넓다(방어율 75% [30%–95%]). 실제 측정은 6-3~6-5 도구의 결과를 `outcomes` 형식으로 옮겨 넣는다.
 
+**스캔 준비 (스캐너를 직접 돌릴 때만)**: 평가셋 도구와 `from_scan.py`는 예제로 돌아가므로 이 준비가 필요 없다. 스캐너만 아래 세 가지가 필요하다.
+
+```sh
+source .venv/bin/activate
+pip install -r 06_evaluation_set_defense_rate/requirements-scan.txt   # Garak·PyRIT, 처음 한 번 (무겁다)
+ollama serve                                                          # 별도 터미널에서 계속 실행
+ollama pull qwen2.5:3b                                                # 약 2GB, 한 번만
+python 06_evaluation_set_defense_rate/src/base/llm.py                 # 준비 확인
+```
+
 **스캔도 이 폴더에서 실행한다**: 이 폴더만 가져가도 `scan_garak.py`·`scan_pyrit.py`(`GUARD=1` 포함)로 직접 측정하고 `from_scan.py`로 평가셋에 넣을 수 있다. 설치 목록은 `06_evaluation_set_defense_rate/requirements-scan.txt`다(Garak·PyRIT 패키지 자체는 복사하지 않고 설치한다). 예: `GUARD=1 RESULT_JSON=results/ch06-pyrit-guard.json python 06_evaluation_set_defense_rate/src/run/scan_pyrit.py`.
 
 **Garak·PyRIT 결과 연결 (`from_scan.py`)**: 인자를 생략하면 `src/data/scan_examples/` 예제(방어 없음 기준선)를 쓰므로 스캐너를 실행하지 않아도 돈다. 내 실행 결과를 쓰려면 `--garak results/ch06-garak.json --pyrit results/ch06-pyrit.json`처럼 경로를 준다. 방어 후 예제는 `src/data/scan_examples/garak-guard.example.json`·`pyrit-guard.example.json`이다.

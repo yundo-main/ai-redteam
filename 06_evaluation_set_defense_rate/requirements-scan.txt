@@ -1,0 +1,5 @@
+# 스캐너(scan_garak.py, scan_pyrit.py)용 추가 의존성 (Python 3.10~3.12). 패키지가 많고 무겁다.
+# 평가셋 도구(evalset.py, from_scan.py)는 이 설치 없이 돈다.
+# 설치: 저장소 루트에서  source .venv/bin/activate && pip install -r 06_evaluation_set_defense_rate/requirements-scan.txt
+garak==0.17.1
+pyrit==1.1.0

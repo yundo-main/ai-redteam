@@ -106,5 +106,5 @@
   <text class="cname" x="668" y="483.0" text-anchor="start">CI 연동</text>
   <text class="bsm" x="668" y="515.0" text-anchor="start">배포 파이프라인에 스캔을 넣어 변경 시마다 회귀 점검한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">10 / 32</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">10 / 33</text>
 </svg>

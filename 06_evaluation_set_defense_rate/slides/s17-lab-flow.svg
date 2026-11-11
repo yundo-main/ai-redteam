@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 흐름 — 스캔 결과로 평가셋 지표 만들기</title>
+  <desc id="d">Garak 스캔과 PyRIT 스캔(방어 없음, GUARD=1)의 기록을 from_scan.py 로 변환해 evalset.py 가 방어율·오탐률·게이트를 계산하는 실습 순서.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118">실습 흐름 — 스캔 결과로 평가셋 지표 만들기</text>
+  <text class="ssub" x="60" y="154">스캔 3번 → 변환 → 계산. 변환은 raw(기준선)와 guard(방어 후)로 각각 한다</text>
+  <rect class="box" x="60" y="190" width="420" height="90" rx="8"/>
+  <text class="name" x="270.0" y="220" text-anchor="middle">① scan_garak.py</text>
+  <text class="sub" x="270.0" y="242" text-anchor="middle">Garak 프로브 2개 · 방어 옵션 없음</text>
+  <text class="sub" x="270.0" y="263" text-anchor="middle">→ results/ch06-garak.json</text>
+  <rect class="box" x="60" y="295" width="420" height="90" rx="8"/>
+  <text class="name" x="270.0" y="325" text-anchor="middle">② scan_pyrit.py (방어 없음)</text>
+  <text class="sub" x="270.0" y="347" text-anchor="middle">모델 원본 기준선 + 정상 질문 50건</text>
+  <text class="sub" x="270.0" y="368" text-anchor="middle">→ results/ch06-pyrit-raw.json</text>
+  <rect class="box" x="60" y="400" width="420" height="90" rx="8"/>
+  <text class="name" x="270.0" y="430" text-anchor="middle">③ GUARD=1 scan_pyrit.py</text>
+  <text class="sub" x="270.0" y="452" text-anchor="middle">defense.guard_response 통과 후 채점</text>
+  <text class="sub" x="270.0" y="473" text-anchor="middle">→ results/ch06-pyrit-guard.json</text>
+  <line class="arrow" x1="480" y1="235" x2="551" y2="235"/>
+  <polygon class="head" points="560,235 551,230 551,240"/>
+  <line class="arrow" x1="480" y1="340" x2="551" y2="340"/>
+  <polygon class="head" points="560,340 551,335 551,345"/>
+  <line class="arrow" x1="480" y1="445" x2="551" y2="445"/>
+  <polygon class="head" points="560,445 551,440 551,450"/>
+  <rect class="box key" x="560" y="190" width="280" height="300" rx="8"/>
+  <text class="name" x="700.0" y="220" text-anchor="middle">④ from_scan.py</text>
+  <text class="sub" x="700.0" y="242" text-anchor="middle">--pyrit 로 raw 또는 guard 선택</text>
+  <text class="sub" x="700.0" y="263" text-anchor="middle"></text>
+  <text class="sub" x="700.0" y="284" text-anchor="middle">케이스 7개 (GA-01~02, PY-01~04,</text>
+  <text class="sub" x="700.0" y="305" text-anchor="middle">정상 OK-01)</text>
+  <text class="sub" x="700.0" y="326" text-anchor="middle"></text>
+  <text class="sub" x="700.0" y="347" text-anchor="middle">성공 k/n 을 blocked 목록으로 펼침</text>
+  <text class="sub" x="700.0" y="368" text-anchor="middle">→ ch06-evalset/outcomes.json</text>
+  <line class="arrow" x1="840" y1="340" x2="911" y2="340"/>
+  <polygon class="head" points="920,340 911,335 911,345"/>
+  <rect class="box key" x="920" y="190" width="300" height="300" rx="8"/>
+  <text class="name" x="1070.0" y="220" text-anchor="middle">⑤ evalset.py</text>
+  <text class="sub" x="1070.0" y="242" text-anchor="middle">방어율 · 오탐률 · 유형별</text>
+  <text class="sub" x="1070.0" y="263" text-anchor="middle">심각도 가중 (Wilson 95% 구간)</text>
+  <text class="sub" x="1070.0" y="284" text-anchor="middle"></text>
+  <text class="sub" x="1070.0" y="305" text-anchor="middle">게이트 PASS / 표본 부족 / FAIL</text>
+  <text class="sub" x="1070.0" y="326" text-anchor="middle"></text>
+  <text class="sub" x="1070.0" y="347" text-anchor="middle">--max-asr 0.2 --max-fpr 0.1</text>
+  <rect class="box ok" x="60" y="510" width="1160" height="120" rx="8"/>
+  <text class="name" x="80" y="538">읽는 법 (qwen2.5:3b 예시)</text>
+  <text class="sub" x="80" y="562">④⑤ 를 raw 와 guard 로 각각 실행해 비교한다: data_exfiltration 방어율 30% → 100%</text>
+  <text class="sub" x="80" y="584">오탐률 0/50 [0%–7%] — 방어 없음 쪽 0 은 당연하고 GUARD=1 쪽만 의미가 있다</text>
+  <text class="sub" x="80" y="606">전체 ASR 은 방어 옵션이 없는 Garak 케이스가 섞여 FAIL 로 남는다</text>
+  <text class="note" x="60" y="666">①②③ 은 이 폴더(src/)의 스캐너로 실행하고 서로 독립이라 순서는 상관없다. 같은 모델·시나리오라야 비교가 된다</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">17 / 26</text>
+</svg>

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">실습 4 · 도구와 역할: PyRIT, Garak, 게이트</title>
+  <desc id="d">PyRIT, Garak, LangGraph 게이트가 각각 무엇을 하는지와 대응 파일.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  
+    .tdk { fill: #1b2433; font-size: 14px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 700; }
+    .tdv { fill: #1b2433; font-size: 15px; }
+    .cm { fill: #8fa3c4; font-size: 15px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .sm { fill: #4a5568; font-size: 15px; }
+    @media (prefers-color-scheme: dark) { .tdk, .tdv { fill: #eef1f6; } .sm { fill: #aab3c2; } }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">실습 4 · 도구와 역할: PyRIT, Garak, 게이트</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">같은 모델(qwen2.5:3b)에 도구마다 다른 일을 시킨다</text>
+  <rect class="box key" x="60" y="185" width="370" height="330" rx="10"/>
+  <text class="tag" x="78" y="213" text-anchor="start">① 공격을 보내 채점</text>
+  <text class="cname" x="78" y="245" text-anchor="start">PyRIT</text>
+  <text class="bsm" x="78" y="280.0" text-anchor="start" style="font-size:15px">우리가 정한 공격을 보낸다</text>
+  <text class="bsm" x="78" y="332.0" text-anchor="start" style="font-size:15px">Target  OpenAIChatTarget</text>
+  <text class="bsm" x="78" y="358.0" text-anchor="start" style="font-size:15px">Attack  PromptSendingAttack</text>
+  <text class="bsm" x="78" y="384.0" text-anchor="start" style="font-size:15px">Converter  Base64Converter</text>
+  <text class="bsm" x="78" y="410.0" text-anchor="start" style="font-size:15px">Scorer  SubStringScorer(카나리)</text>
+  <text class="mono" x="78" y="470" text-anchor="start" style="font-size:15px">scan_pyrit.py</text>
+  <text class="sm" x="78" y="495" text-anchor="start">공격 4유형 x 10회 = 40건</text>
+  <rect class="box key" x="450" y="185" width="370" height="330" rx="10"/>
+  <text class="tag" x="468" y="213" text-anchor="start">② 취약점을 스캔</text>
+  <text class="cname" x="468" y="245" text-anchor="start">Garak</text>
+  <text class="bsm" x="468" y="280.0" text-anchor="start" style="font-size:15px">내장 프로브로 스캔한다</text>
+  <text class="bsm" x="468" y="332.0" text-anchor="start" style="font-size:15px">Generator  OllamaGeneratorChat</text>
+  <text class="bsm" x="468" y="358.0" text-anchor="start" style="font-size:15px">Probe  latentinjection · encoding</text>
+  <text class="bsm" x="468" y="384.0" text-anchor="start" style="font-size:15px">Detector  TriggerList · DecodeMatch</text>
+  <text class="bsm" x="468" y="410.0" text-anchor="start" style="font-size:15px">Evaluator  리포트 passed/fails</text>
+  <text class="mono" x="468" y="470" text-anchor="start" style="font-size:15px">scan_garak.py</text>
+  <text class="sm" x="468" y="495" text-anchor="start">프로브 2개 x 프롬프트 30개</text>
+  <rect class="box ok" x="840" y="185" width="370" height="330" rx="10"/>
+  <text class="tag" x="858" y="213" text-anchor="start">③ 독립 실행: 방어 후 판정</text>
+  <text class="cname" x="858" y="245" text-anchor="start">LangGraph 게이트</text>
+  <text class="bsm" x="858" y="280.0" text-anchor="start" style="font-size:15px">스캐너와 독립, 자체 질문 3유형</text>
+  <text class="bsm" x="858" y="332.0" text-anchor="start" style="font-size:15px">ask_model → run_cases</text>
+  <text class="bsm" x="858" y="358.0" text-anchor="start" style="font-size:15px">→ aggregate → gate</text>
+  <text class="bsm" x="858" y="384.0" text-anchor="start" style="font-size:15px">방어 없음 / 있음을 같은 출력에</text>
+  <text class="bsm" x="858" y="410.0" text-anchor="start" style="font-size:15px">적용해 방어율·오탐률 비교</text>
+  <text class="mono" x="858" y="470" text-anchor="start" style="font-size:15px">test_graph.py</text>
+  <text class="sm" x="858" y="495" text-anchor="start">공격 30 + 정상 30건</text>
+  <rect class="warn" x="60" y="535" width="1160" height="115" rx="10"/>
+  <text class="otxt" x="78" y="561" text-anchor="start">무엇을 보는가</text>
+  <text class="sm" x="78" y="586" text-anchor="start" style="font-size:16px">· PyRIT·Garak은 방어 전 모델 응답을 채점한다 → 모델이 얼마나 취약한가 (유출률·공격 성공률)</text>
+  <text class="sm" x="78" y="611" text-anchor="start" style="font-size:16px">· 게이트는 같은 응답에 방어 계층을 적용한다 → 방어가 얼마나 막는가, 정상 질문은 안 막는가</text>
+  <text class="sm" x="78" y="636" text-anchor="start" style="font-size:16px">· 스캐너는 무겁다: 같은 .venv에 requirements-scan.txt를 따로 추가 설치한다</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 33</text>
+</svg>

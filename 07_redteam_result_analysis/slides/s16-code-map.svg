@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 — 상하 계층</title>
+  <desc id="d">07 src/ 를 run, base 두 계층과 data, tests 로 나눈 구조. from_harness.py 가 하네스 기록을 07 입력 형식으로 바꾸고, report.py 는 그 형식만 읽어 보고서를 만든다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-7</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — 상하 계층</text>
+  <text class="ssub" x="60" y="154">src/ 를 run → base 로 나눈다. report.py 는 07 입력 형식만 읽고, 하네스 형식은 from_harness.py 만 안다</text>
+  <rect class="box" x="60" y="176" width="1160" height="112" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="200" style="font-size:15px">run/  실행 — 사람이 python 으로 직접 실행하는 파일</text>
+  <rect class="box key" x="80" y="208" width="540" height="66" rx="6"/>
+  <text class="name" x="350.0" y="232" text-anchor="middle" style="font-size:15px">from_harness.py  변환</text>
+  <text class="sub" x="350.0" y="252" text-anchor="middle" style="font-size:12px">하네스(03) 기록 → 07 입력 형식 redteam-run/1</text>
+  <text class="sub" x="350.0" y="270" text-anchor="middle" style="font-size:12px">하네스 형식을 아는 유일한 파일</text>
+  <rect class="box key" x="660" y="208" width="540" height="66" rx="6"/>
+  <text class="name" x="930.0" y="232" text-anchor="middle" style="font-size:15px">report.py  보고서 생성기</text>
+  <text class="sub" x="930.0" y="252" text-anchor="middle" style="font-size:12px">redteam-run/1 만 읽는다 (형식 검증)</text>
+  <text class="sub" x="930.0" y="270" text-anchor="middle" style="font-size:12px">판정(가능성 x 영향도 = 심각도) → 절 작성 → 독자별 출력</text>
+  <line class="arrow" x1="620" y1="241" x2="651" y2="241"/>
+  <polygon class="head" points="660,241 651,236 651,246"/>
+  <line class="arrow" x1="640" y1="288" x2="640" y2="305"/>
+  <polygon class="head" points="640,314 635,305 645,305"/>
+  <text class="note" x="652" y="306" style="font-size:13px">아래 계층만 import</text>
+  <rect class="box" x="60" y="314" width="1160" height="92" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="338" style="font-size:15px">base/  기반 — 다른 계층에 의존하지 않는다</text>
+  <rect class="box" x="80" y="350" width="560" height="48" rx="6"/>
+  <text class="name" x="360.0" y="374" text-anchor="middle" style="font-size:15px">stats.py</text>
+  <text class="sub" x="360.0" y="394" text-anchor="middle" style="font-size:12px">Wilson 95% 신뢰구간 · differs()</text>
+  <rect class="box" x="660" y="350" width="540" height="48" rx="6"/>
+  <text class="name" x="930.0" y="374" text-anchor="middle" style="font-size:15px">hypothesis_log.py</text>
+  <text class="sub" x="930.0" y="394" text-anchor="middle" style="font-size:12px">가설 대조 · 안전 저장(history 보관) · 하네스 기록 읽기</text>
+  <rect class="box" x="60" y="424" width="1160" height="100" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="448" style="font-size:15px">data/  예제 데이터 (코드 아님) — 앞 일차를 실행하지 않아도 단독 실행</text>
+  <rect class="box" x="80" y="452" width="212" height="60" rx="6"/>
+  <text class="name" x="186.0" y="476" text-anchor="middle" style="font-size:15px">run.example.json</text>
+  <text class="sub" x="186.0" y="496" text-anchor="middle" style="font-size:12px">07 입력 기록 예제</text>
+  <rect class="box" x="308" y="452" width="212" height="60" rx="6"/>
+  <text class="name" x="414.0" y="476" text-anchor="middle" style="font-size:15px">run-baseline.example.json</text>
+  <text class="sub" x="414.0" y="496" text-anchor="middle" style="font-size:12px">개선 전 기록 (--baseline)</text>
+  <rect class="box" x="536" y="452" width="212" height="60" rx="6"/>
+  <text class="name" x="642.0" y="476" text-anchor="middle" style="font-size:15px">hypothesis.example.json</text>
+  <text class="sub" x="642.0" y="496" text-anchor="middle" style="font-size:12px">가설 파일 예시</text>
+  <rect class="box" x="764" y="452" width="212" height="60" rx="6"/>
+  <text class="name" x="870.0" y="476" text-anchor="middle" style="font-size:15px">scenarios/*.json</text>
+  <text class="sub" x="870.0" y="496" text-anchor="middle" style="font-size:12px">시나리오 워크시트 2개</text>
+  <rect class="box" x="992" y="452" width="208" height="60" rx="6"/>
+  <text class="name" x="1096.0" y="476" text-anchor="middle" style="font-size:15px">harness/*.json</text>
+  <text class="sub" x="1096.0" y="496" text-anchor="middle" style="font-size:12px">하네스 기록 예제 2개</text>
+  <rect class="box ok" x="60" y="544" width="560" height="92" rx="8"/>
+  <text class="name" x="340" y="572" text-anchor="middle" style="font-size:16px">출력: results/report.md</text>
+  <text class="sub" x="340" y="596" text-anchor="middle" style="font-size:12px">보고서 초안 (근본 원인·담당자·잔여 위험 결정은 사람이 채움)</text>
+  <text class="sub" x="340" y="616" text-anchor="middle" style="font-size:12px">이전 보고서는 results/history/ 로 옮겨 보관</text>
+  <rect class="box ok" x="660" y="544" width="560" height="92" rx="8"/>
+  <text class="name" x="940" y="572" text-anchor="middle" style="font-size:16px">tests/  [선택] 단위 테스트</text>
+  <text class="sub" x="940" y="596" text-anchor="middle" style="font-size:12px">test_report · test_from_harness · test_stats · test_hypothesis_log</text>
+  <text class="sub" x="940" y="616" text-anchor="middle" style="font-size:12px">코드를 고칠 때 확인 (61개, 모델 없음)</text>
+  <text class="note" x="60" y="666" text-anchor="start">앞 일차의 저장 형식이 바뀌면 from_harness.py 만 고친다. 이 일차는 target/ 계층이 없다(방어·대상 코드가 없음)</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-7</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">16 / 24</text>
+</svg>

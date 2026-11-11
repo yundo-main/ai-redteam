@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">6-2 워크시트와 발견 사항의 대응</title>
+  <desc id="d">워크시트 항목과 발견 사항 필드 대응.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-7</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">6-2 워크시트와 발견 사항의 대응</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">설계 단계의 항목이 그대로 보고 항목이 된다</text>
+  <rect class="th" x="60" y="185" width="300" height="44"/>
+  <rect class="th" x="360" y="185" width="220" height="44"/>
+  <rect class="th" x="580" y="185" width="640" height="44"/>
+  <text class="thtxt" x="74" y="213.0" text-anchor="start">6-2 워크시트 항목</text>
+  <text class="thtxt" x="374" y="213.0" text-anchor="start">발견 사항 필드</text>
+  <text class="thtxt" x="594" y="213.0" text-anchor="start">결과로 채우는 내용</text>
+  <rect class="td1" x="60" y="229" width="300" height="44"/>
+  <text class="tdb" x="74" y="257.0" text-anchor="start">시나리오 ID/이름</text>
+  <rect class="td1" x="360" y="229" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="257.0" text-anchor="start">ID·제목</text>
+  <rect class="td1" x="580" y="229" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="257.0" text-anchor="start">그대로 사용</text>
+  <rect class="td2" x="60" y="273" width="300" height="44"/>
+  <text class="tdb" x="74" y="301.0" text-anchor="start">목표</text>
+  <rect class="td2" x="360" y="273" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="301.0" text-anchor="start">설명</text>
+  <rect class="td2" x="580" y="273" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="301.0" text-anchor="start">목표가 실제로 달성되었는가</text>
+  <rect class="td1" x="60" y="317" width="300" height="44"/>
+  <text class="tdb" x="74" y="345.0" text-anchor="start">공격 단계</text>
+  <rect class="td1" x="360" y="317" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="345.0" text-anchor="start">재현 절차</text>
+  <rect class="td1" x="580" y="317" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="345.0" text-anchor="start">실행한 단계와 환경 버전</text>
+  <rect class="td2" x="60" y="361" width="300" height="44"/>
+  <text class="tdb" x="74" y="389.0" text-anchor="start">성공 조건·증거</text>
+  <rect class="td2" x="360" y="361" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="389.0" text-anchor="start">증거</text>
+  <rect class="td2" x="580" y="361" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="389.0" text-anchor="start">실행 로그·응답·수신 로그 (민감 정보 마스킹)</text>
+  <rect class="td1" x="60" y="405" width="300" height="44"/>
+  <text class="tdb" x="74" y="433.0" text-anchor="start">영향도·우선순위</text>
+  <rect class="td1" x="360" y="405" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="433.0" text-anchor="start">심각도</text>
+  <rect class="td1" x="580" y="405" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="433.0" text-anchor="start">성공률(재현율)과 영향도로 산정</text>
+  <rect class="td2" x="60" y="449" width="300" height="44"/>
+  <text class="tdb" x="74" y="477.0" text-anchor="start">통제 지점</text>
+  <rect class="td2" x="360" y="449" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="477.0" text-anchor="start">근본 원인·권고</text>
+  <rect class="td2" x="580" y="449" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="477.0" text-anchor="start">어떤 통제가 없거나 약했는가, 보강 방안</text>
+  <rect class="td1" x="60" y="493" width="300" height="44"/>
+  <text class="tdb" x="74" y="521.0" text-anchor="start">ROE 준수 사항</text>
+  <rect class="td1" x="360" y="493" width="220" height="44"/>
+  <text class="tdtxt" x="374" y="521.0" text-anchor="start">범위·방법</text>
+  <rect class="td1" x="580" y="493" width="640" height="44"/>
+  <text class="tdtxt" x="594" y="521.0" text-anchor="start">보고서의 범위와 ROE 준수 여부</text>
+  <text class="bsm" x="60" y="559.0" text-anchor="start">연쇄(Exploit Chain)의 발견 사항은 개별 심각도를 합산하지 않고 연쇄 전체의 영향을 별도 항목으로 평가한다.</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-7</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">21 / 24</text>
+</svg>

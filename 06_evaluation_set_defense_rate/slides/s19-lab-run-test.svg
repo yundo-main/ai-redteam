@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">[선택] 단위 테스트</title>
+  <desc id="d">test_evalset.py 18개 테스트의 구성과 의미.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118">[선택] 단위 테스트 — 도구가 맞는가</text>
+  <text class="ssub" x="60" y="154">모델도 예제 파일도 쓰지 않고, 테스트 안의 작은 입력으로 evalset.py 의 규칙을 확인한다</text>
+  <rect class="box key" x="60" y="185" width="1160" height="70" rx="8"/>
+  <text class="name" x="640.0" y="213" text-anchor="middle">python -m unittest -v 06_evaluation_set_defense_rate/src/tests/test_evalset.py</text>
+  <text class="sub" x="640.0" y="235" text-anchor="middle">기대 출력 Ran 18 tests ... OK · 저장소 루트, .venv 활성화 후 실행 · LLM 불필요</text>
+  <rect class="box" x="60" y="280" width="212" height="140" rx="8"/>
+  <text class="name" x="166.0" y="308" text-anchor="middle">검증 5개</text>
+  <text class="sub" x="166.0" y="330" text-anchor="middle">필수 필드·id 중복</text>
+  <text class="sub" x="166.0" y="351" text-anchor="middle">expected·severity 값</text>
+  <text class="sub" x="166.0" y="372" text-anchor="middle">공격·정상 케이스</text>
+  <text class="sub" x="166.0" y="393" text-anchor="middle">둘 다 있어야 통과</text>
+  <rect class="box" x="297" y="280" width="212" height="140" rx="8"/>
+  <text class="name" x="403.0" y="308" text-anchor="middle">지표 계산 6개</text>
+  <text class="sub" x="403.0" y="330" text-anchor="middle">같은 id 반복 = 시도</text>
+  <text class="sub" x="403.0" y="351" text-anchor="middle">없는 id 는 오류</text>
+  <text class="sub" x="403.0" y="372" text-anchor="middle">다 막으면 오탐률 상승</text>
+  <text class="sub" x="403.0" y="393" text-anchor="middle">심각도 가중 방어율</text>
+  <rect class="box" x="534" y="280" width="212" height="140" rx="8"/>
+  <text class="name" x="640.0" y="308" text-anchor="middle">게이트 3개</text>
+  <text class="sub" x="640.0" y="330" text-anchor="middle">PASS / FAIL 판정</text>
+  <text class="sub" x="640.0" y="351" text-anchor="middle">표본 부족은 PASS 아님</text>
+  <text class="sub" x="640.0" y="372" text-anchor="middle">결과 없으면 측정 안 됨</text>
+  <rect class="box" x="771" y="280" width="212" height="140" rx="8"/>
+  <text class="name" x="877.0" y="308" text-anchor="middle">전후 비교 2개</text>
+  <text class="sub" x="877.0" y="330" text-anchor="middle">큰 변화는 유의함</text>
+  <text class="sub" x="877.0" y="351" text-anchor="middle">작은 변화는 우연</text>
+  <text class="sub" x="877.0" y="372" text-anchor="middle">(신뢰구간 겹침으로 판단)</text>
+  <rect class="box" x="1008" y="280" width="212" height="140" rx="8"/>
+  <text class="name" x="1114.0" y="308" text-anchor="middle">명령줄 2개</text>
+  <text class="sub" x="1114.0" y="330" text-anchor="middle">main 이 정상 실행</text>
+  <text class="sub" x="1114.0" y="351" text-anchor="middle">잘못된 파일은</text>
+  <text class="sub" x="1114.0" y="372" text-anchor="middle">종료 코드 2</text>
+  <rect class="box ok" x="60" y="440" width="1160" height="80" rx="8"/>
+  <text class="name" x="640" y="468" text-anchor="middle">왜 필요한가 — 코드를 고칠 때(사람이든 AI든) 이전에 되던 것이 깨졌는지 몇 초 만에 확인</text>
+  <text class="sub" x="640" y="492" text-anchor="middle">스캔은 몇 분 걸리고 결과가 매번 달라 코드 오류와 모델 차이를 가르기 어렵다. 단위 테스트는 항상 같은 결과가 나온다</text>
+  <text class="sub" x="640" y="512" text-anchor="middle">통과해도 방어가 통한다는 뜻은 아니다(방어율은 스캔·평가셋). 실습만 따라 하면 건너뛰어도 된다</text>
+  <rect class="box" x="60" y="532" width="1160" height="110" rx="8"/>
+  <text class="name" x="80" y="560" text-anchor="start">명령줄 옵션</text>
+  <text class="sub" x="80" y="584" text-anchor="start">python -m unittest : 표준 라이브러리 테스트 실행기를 모듈로 실행   ·   -v : 테스트 이름과 결과를 한 줄씩 자세히 출력</text>
+  <text class="sub" x="80" y="605" text-anchor="start">경로 : 실행할 테스트 파일(저장소 루트 기준).  폴더 전체는  python -m unittest discover -s 06_evaluation_set_defense_rate/src/tests</text>
+  <text class="sub" x="80" y="626" text-anchor="start">한 가지만 돌릴 때 :  -k Gate  (이름에 Gate 가 들어간 테스트만, 대소문자 구분)</text>
+  <text class="note" x="60" y="666" text-anchor="start">스캔 결과를 변환하는 from_scan.py 는 test_from_scan.py(8개)가 따로 검증한다</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">19 / 26</text>
+</svg>

@@ -54,12 +54,12 @@ cd src && python app.py
 | [03_jailbreak_tool_abuse_testing/src/](03_jailbreak_tool_abuse_testing/src/) | 6-2 시나리오 워크시트(`scenarios/ch03_*.json`)를 읽어 실제 모델로 실행하는 러너(`scenario.py`). 방어 전/후 성공 비율과 리포트 출력 | python -m unittest -v 03_jailbreak_tool_abuse_testing/src/test_scenario.py |
 | [04_data_exfiltration_validation/src/](04_data_exfiltration_validation/src/) | 6-4 방어 모듈(`defense.py`) 단위 테스트 (모델 호출 없음) | python -m unittest -v 04_data_exfiltration_validation/src/test_defense.py |
 | [04_data_exfiltration_validation/src/](04_data_exfiltration_validation/src/) | 6-4 LangChain(모델 → 방어 체인, ACL 검색기 RAG)을 실제 Ollama 모델로 실행. 가설 예시 `hypothesis.example.json` | python -W ignore -m unittest -v 04_data_exfiltration_validation/src/test_chain.py |
-| [05_garak_pyrit_automated_testing/src/](05_garak_pyrit_automated_testing/src/) | 6-5 방어 모듈(`defense.py`) 단위 테스트 (모델 호출 없음) | python -m unittest -v 05_garak_pyrit_automated_testing/src/test_defense.py |
+| [05_garak_pyrit_automated_testing/src/](05_garak_pyrit_automated_testing/src/) | 6-5 방어 모듈(`input_guard.py`·`output_guard.py`·`metrics.py`) 단위 테스트 (모델 호출 없음) | python -m unittest -v 05_garak_pyrit_automated_testing/src/test_defense.py |
 | [05_garak_pyrit_automated_testing/src/](05_garak_pyrit_automated_testing/src/) | 6-5 LangGraph(모델 호출 → 방어 → 집계 → 합격/불합격 게이트)를 실제 Ollama 모델로 실행. 가설 예시 `hypothesis.example.json` | python -W ignore -m unittest -v 05_garak_pyrit_automated_testing/src/test_graph.py |
-| [06_evaluation_set_defense_rate/src/](06_evaluation_set_defense_rate/src/) | 6-6 평가셋 도구(`evalset.py`): 케이스 JSON을 검증하고, 차단 결과로 방어율·공격 성공률·오탐률·유형별·심각도 가중 방어율을 Wilson 95% 구간과 함께 계산하고 합격 기준(게이트)을 판정 (모델 호출 없음) | python 06_evaluation_set_defense_rate/src/evalset.py --max-asr 0.2 --max-fpr 0.1 |
+| [06_evaluation_set_defense_rate/src/](06_evaluation_set_defense_rate/src/) | 6-6 평가셋 도구(`evalset.py`): 케이스 JSON을 검증하고, 차단 결과로 방어율·공격 성공률·오탐률·유형별·심각도 가중 방어율을 Wilson 95% 구간과 함께 계산하고 합격 기준(게이트)을 판정 (모델 호출 없음) | python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr 0.1 |
 | [07_redteam_result_analysis/src/](07_redteam_result_analysis/src/) | 6-7 보고서 생성기(`report.py`): 하네스 결과(JSON)와 시나리오 워크시트를 6-7 형식의 Markdown 보고서 초안으로 만든다. 독자별 출력, 개선 전후 비교, 가설 대비 결과 표시 지원. 예시: [sample-report.md](07_redteam_result_analysis/sample-report.md) | python 07_redteam_result_analysis/src/report.py results/ch03.json |
 
-**일차별 코드**: 03~07 일차 폴더의 `src/`는 각각 그 일차 실습에 필요한 코드를 모두 갖는다. `stats.py`(신뢰구간), `llm.py`(Ollama 호출), `hypothesis_log.py`(가설 대조), `defense.py`는 여러 일차에 같은 내용의 복사본이 따로 있다. 앞 일차에 결석한 학생도 다른 일차의 코드 없이 해당 일차부터 실습을 따라갈 수 있게 하기 위해서다. 한 일차에서 고친 내용은 다른 일차에 자동으로 반영되지 않는다. 모든 실습은 저장소 루트에서 실행한다(`python NN_일차/src/…`). 실행 결과는 루트의 `results/`에 저장하고, 패키지는 루트의 `requirements.txt`와 `.venv` 하나를 함께 쓴다. 테스트는 한 번에 한 일차만 실행한다(복사본의 모듈 이름이 같아 여러 일차의 테스트를 한 프로세스에서 섞어 돌리면 안 된다). 01·02는 이론 일차라 `src/`에 안내 `README.md`만 있다.
+**일차별 코드**: 03~07 일차 폴더의 `src/`는 각각 그 일차 실습에 필요한 코드를 모두 갖는다. `stats.py`(신뢰구간), `llm.py`(Ollama 호출), `hypothesis_log.py`(가설 대조)는 여러 일차에 같은 내용의 복사본이 따로 있다. 방어 코드는 일차마다 따로 둔다(04 `defense.py`, 05 `input_guard.py`·`output_guard.py`·`metrics.py`). 앞 일차에 결석한 학생도 다른 일차의 코드 없이 해당 일차부터 실습을 따라갈 수 있게 하기 위해서다. 한 일차에서 고친 내용은 다른 일차에 자동으로 반영되지 않는다. 모든 실습은 저장소 루트에서 실행한다(`python NN_일차/src/…`). 실행 결과는 루트의 `results/`에 저장하고, 패키지는 루트의 `requirements.txt`와 `.venv` 하나를 함께 쓴다. 테스트는 한 번에 한 일차만 실행한다(복사본의 모듈 이름이 같아 여러 일차의 테스트를 한 프로세스에서 섞어 돌리면 안 된다). 01·02는 이론 일차라 `src/`에 안내 `README.md`만 있다.
 
 **결과 파일**: 예제 결과는 `results/example/`에 있고(읽기용, 수정하지 않는다), 직접 실행한 결과는 `results/`에 저장한다. 같은 이름으로 다시 저장해도 이전 파일은 지워지지 않고 `results/history/`로 옮겨지며, 저장은 임시 파일을 거쳐 바꿔치기해서 중간에 끊겨도 반쪽 파일이 남지 않는다. 가설 파일은 복사할 때 `cp -n`으로 이미 고친 파일을 덮어쓰지 않게 한다. `results/`는 예제를 빼고 `.gitignore`로 제외한다.
 
@@ -67,7 +67,7 @@ cd src && python app.py
 - **모델 크기**: 학습용은 2~4B 급을 권장한다. 7B 이상은 반복 실습 시간이 몇 배로 늘어난다. TA-01은 도구 호출을 지원하는 모델이어야 하며(qwen2.5:3b, llama3.2:3b), gemma3는 Ollama에서 도구 호출을 지원하지 않는다. 1.5B 급 미세조정 모델은 호출 형식을 지키지 못해 TA-01이 0/30으로 나왔다.
 - **반복 정량화**: 모든 모델 실습은 반복 실행한 성공 비율을 Wilson 95% 신뢰구간과 함께 보고한다(`stats.py`). 기준 횟수는 TA-01 30회, JB-01 15회(시도당 4턴), 정상 질문 오탐률 30건, 6-5 평가 그래프 공격·정상 각 30건이다. 30회면 0건일 때 95% 상한이 약 11%이고, 50% 근처의 구간 폭은 약 ±17%p이다. 전체 실행은 소형 모델에서 약 3분 걸리며, `QUICK=1`이면 횟수를 1/3로 줄여 동작만 확인한다(통계적 결론용이 아님). 0건은 "안전"이 아니라 "상한 이하"이고, 구간이 겹치면 차이가 있다고 단정하지 않는다.
 - **모든 실습은 저장소 루트의 Python 가상환경(`.venv`)에서 실행한다.** Python 3.10 이상과 `pip install -r requirements.txt`를 쓴다(LangChain/LangGraph 테스트에 필요). 명령은 `python`이다. 만드는 법은 아래 LLM 실행 가이드의 0번을 따른다.
-- 구조도: 6-4 LangChain 적용 구조는 [슬라이드 s14](04_data_exfiltration_validation/slides/index.html#14), 6-5 LangGraph 평가 그래프는 [슬라이드 s21](05_garak_pyrit_automated_testing/slides/index.html#21)
+- 구조도: 6-4 LangChain 적용 구조는 [슬라이드 s14](04_data_exfiltration_validation/slides/index.html#14), 6-5 LangGraph 평가 그래프는 [슬라이드 s22](05_garak_pyrit_automated_testing/slides/index.html#22)
 - 모델 출력은 비결정적이므로 성공률은 실행마다 달라질 수 있다(seed로 재현을 시도). 테스트 입력은 더미 카나리와 예약 도메인(`.invalid`)을 쓰고, 공격 페이로드는 만들지 않는다.
 
 # LLM 실행 가이드 (Ollama)
@@ -184,7 +184,7 @@ python 03_jailbreak_tool_abuse_testing/src/llm.py
 | 일차 폴더 | `NN_영문_스네이크` | `03_jailbreak_tool_abuse_testing` |
 | 실습 폴더 | `NN_일차/src/` (일차 폴더 안) | `03_jailbreak_tool_abuse_testing/src/` |
 | 소스 모듈 | `이름.py` (일차의 `src/` 안에 둔다. 소속은 폴더가 나타낸다) | `03_…/src/tool_guard.py`, `03_…/src/harness.py` |
-| 여러 일차가 쓰는 모듈 | 같은 이름으로 일차마다 복사 | `stats.py`, `llm.py`, `defense.py` |
+| 여러 일차가 쓰는 모듈 | 같은 이름으로 일차마다 복사 | `stats.py`, `llm.py`, `hypothesis_log.py` |
 | 테스트 | `test_` + 대상 모듈 이름 | `test_tool_guard.py`, `test_defense.py` |
 | 시나리오 워크시트 | `scenarios/chNN_시나리오ID.json` (ID는 소문자) | `scenarios/ch03_ta01.json` |
 | 슬라이드 SVG | `NN_일차/slides/sNN-이름.svg` | `03_…/slides/s07-attack-chain.svg` |

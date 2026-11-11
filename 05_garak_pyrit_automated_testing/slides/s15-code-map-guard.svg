@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 — GUARD=1 방어 계층</title>
+  <desc id="d">GUARD=1 일 때 스캐너가 입력 방어(input_guard)와 출력 방어(output_guard)를 거쳐 모델을 공격하는 구조. 05 폴더 안에서 모두 해결하며 다른 일차를 import 하지 않는다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-5</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 — GUARD=1 방어 계층</text>
+  <text class="ssub" x="60" y="154">입력 방어 → 모델 → 출력 방어. 05 폴더 안에서 해결하고 다른 일차를 import 하지 않는다</text>
+  <rect class="box" x="60" y="185" width="560" height="80" rx="8"/>
+  <text class="name" x="340.0" y="215" text-anchor="middle">scan_pyrit.py  GUARD=1</text>
+  <text class="sub" x="340.0" y="237" text-anchor="middle">보내기 전 입력 검사 · 응답은 출력 방어 후 채점</text>
+  <text class="sub" x="340.0" y="258" text-anchor="middle">정상 질문 5종 x 10회로 오탐 측정</text>
+  <rect class="box" x="660" y="185" width="560" height="80" rx="8"/>
+  <text class="name" x="940.0" y="215" text-anchor="middle">scan_garak.py  GUARD=1</text>
+  <text class="sub" x="940.0" y="237" text-anchor="middle">Garak 대상을 garak_target 으로 바꿔 실행</text>
+  <text class="sub" x="940.0" y="258" text-anchor="middle">정상 질문 5종 x 10회로 오탐 측정</text>
+  <line class="arrow" x1="340" y1="265" x2="340" y2="286"/>
+  <polygon class="head" points="340,295 335,286 345,286"/>
+  <line class="arrow" x1="940" y1="265" x2="940" y2="286"/>
+  <polygon class="head" points="940,295 935,286 945,286"/>
+  <rect class="box key" x="60" y="295" width="560" height="105" rx="8"/>
+  <text class="name" x="340.0" y="325" text-anchor="middle">input_guard.py  (신규)</text>
+  <text class="sub" x="340.0" y="347" text-anchor="middle">check_input(text) → (차단 여부, 사유)</text>
+  <text class="sub" x="340.0" y="368" text-anchor="middle">끼어든 지시 · 역할 표시 · 따라 말하기 · 디코딩되는 Base64</text>
+  <text class="sub" x="340.0" y="389" text-anchor="middle">걸리면 모델 호출 없이 거절문</text>
+  <rect class="box" x="660" y="295" width="560" height="105" rx="8"/>
+  <text class="name" x="940.0" y="325" text-anchor="middle">garak_target.py  (신규)</text>
+  <text class="sub" x="940.0" y="347" text-anchor="middle">Garak 이 부르는 함수 guarded_model()</text>
+  <text class="sub" x="940.0" y="368" text-anchor="middle">respond(): 입력 방어 → 모델(llm.chat) → 출력 방어</text>
+  <text class="sub" x="940.0" y="389" text-anchor="middle">시스템 프롬프트 없음(기준선과 같다)</text>
+  <line class="loop" x1="660" y1="342" x2="629" y2="342"/>
+  <polygon class="head" points="620,342 629,337 629,347"/>
+  <line class="arrow" x1="340" y1="400" x2="340" y2="411"/>
+  <polygon class="head" points="340,420 335,411 345,411"/>
+  <rect class="box key" x="60" y="420" width="560" height="95" rx="8"/>
+  <text class="name" x="340.0" y="450" text-anchor="middle">output_guard.py  (defense.py 에서 분리)</text>
+  <text class="sub" x="340.0" y="472" text-anchor="middle">guard_response(): 카나리 차단 · 허용 밖 링크·이미지 제거</text>
+  <text class="sub" x="340.0" y="493" text-anchor="middle">contains_canary · sanitize_markdown · filter_by_acl</text>
+  <rect class="box ok" x="660" y="420" width="560" height="95" rx="8"/>
+  <text class="name" x="940.0" y="450" text-anchor="middle">metrics.py  (defense.py 에서 분리)</text>
+  <text class="sub" x="940.0" y="472" text-anchor="middle">defense_rate · false_positive_rate · by_category</text>
+  <text class="sub" x="940.0" y="493" text-anchor="middle">test_graph.py 의 aggregate 노드가 사용</text>
+  <rect class="box ok" x="60" y="540" width="560" height="90" rx="8"/>
+  <text class="name" x="340.0" y="570" text-anchor="middle">결과 기록 (GUARD=1)</text>
+  <text class="sub" x="340.0" y="592" text-anchor="middle">results/ch05-garak-guard.json · ch05-pyrit-guard.json</text>
+  <text class="sub" x="340.0" y="613" text-anchor="middle">방어 후 값 + 정상 질문 오탐(benign)</text>
+  <rect class="box ok" x="660" y="540" width="560" height="90" rx="8"/>
+  <text class="name" x="940.0" y="570" text-anchor="middle">단위 테스트 (모델 없음)</text>
+  <text class="sub" x="940.0" y="592" text-anchor="middle">test_input_guard.py (신규) · test_defense.py</text>
+  <text class="sub" x="940.0" y="613" text-anchor="middle">test_input_guard 는 규칙 동작만 고정, 방어율은 스캔 결과로 본다</text>
+  <text class="note" x="60" y="666" text-anchor="start">GUARD 없이 돌린 값이 기준선이다. 같은 모델·공격으로 RESULT_JSON 만 바꿔 두 번 돌려 비교하고, 결과는 06 의 from_scan.py 로 평가셋에 넣는다</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-5</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">15 / 33</text>
+</svg>

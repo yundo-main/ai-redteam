@@ -117,5 +117,5 @@
   <text class="bsm" x="78" y="488.0" text-anchor="start">성공한 공격에서 공통 패턴을 찾는다. 예: 특정 인코딩에서만 우회됨, 멀티턴 5턴 이후 방어 약화, 외부 문서 경유 시에만 성공.</text>
   <text class="bsm" x="78" y="512.8" text-anchor="start">패턴은 개별 프롬프트 차단이 아닌 구조적 대책의 근거가 된다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-7</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">4 / 23</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">4 / 24</text>
 </svg>

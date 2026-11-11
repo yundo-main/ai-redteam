@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">기본 지표</title>
+  <desc id="d">네 가지 기본 지표의 정의와 의미.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+
+    .body { fill: #1b2433; font-size: 19px; }
+    .bsm { fill: #4a5568; font-size: 16px; }
+    .cname { fill: #1b2433; font-size: 21px; font-weight: 700; }
+    .tag { fill: #3b6fc4; font-size: 14px; font-weight: 700; }
+    .red { fill: #d64045; }
+    .th { fill: #0f1b2d; }
+    .thtxt { fill: #ffffff; font-size: 17px; font-weight: 700; }
+    .td1 { fill: #eef3fb; stroke: #dde3ec; stroke-width: 1; }
+    .td2 { fill: #ffffff; stroke: #dde3ec; stroke-width: 1; }
+    .tdtxt { fill: #1b2433; font-size: 17px; }
+    .tdb { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .big { fill: #d64045; font-size: 26px; font-weight: 700; }
+    .circ { fill: #d64045; }
+    .circt { fill: #ffffff; font-size: 16px; font-weight: 700; }
+    .circg { fill: #2f8f5b; }
+    @media (prefers-color-scheme: dark) {
+      .body, .cname, .tdtxt, .tdb { fill: #eef1f6; }
+      .bsm { fill: #aab3c2; }
+      .tag { fill: #7aa5ee; }
+      .red { fill: #e5656a; }
+      .th { fill: #2a3a57; }
+      .td1 { fill: #1c2536; stroke: #2a3447; }
+      .td2 { fill: #14181f; stroke: #2a3447; }
+      .big { fill: #e5656a; }
+      .circ { fill: #e5656a; }
+      .circg { fill: #5fc58b; }
+    }
+  
+    .mono { fill: #1b2433; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-weight: 600; }
+    .cmdbg { fill: #0f1b2d; }
+    .cmd { fill: #e8eefb; font-size: 16px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+    .warn { fill: #fdf0e3; stroke: #d27a1f; stroke-width: 1.5; }
+    .gtxt { fill: #2f8f5b; font-size: 14px; font-weight: 700; }
+    .otxt { fill: #d27a1f; font-size: 14px; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .mono { fill: #eef1f6; }
+      .cmdbg { fill: #0b0f16; }
+      .warn { fill: #33271a; stroke: #f0a45a; }
+      .gtxt { fill: #5fc58b; }
+      .otxt { fill: #f0a45a; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">기본 지표</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">방어율, ASR, 오탐률, 미탐률</text>
+  <rect class="th" x="60" y="190" width="270" height="44"/>
+  <rect class="th" x="330" y="190" width="480" height="44"/>
+  <rect class="th" x="810" y="190" width="410" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">지표</text>
+  <text class="thtxt" x="344" y="218.0" text-anchor="start">정의</text>
+  <text class="thtxt" x="824" y="218.0" text-anchor="start">의미</text>
+  <rect class="td1" x="60" y="234" width="270" height="44"/>
+  <text class="tdb" x="74" y="262.4" text-anchor="start">방어율 (Defense Rate)</text>
+  <rect class="td1" x="330" y="234" width="480" height="44"/>
+  <text class="tdtxt" x="344" y="262.4" text-anchor="start">차단된 공격 수 ÷ 전체 공격 시도 수</text>
+  <rect class="td1" x="810" y="234" width="410" height="44"/>
+  <text class="tdtxt" x="824" y="262.4" text-anchor="start">높을수록 안전</text>
+  <rect class="td2" x="60" y="278" width="270" height="44"/>
+  <text class="tdb" x="74" y="306.4" text-anchor="start">공격 성공률 (ASR)</text>
+  <rect class="td2" x="330" y="278" width="480" height="44"/>
+  <text class="tdtxt" x="344" y="306.4" text-anchor="start">성공한 공격 수 ÷ 전체 공격 시도 수 = 1 − 방어율</text>
+  <rect class="td2" x="810" y="278" width="410" height="44"/>
+  <text class="tdtxt" x="824" y="306.4" text-anchor="start">낮을수록 안전</text>
+  <rect class="td1" x="60" y="322" width="270" height="62.8"/>
+  <text class="tdb" x="74" y="348.6" text-anchor="start">오탐률 (False Positive</text>
+  <text class="tdb" x="74" y="371.0" text-anchor="start">Rate)</text>
+  <rect class="td1" x="330" y="322" width="480" height="62.8"/>
+  <text class="tdtxt" x="344" y="348.6" text-anchor="start">오차단된 정상 요청 수 ÷ 전체 정상 요청 수</text>
+  <rect class="td1" x="810" y="322" width="410" height="62.8"/>
+  <text class="tdtxt" x="824" y="348.6" text-anchor="start">낮을수록 사용성 우수</text>
+  <rect class="td2" x="60" y="384.8" width="270" height="62.8"/>
+  <text class="tdb" x="74" y="411.4" text-anchor="start">미탐률 (False Negative</text>
+  <text class="tdb" x="74" y="433.8" text-anchor="start">Rate)</text>
+  <rect class="td2" x="330" y="384.8" width="480" height="62.8"/>
+  <text class="tdtxt" x="344" y="411.4" text-anchor="start">통과된 공격 수 ÷ 전체 공격 수 (= ASR)</text>
+  <rect class="td2" x="810" y="384.8" width="410" height="62.8"/>
+  <text class="tdtxt" x="824" y="411.4" text-anchor="start">보안 허점</text>
+  <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">8 / 26</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 ② — 평가셋 지표 계산</title>
+  <desc id="d">06 src/ 의 계산 쪽 구성: 입력, from_scan, evalset, stats, 출력과 테스트.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 ② — 평가셋 지표 계산</text>
+  <text class="ssub" x="60" y="154">스캔 기록 또는 직접 만든 결과 → evalset.py → 지표와 게이트 판정 (모델 호출 없음)</text>
+  <rect class="box" x="60" y="180" width="560" height="85" rx="8"/>
+  <text class="name" x="340.0" y="206" text-anchor="middle">스캔 기록</text>
+  <text class="sub" x="340.0" y="227" text-anchor="middle">results/ch06-*.json (내 실행 결과) 또는</text>
+  <text class="sub" x="340.0" y="246" text-anchor="middle">data/scan_examples/ (garak·pyrit x raw·guard 예제 4개)</text>
+  <rect class="box" x="660" y="180" width="560" height="85" rx="8"/>
+  <text class="name" x="940.0" y="206" text-anchor="middle">직접 만든 입력</text>
+  <text class="sub" x="940.0" y="227" text-anchor="middle">data/evalset.example.json (공격 4 + 정상 2)</text>
+  <text class="sub" x="940.0" y="246" text-anchor="middle">data/outcomes.example.json ({id, blocked})</text>
+  <line class="arrow" x1="340" y1="265" x2="340" y2="286"/>
+  <polygon class="head" points="340,295 335,286 345,286"/>
+  <rect class="box key" x="60" y="295" width="560" height="85" rx="8"/>
+  <text class="name" x="340.0" y="321" text-anchor="middle">run/from_scan.py</text>
+  <text class="sub" x="340.0" y="342" text-anchor="middle">집계 k/n 을 blocked 목록으로 펼침 (케이스 GA·PY·OK)</text>
+  <text class="sub" x="340.0" y="361" text-anchor="middle">→ ch06-evalset.json · ch06-outcomes.json 저장</text>
+  <rect class="box" x="660" y="295" width="560" height="85" rx="8"/>
+  <text class="name" x="940.0" y="321" text-anchor="middle">base/stats.py</text>
+  <text class="sub" x="940.0" y="342" text-anchor="middle">Wilson 95% 신뢰구간 (공용 사본)</text>
+  <text class="sub" x="940.0" y="361" text-anchor="middle">wilson() · fmt() · differs()</text>
+  <line class="arrow" x1="340" y1="380" x2="340" y2="396"/>
+  <polygon class="head" points="340,405 335,396 345,396"/>
+  <line class="arrow" x1="940" y1="380" x2="940" y2="396"/>
+  <polygon class="head" points="940,405 935,396 945,396"/>
+  <line class="arrow" x1="940" y1="265" x2="940" y2="286"/>
+  <polygon class="head" points="940,295 935,286 945,286"/>
+  <rect class="box key" x="60" y="405" width="1160" height="110" rx="8"/>
+  <text class="name" x="640.0" y="431" text-anchor="middle">run/evalset.py</text>
+  <text class="sub" x="640.0" y="452" text-anchor="middle">검증 validate — 필수 필드·id 중복·expected/severity 값, 정상 케이스가 없으면 오류</text>
+  <text class="sub" x="640.0" y="471" text-anchor="middle">지표 score — 방어율 · 공격 성공률 · 오탐률 · 유형별 · 심각도 가중   ·   판정 gate — PASS / 표본 부족 / FAIL / 측정 안 됨</text>
+  <text class="sub" x="640.0" y="490" text-anchor="middle">비교·출력 compare (개선 전후) · report · main (--max-asr, --max-fpr)</text>
+  <line class="arrow" x1="200" y1="515" x2="200" y2="536"/>
+  <polygon class="head" points="200,545 195,536 205,536"/>
+  <line class="arrow" x1="640" y1="515" x2="640" y2="536"/>
+  <polygon class="head" points="640,545 635,536 645,536"/>
+  <line class="arrow" x1="1040" y1="515" x2="1040" y2="536"/>
+  <polygon class="head" points="1040,545 1035,536 1045,536"/>
+  <rect class="box ok" x="60" y="545" width="300" height="85" rx="8"/>
+  <text class="name" x="210.0" y="571" text-anchor="middle">화면 출력</text>
+  <text class="sub" x="210.0" y="592" text-anchor="middle">지표 표 + 유형별 방어율</text>
+  <text class="sub" x="210.0" y="611" text-anchor="middle">+ 게이트 결과</text>
+  <rect class="box ok" x="490" y="545" width="300" height="85" rx="8"/>
+  <text class="name" x="640.0" y="571" text-anchor="middle">tests/test_evalset.py [선택]</text>
+  <text class="sub" x="640.0" y="592" text-anchor="middle">검증·지표·게이트 단위 테스트</text>
+  <text class="sub" x="640.0" y="611" text-anchor="middle">18개, 모델 없음</text>
+  <rect class="box ok" x="920" y="545" width="300" height="85" rx="8"/>
+  <text class="name" x="1070.0" y="571" text-anchor="middle">tests/test_from_scan.py [선택]</text>
+  <text class="sub" x="1070.0" y="592" text-anchor="middle">변환 단위 테스트</text>
+  <text class="sub" x="1070.0" y="611" text-anchor="middle">예제 4개 실행 포함, 스캐너 없음</text>
+  <text class="note" x="60" y="666" text-anchor="start">파일 배치는 앞 장(상하 계층) 참고. 예제는 공격 4건·정상 2건이라 구간이 넓다(방어율 75% [30%–95%])</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">16 / 26</text>
+</svg>

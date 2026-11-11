@@ -5,7 +5,7 @@
 
 > 선행 개념: 6-1 7단계 절차(3장)·ASR(8.1), 6-2 Prompt Attack 기법(4장)·시나리오 워크시트(6장)
 
-> 전체 내용을 슬라이드 32장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s32, 실습은 s15~s29)
+> 전체 내용을 슬라이드 33장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s33, 소스 구조는 s13~s15, 실습은 s16~s30)
 ---
 
 ![자동화 검증 파이프라인](slides/s03-structure.svg)
@@ -69,7 +69,7 @@
 4. Detector가 응답을 판정
 5. 리포트에서 Probe별 **통과/실패 비율** 확인
 
-![Garak 한 번의 실행: Probe → 모델 → Detector, 실제 사례 2개](slides/s19-garak-detail.svg)
+![Garak 한 번의 실행: Probe → 모델 → Detector, 실제 사례 2개](slides/s20-garak-detail.svg)
 
 ---
 
@@ -90,7 +90,7 @@
 
 > PyRIT은 버전에 따라 구성 요소 명칭과 구조(예: Orchestrator 개념의 개편)가 바뀌어 왔다. 개념은 같으므로 사용 버전의 문서를 기준으로 학습한다.
 
-![PyRIT 한 번의 공격: Objective → Converter → Target → Scorer, 실습 공격 4유형](slides/s20-pyrit-detail.svg)
+![PyRIT 한 번의 공격: Objective → Converter → Target → Scorer, 실습 공격 4유형](slides/s21-pyrit-detail.svg)
 
 ### 4.3 Garak과의 차이
 
@@ -168,7 +168,7 @@
 
 ## 8. 실습
 
-> 전체 흐름은 슬라이드 [s15~s29](slides/index.html#15)로도 볼 수 있다. 방식·가설은 [s15~s17](slides/index.html#15), 도구와 역할은 [s18~s20](slides/index.html#18), 게이트 구성은 [s21](slides/index.html#21), 준비 단계는 [s22](slides/index.html#22)·[s23](slides/index.html#23), 스캐너 실행(실행 3)은 [s24](slides/index.html#24), 게이트 실행(실행 4)은 [s25](slides/index.html#25)이다.
+> 전체 흐름은 슬라이드 [s16~s30](slides/index.html#16)로도 볼 수 있다. 방식·가설은 [s16~s18](slides/index.html#16), 도구와 역할은 [s19~s21](slides/index.html#19), 게이트 구성은 [s22](slides/index.html#22), 준비 단계는 [s23](slides/index.html#23)·[s24](slides/index.html#24), 스캐너 실행(실행 3)은 [s25](slides/index.html#25), 게이트 실행(실행 4)은 [s26](slides/index.html#26)이다.
 **Ollama 준비 (이 일차의 모델 실습에 필요하다).** 모델은 내 컴퓨터에서만 돌고 테스트 입력이 외부로 나가지 않는다.
 - 설치: macOS는 `brew install ollama` 또는 [ollama.com/download](https://ollama.com/download)의 앱. Linux·Windows도 같은 사이트의 방법을 따른다.
 - 서버: 터미널 하나에서 `ollama serve`를 켜 둔다(앱으로 설치했으면 이미 실행 중일 수 있다. 포트 사용 중 오류가 나면 그대로 쓰면 된다).
@@ -195,16 +195,20 @@ ai-redteam/                             저장소 루트
 │   └── garak/data/garak/garak_runs/    Garak 원본 리포트(ch05-<시각>.report.jsonl, .html)
 └── 05_garak_pyrit_automated_testing/
     ├── readme.md                       이 문서
-    ├── slides/                         슬라이드 32장(index.html + s01~s32 SVG)
+    ├── slides/                         슬라이드 33장(index.html + s01~s33 SVG)
     └── src/
         ├── scan_pyrit.py               [실행 3] PyRIT 공격·채점 — LLM 필요
         ├── scan_garak.py               [실행 3] Garak 스캔·리포트 읽기 — LLM 필요
         ├── test_graph.py               [실행 4] LangGraph 방어 평가·게이트 — .venv, LLM 필요
-        ├── test_defense.py             [실행 1] defense.py 단위 테스트 — LLM 불필요
+        ├── test_defense.py             [선택] output_guard·metrics 단위 테스트 — LLM 불필요
+        ├── test_input_guard.py         입력 방어 규칙 단위 테스트 — LLM 불필요 (규칙 동작만 고정)
         ├── test_scan.py                스캔 스크립트 점검(리포트 파싱·가설 키) — LLM 불필요
         ├── test_hypothesis_log.py      가설 대조 단위 테스트 — LLM 불필요
         ├── test_stats.py               신뢰구간 단위 테스트 — LLM 불필요
-        ├── defense.py                  방어 계층 + 방어율·오탐률 계산(04와 같은 복사본)
+        ├── input_guard.py              입력 방어(GUARD=1): 끼어든 지시·역할 표시·따라 말하기·Base64 검사
+        ├── output_guard.py             출력 방어: 카나리 차단·외부 링크 제거·ACL 필터 (구 defense.py 의 방어 부분)
+        ├── metrics.py                  방어율·오탐률·유형별 계산 (구 defense.py 의 지표 부분)
+        ├── garak_target.py             GUARD=1 일 때 Garak 이 공격하는 함수(입력 방어 → 모델 → 출력 방어)
         ├── llm.py                      Ollama 호출·ready()(03·04와 같은 복사본)
         ├── stats.py                    Wilson 신뢰구간·반복 횟수(복사본)
         ├── hypothesis_log.py           가설 대조·결과 저장(복사본)
@@ -213,7 +217,7 @@ ai-redteam/                             저장소 루트
 
 `[실행 N]`은 8.4의 단계 번호다. 모든 파일을 `.venv`를 활성화한 상태에서 `python`으로 실행한다. 스캐너(`scan_*.py`)만 `requirements-scan.txt`를 추가로 설치해야 한다.
 
-`llm.py`·`stats.py`·`hypothesis_log.py`는 03·04와 같은 이름의 복사본이다. `defense.py`도 04와 완전히 같은 복사본이다 — 유형별 방어율을 보는 `defense_rate_by_category()`를 포함해 두 일차가 같은 파일을 쓴다(`diff`를 뜨면 차이가 없다). 이 실습은 **서로 독립된 세 실행**이다(같은 모델·같은 카나리 시나리오를 쓰지만, 서로의 출력을 읽지 않는다). `scan_pyrit.py`는 **PyRIT**으로 카나리 유출 공격을 보내 채점하고, `scan_garak.py`는 **Garak**으로 모델을 스캔해 리포트를 읽는다(둘 다 `.venv`에서 실행, `requirements-scan.txt` 추가 설치 필요). `test_graph.py`는 Garak·PyRIT을 호출하지 않고, 위 토대를 LangGraph 노드(`ask_model → run_cases → aggregate → gate`)로 엮어 "공격 생성 → 호출 → 판정 → 집계" 구조와 방어 계층, **합격/불합격 게이트**를 직접 구현한다. 모델도 `ChatOllama`로 직접 호출한다. `test_defense.py`는 03·04와 같은 패턴으로 `defense.py`만 모델 없이 단위 테스트한다.
+`llm.py`·`stats.py`·`hypothesis_log.py`는 03·04와 같은 이름의 복사본이다. 방어 코드는 05 폴더 안에서 모두 해결한다. 04의 `defense.py`를 복사하지 않고 `output_guard.py`(출력 방어)·`metrics.py`(지표)·`input_guard.py`(입력 방어)로 나눠 두었으며, 다른 일차를 import 하지 않는다. 이 실습은 **서로 독립된 세 실행**이다(같은 모델·같은 카나리 시나리오를 쓰지만, 서로의 출력을 읽지 않는다). `scan_pyrit.py`는 **PyRIT**으로 카나리 유출 공격을 보내 채점하고, `scan_garak.py`는 **Garak**으로 모델을 스캔해 리포트를 읽는다(둘 다 `.venv`에서 실행, `requirements-scan.txt` 추가 설치 필요). `test_graph.py`는 Garak·PyRIT을 호출하지 않고, 위 토대를 LangGraph 노드(`ask_model → run_cases → aggregate → gate`)로 엮어 "공격 생성 → 호출 → 판정 → 집계" 구조와 방어 계층, **합격/불합격 게이트**를 직접 구현한다. 모델도 `ChatOllama`로 직접 호출한다. `test_defense.py`는 `output_guard.py`·`metrics.py`를, `test_input_guard.py`는 `input_guard.py`를 모델 없이 단위 테스트한다(고정 문장으로 규칙 동작만 확인하며, 방어가 실제로 통하는 정도는 `GUARD=1` 스캔 결과로 본다).
 
 ### 8.2 실습 방식
 이 실습은 **Garak과 PyRIT을 실제로 실행**한다. 대상은 로컬 Ollama 모델(`qwen2.5:3b`) 하나이고, 도구마다 맡은 일이 다르다.
@@ -283,12 +287,14 @@ source .venv/bin/activate
 pip install -r requirements.txt       # 같은 버전 재현은 루트 readme의 "같은 버전으로 재현"
 ```
 
-**1. 방어·지표 단위 테스트 (LLM 불필요)** — 방어율·오탐률·유형별 방어율 계산이 맞는지 확인한다. 지표가 틀리면 게이트 판정이 틀린다.
+**1. 방어·지표 단위 테스트 (선택, LLM 불필요)** — 방어율·오탐률·유형별 방어율 계산이 맞는지 확인한다. 지표가 틀리면 게이트 판정이 틀린다. 코드를 고쳤을 때 돌리고, 그대로 쓰면 건너뛰어도 된다.
 ```
 python -m unittest -v 05_garak_pyrit_automated_testing/src/test_defense.py
 ```
 - 통과: 마지막 줄이 `OK`, `Ran 13 tests`, FAIL·ERROR 0건
 - 아니면: 여기서 멈추고 코드부터 고친다.
+
+**왜 이 단계가 있나 (선택)**: 단위 테스트는 실습을 따라 하는 데는 필요 없고, **코드를 고칠 때** 이전에 되던 것이 깨지지 않았는지 몇 초 만에 확인하는 용도다. 사람이 고치든 AI가 고치든 마찬가지다. 스캔(Garak·PyRIT)은 몇 분 걸리고 결과가 매번 달라져서, 결과가 이상할 때 코드가 틀렸는지 모델이 달랐는지 가르기 어렵다. 단위 테스트는 고정된 입력으로 항상 같은 결과가 나오므로 그 구분을 해 준다. 단, 테스트가 통과해도 방어가 실제로 통한다는 뜻은 아니다 — 방어율·오탐률은 스캔 결과가 말한다. 입력·출력 방어 규칙(`test_input_guard.py`, `test_defense.py`)을 고쳤다면 반드시 돌린다.
 
 **2. Ollama 서버와 모델 준비 (LLM 실행)**
 ```
@@ -314,6 +320,7 @@ PyRIT(약 1분, 공격 4유형 x 10회 = 40건):
 ```
 RESULT_JSON=results/ch05-pyrit.json python 05_garak_pyrit_automated_testing/src/scan_pyrit.py
 ```
+
 ```
 [PyRIT qwen2.5:3b]   exfil_direct: 유출 100% [72%–100%] (10/10)
 [PyRIT qwen2.5:3b]   exfil_encoded: 유출 70% [40%–89%] (7/10)
@@ -321,6 +328,9 @@ RESULT_JSON=results/ch05-pyrit.json python 05_garak_pyrit_automated_testing/src/
 [PyRIT qwen2.5:3b]   exfil_converted: 유출 0% [0%–28%] (0/10)
 [PyRIT qwen2.5:3b] 전체 유출 68% [52%–80%] (27/40)  (방어 계층을 거치기 전 모델 원본 응답)
 ```
+
+`GUARD=1`을 앞에 붙이면 응답에 방어 계층(`input_guard` → 모델 → `output_guard.guard_response`)을 적용한 뒤 채점한다. 같은 공격을 `RESULT_JSON`만 바꿔 GUARD 없이/있이 두 번 돌리면 방어 계층 효과가 보인다(qwen2.5:3b 예: 유출 68% → 0%). 정상 질문 5종 x 10회도 함께 보내 방어 계층이 정상 응답을 막거나 고친 비율(오탐)을 `per_type.benign`에 남긴다(GUARD 없이는 항상 0). Garak은 `GUARD=1`일 때 대상을 `garak_target.py`(입력 방어 → 모델 → 출력 방어)로 바꿔 같은 방식으로 비교한다(예: 문서 속 숨은 지시 77% → 60%, 정상 질문 오차단 1/50). 입력 규칙은 일반적인 공격 형태만 보므로 놓치는 변형이 남는다 — 이 프로브 30개를 보고 규칙을 고쳐 방어율을 올리면 평가셋 오염(6-6 2.4)이므로 하지 않았다.
+
 Garak(몇 분, 프로브 2개 x 프롬프트 30개):
 ```
 RESULT_JSON=results/ch05-garak.json python 05_garak_pyrit_automated_testing/src/scan_garak.py
@@ -371,7 +381,7 @@ OK
   - 방어 있음이 FAIL이면 `방어 전 유출`과 유형별 방어율을 보고 어느 유형이 뚫렸는지 찾는다.
 
 ### 8.5 결과 해석
-슬라이드 [s26](slides/index.html#26)(결과 표), [s27](slides/index.html#27)(해석 주의), [s28](slides/index.html#28)(읽는 순서), [s29](slides/index.html#29)(한계·결론 문장).
+슬라이드 [s27](slides/index.html#27)(결과 표), [s28](slides/index.html#28)(해석 주의), [s29](slides/index.html#29)(읽는 순서), [s30](slides/index.html#30)(한계·결론 문장).
 
 **스캐너 결과(방어 전)와 게이트 결과(방어 후)는 서로 다른 실행이다.** PyRIT 68%(27/40)에는 Base64 변환 유형(0/10)이 들어 있어서, 같은 모델이라도 게이트의 방어 전 유출 93%(28/30, 3유형)와 숫자가 다르다. PyRIT의 앞 3유형만 보면 90%(27/30)로 비슷하다. 질문 구성·표본이 다르므로 두 수치를 같은 척도로 비교하지 않는다. Garak의 80%(문서 속 지시)와 0%(Base64)는 프로브마다 Detector 기준이 달라서 합치지 않고 따로 읽는다.
 

@@ -6,7 +6,7 @@
 - 6-4 : 데이터 유출을 "막는" 방어 모듈(카나리 탐지, 출력 URL 허용 목록, 문서 단위 ACL)
 - 6-5 : 자동 스캔 결과를 집계하는 지표(방어율, 오탐률, 유형별 방어율)
 
-방어 모듈은 defense.py 에 있다.
+방어 모듈은 output_guard.py(출력 방어), 지표는 metrics.py 에 있다. 입력 방어는 test_input_guard.py 가 따로 본다.
 LangChain(ACL 검색기, 모델 -> 방어 체인)과 LangGraph(평가 그래프, 합격/불합격 게이트) 적용은
 실제 로컬 모델(Ollama)을 쓰는 모델 테스트 파일(각 code-map.svg 참조)에서 다룬다.
 
@@ -22,9 +22,8 @@ import base64
 import unittest
 from urllib.parse import quote
 
-from defense import (contains_canary, defense_rate, defense_rate_by_category,
-                     false_positive_rate, filter_by_acl, guard_response,
-                     sanitize_markdown)
+from output_guard import contains_canary, filter_by_acl, guard_response, sanitize_markdown
+from metrics import defense_rate, defense_rate_by_category, false_positive_rate
 
 
 # ---------------------------------------------------------------------------

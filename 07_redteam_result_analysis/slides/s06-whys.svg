@@ -116,5 +116,5 @@
   <text class="cname" x="78" y="488.0" text-anchor="start">RAG 계층의 문서 단위 ACL 부재</text>
   <text class="bsm" x="78" y="520.0" text-anchor="start">"특정 프롬프트를 필터에 추가한다"는 증상 차단이다. 근본 원인인 ACL을 고쳐야 같은 유형이 재발하지 않는다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-7</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">6 / 23</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">6 / 24</text>
 </svg>

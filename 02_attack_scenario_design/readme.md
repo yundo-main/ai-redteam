@@ -3,7 +3,7 @@
 > 학습 목표: AI 서비스에 대한 공격 시나리오를 설계할 수 있다.
 > 주도 학습 주제: 공격 시나리오(목표·전제·성공조건) 설계 워크시트
 
-> 전체 내용을 슬라이드 13장으로도 볼 수 있다: [slides/](slides/index.html) (s01~s13)
+> 전체 내용을 슬라이드 13장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s13)
 ---
 
 ![Exploit Chain: 공격 연쇄와 통제 지점](slides/s07-attack-chain.svg)

@@ -5,7 +5,7 @@
 
 > 선행 개념: 6-1 점수화(2.3)·방어 원칙(8.2), 6-2 시나리오 워크시트(6장)·Exploit Chain(5장), 6-6 평가셋 지표
 
-> 전체 내용을 슬라이드 23장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s23, 보고서 생성 실습은 s16~s18)
+> 전체 내용을 슬라이드 24장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s24, 소스 구조는 s16, 실습은 s17~s19)
 ---
 
 ![결과 분석에서 개선까지의 순환](slides/s03-analysis-cycle.svg)
@@ -157,17 +157,60 @@
 
 ### 6.5 보고서 생성 도구 (실습)
 
-> 슬라이드 [s16~s18](slides/index.html#16)로도 볼 수 있다. 실행은 s16, 도구와 사람의 역할은 s17, 심각도 규칙은 s18이다.
+> 슬라이드 [s16~s19](slides/index.html#16)로도 볼 수 있다. 소스 구조는 s16, 실행은 s17, 도구와 사람의 역할은 s18, 심각도 규칙은 s19이다.
 
-6-3 하네스의 실행 결과와 6-2 워크시트를 6장 형식의 보고서 초안으로 만든다. 코드는 [src/report.py](src/report.py), 생성 예시는 [sample-report.md](sample-report.md)이다. 예시는 `qwen2.5:3b`로 실제 실행한 결과(TA-01 30회, JB-01 15회)에서 만들었다.
+**소스 코드 구조**
+
+![07 소스 코드 구조: run → base 상하 계층, data·tests](slides/s16-code-map.svg)
+
+**파일 트리 (상하 계층)**
+```
+07_redteam_result_analysis/
+├── readme.md                       이론 정리 (이 문서)
+├── sample-report.md                생성 예시 (qwen2.5:3b 실제 결과: TA-01 30회, JB-01 15회)
+├── slides/                         슬라이드 24장(index.html + s01~s24 SVG)
+└── src/
+    ├── run/                        [1계층] 실행
+    │   ├── report.py               보고서 생성기 (본체) — 07 입력 형식(redteam-run/1)만 읽는다
+    │   └── from_harness.py         하네스(03) 기록 → 07 입력 형식 변환 (하네스 형식을 아는 유일한 파일)
+    ├── base/                       [2계층] 기반 — 다른 계층에 의존하지 않음
+    │   ├── stats.py                Wilson 95% 구간
+    │   └── hypothesis_log.py       가설 기록·대조
+    ├── data/                       예제 데이터 (코드 아님)
+    │   ├── run.example.json        07 입력 기록 예제 (redteam-run/1)
+    │   ├── run-baseline.example.json   개선 전 입력 기록 예제 (--baseline 용)
+    │   ├── hypothesis.example.json 가설 파일 예시
+    │   ├── scenarios/              시나리오 워크시트: ch03_ta01.json · ch03_jb01.json
+    │   └── harness/                하네스 기록 예제 2개 (from_harness.py 변환 입력)
+    └── tests/                      [선택: 코드를 고칠 때]
+        ├── test_report.py          보고서 생성기 단위 테스트 (모델 없음)
+        ├── test_from_harness.py    변환 단위 테스트
+        ├── test_stats.py           stats.py 단위 테스트
+        └── test_hypothesis_log.py  hypothesis_log.py 단위 테스트
+```
+입력은 07 자체 형식의 실행 기록(`redteam-run/1`, 예제 `src/data/run.example.json`)과 `src/data/scenarios/`의 워크시트이고, 출력은 `results/report.md`(이전 보고서는 `results/history/`로 이동)이다. 모든 파일은 `.venv`를 활성화하고 `python`으로 실행하며 LLM이 필요 없다. 이 폴더만 가져가도 예제로 바로 실행된다. 단위 테스트(선택)는 `python -m unittest discover -s 07_redteam_result_analysis/src/tests`로 돌린다.
+
+6-3 하네스의 실행 결과와 6-2 워크시트를 6장 형식의 보고서 초안으로 만든다. 코드는 [src/run/report.py](src/run/report.py), 생성 예시는 [sample-report.md](sample-report.md)이다. 예시는 `qwen2.5:3b`로 실제 실행한 결과(TA-01 30회, JB-01 15회)에서 만들었다.
 
 ```
-python 07_redteam_result_analysis/src/report.py results/example/ch03.json -o results/report.md          # 전체 보고서
-python 07_redteam_result_analysis/src/report.py results/example/ch03.json --audience exec              # 경영진용: 요약·의사결정만 (화면 출력)
-python 07_redteam_result_analysis/src/report.py results/example/ch03.json --baseline results/example/ch03_results.json   # 개선 전후 재검증 비교표 포함
+python 07_redteam_result_analysis/src/run/report.py -o results/report.md          # 전체 보고서 (인자 없으면 src/data/run.example.json)
+python 07_redteam_result_analysis/src/run/report.py --audience exec              # 경영진용: 요약·의사결정만 (화면 출력)
+python 07_redteam_result_analysis/src/run/report.py --baseline 07_redteam_result_analysis/src/data/run-baseline.example.json   # 개선 전후 재검증 비교표 포함
+python 07_redteam_result_analysis/src/run/from_harness.py results/ch03.json -o results/run.json   # 내가 측정한 하네스 기록을 07 입력 형식으로 변환
 ```
 
-입력은 6-3 하네스가 `--json`으로 저장한 실행 기록이다. 예제가 `results/example/ch03.json`에 있으므로 3일차를 놓쳐도 바로 실행된다. 직접 측정했다면 `results/ch03.json`을 입력으로 쓴다. `-o`로 저장하면 같은 이름의 이전 보고서는 `results/history/`로 옮겨 보관하고, 보고서를 만드는 중 오류가 나면 빈 파일을 남기지 않는다. `--baseline`에는 개선 전 실행 기록을 준다(예제의 `ch03_results.json`은 이전 형식의 개선 전 기록이다).
+입력 기록은 이 일차가 정한 자체 형식 `redteam-run/1`이다(`report.py`가 읽을 때 형식을 검증하고, 다르면 변환하라는 안내와 함께 멈춘다).
+
+```
+{"format": "redteam-run/1", "meta": {"started_at", "model"},
+ "runs": [{"scenario": "TA-01", "controls": "off"|"on", "trials": 10, "successes": 8,
+           "evidence": [...], "audit": [...], "model": "...", "params": {...}}],
+ "hypothesis": {"predictions": {"ch07.TA-01.off": 0.7}, "memo": {}, "file", "sha256", "file_mtime"} | null}
+```
+
+6-3 하네스가 `--json`으로 저장한 기록은 모양이 달라서(`case_id`, `controls_on`, `audit_log`, `ch03.` 키) `from_harness.py`로 먼저 바꾼다. 하네스 형식을 아는 것은 이 변환 도구뿐이라, 앞 일차의 저장 형식이 바뀌면 이 파일만 고치면 된다. 예제가 `src/data/`에 들어 있으므로 3일차를 놓쳐도 바로 실행된다. `-o`로 저장하면 같은 이름의 이전 보고서는 `results/history/`로 옮겨 보관하고, 보고서를 만드는 중 오류가 나면 빈 파일을 남기지 않는다. `--baseline`에는 개선 전 실행 기록을 준다(예제 `src/data/ch03-baseline.example.json`은 이전 형식의 개선 전 기록이다).
+
+**왜 단위 테스트가 있나 (선택)**: 단위 테스트는 실습을 따라 하는 데는 필요 없고, **코드를 고칠 때**(사람이든 AI든) 심각도 등급 규칙, 독자별 절 구성, 이메일 마스킹, 이전 보고서 보관 같은 동작이 깨지지 않았는지 몇 초 만에 확인하는 용도다. 보고서는 사람이 읽는 글이라 숫자가 조금 어긋나도 눈치채기 어려워서 고정된 입력으로 확인해 둔다. 다만 테스트가 통과해도 보고서의 분석 내용(근본 원인 등)이 맞다는 뜻은 아니다. 그 판단은 사람이 한다.
 
 | 독자 (`--audience`) | 포함 절 |
 | --- | --- |
@@ -192,7 +235,7 @@ python 07_redteam_result_analysis/src/report.py results/example/ch03.json --base
 
 **증거와 마스킹**: 증거에는 도구 이름, 거부 사유, 위반 턴 같은 실행 기록 요약만 싣고 이메일은 마스킹한다. 모델 원본 응답과 테스트 입력 본문은 싣지 않는다(6.4의 민감 증거 원칙).
 
-**한계**: 입력은 03장 하네스·시나리오(TA/JB) 결과 형식이다. 04·05장 평가 그래프의 결과는 아직 JSON으로 저장하지 않아 보고서에 들어가지 않는다. 연쇄(Exploit Chain) 항목의 별도 평가(8장)는 자동화하지 않았다.
+**한계**: 변환 도구(`from_harness.py`)는 03장 하네스·시나리오(TA/JB) 기록만 지원한다. 04·05장 평가 그래프의 결과는 변환 도구가 없어 보고서에 들어가지 않는다(07 입력 형식으로 직접 쓰면 읽는다). 연쇄(Exploit Chain) 항목의 별도 평가(8장)는 자동화하지 않았다.
 
 ---
 

@@ -99,16 +99,19 @@
   <text class="tag" x="668" y="222" text-anchor="start">일차별 실행</text>
   <rect class="cmdbg" x="650" y="240" width="570" height="370" rx="10"/>
   <text class="cmd" x="668" y="272" text-anchor="start">python 03_jailbreak_tool_abuse_testing/src/harness.py</text>
-  <text class="cmd" x="668" y="302" text-anchor="start">    --hypothesis results/hypothesis-ch03.json</text>
-  <text class="cmd" x="668" y="332" text-anchor="start">    --json results/ch03.json</text>
-  <text class="cmd" x="668" y="362" text-anchor="start">python -W ignore -m unittest -v</text>
-  <text class="cmd" x="668" y="392" text-anchor="start">    04_data_exfiltration_validation/src/test_chain.py</text>
-  <text class="cmd" x="668" y="422" text-anchor="start">python -W ignore -m unittest -v</text>
-  <text class="cmd" x="668" y="452" text-anchor="start">    05_garak_pyrit_automated_testing/src/test_graph.py</text>
-  <text class="cmd" x="668" y="482" text-anchor="start">python 06_evaluation_set_defense_rate/src/evalset.py</text>
-  <text class="cmd" x="668" y="512" text-anchor="start">    --max-asr 0.2 --max-fpr 0.1</text>
-  <text class="cmd" x="668" y="542" text-anchor="start">python 07_redteam_result_analysis/src/report.py</text>
-  <text class="cmd" x="668" y="572" text-anchor="start">    results/ch03.json</text>
+  <text class="cmd" x="668" y="297" text-anchor="start">    --hypothesis results/hypothesis-ch03.json</text>
+  <text class="cmd" x="668" y="322" text-anchor="start">    --json results/ch03.json</text>
+  <text class="cmd" x="668" y="347" text-anchor="start">python -W ignore -m unittest -v</text>
+  <text class="cmd" x="668" y="372" text-anchor="start">    04_data_exfiltration_validation/src/test_chain.py</text>
+  <text class="cmd" x="668" y="397" text-anchor="start">python -W ignore -m unittest -v</text>
+  <text class="cmd" x="668" y="422" text-anchor="start">    05_garak_pyrit_automated_testing/src/test_graph.py</text>
+  <text class="cmd" x="668" y="447" text-anchor="start">python 06_evaluation_set_defense_rate/src/run/evalset.py</text>
+  <text class="cmd" x="668" y="472" text-anchor="start">    --max-asr 0.2 --max-fpr 0.1</text>
+  <text class="cmd" x="668" y="497" text-anchor="start">python 07_redteam_result_analysis/src/run/</text>
+  <text class="cmd" x="668" y="522" text-anchor="start">    from_harness.py results/ch03.json</text>
+  <text class="cmd" x="668" y="547" text-anchor="start">    -o results/run.json</text>
+  <text class="cmd" x="668" y="572" text-anchor="start">python 07_redteam_result_analysis/src/run/report.py</text>
+  <text class="cmd" x="668" y="597" text-anchor="start">    results/run.json</text>
   <text class="bsm" x="60" y="655" text-anchor="start">모델 교체: OLLAMA_MODEL=llama3.2:3b python …   ·   QUICK=1은 반복 1/3 동작 확인용 — 통계 결론 아님</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 참고자료</text>
   <text class="foot" x="1220" y="694.0" text-anchor="end">5 / 7</text>

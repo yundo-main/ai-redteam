@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">소스 코드 구조 ① — 상하 계층</title>
+  <desc id="d">06 src/ 를 run, target, base 세 계층으로 나눈 구조. 위 계층이 아래 계층만 import 하고, data 와 tests 는 옆에 따로 둔다.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 17px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 13px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .loop { stroke: #6b7686; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    .title { fill: #1b2433; font-size: 18px; font-weight: 700; }
+    .note { fill: #4a5568; font-size: 14px; }
+    .stitle { fill: #1b2433; font-size: 40px; font-weight: 700; }
+    .ssub { fill: #4a5568; font-size: 20px; }
+    .chip { fill: #d64045; }
+    .chiptxt { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 14px; }
+    .c1 { fill: #3b6fc4; fill-opacity: .22; stroke: #3b6fc4; stroke-width: 1.5; }
+    .c2 { fill: #d27a1f; fill-opacity: .22; stroke: #d27a1f; stroke-width: 1.5; }
+    .c3 { fill: #2f8f5b; fill-opacity: .22; stroke: #2f8f5b; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .ssub { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .chip { fill: #e5656a; }
+      .sub, .note { fill: #aab3c2; }
+      .arrow, .loop { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+      .c1 { fill: #7aa5ee; fill-opacity: .25; stroke: #7aa5ee; }
+      .c2 { fill: #f0a45a; fill-opacity: .25; stroke: #f0a45a; }
+      .c3 { fill: #5fc58b; fill-opacity: .25; stroke: #5fc58b; }
+    }
+  </style>
+  <rect class="bg" width="1280" height="720"/>
+  <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
+  <text class="chiptxt" x="90" y="60" text-anchor="middle">6-6</text>
+  <text class="stitle" x="60" y="118">소스 코드 구조 ① — 상하 계층</text>
+  <text class="ssub" x="60" y="154">src/ 를 run → target → base 세 계층으로 나눈다. 위 계층이 아래 계층만 import 한다</text>
+  <rect class="box" x="60" y="176" width="1160" height="126" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="200" style="font-size:15px">run/  실행 — 사람이 python 으로 직접 실행하는 파일</text>
+  <rect class="box key" x="80" y="208" width="270" height="84" rx="6"/>
+  <text class="name" x="215.0" y="232" text-anchor="middle" style="font-size:15px">scan_pyrit.py</text>
+  <text class="sub" x="215.0" y="252" text-anchor="middle" style="font-size:12px">PyRIT 공격 4유형 + 정상 질문</text>
+  <text class="sub" x="215.0" y="270" text-anchor="middle" style="font-size:12px">GUARD=1 지원 · LLM 필요</text>
+  <rect class="box key" x="366" y="208" width="270" height="84" rx="6"/>
+  <text class="name" x="501.0" y="232" text-anchor="middle" style="font-size:15px">scan_garak.py</text>
+  <text class="sub" x="501.0" y="252" text-anchor="middle" style="font-size:12px">Garak 프로브 2개 + 정상 질문</text>
+  <text class="sub" x="501.0" y="270" text-anchor="middle" style="font-size:12px">GUARD=1 지원 · LLM 필요</text>
+  <rect class="box key" x="652" y="208" width="270" height="84" rx="6"/>
+  <text class="name" x="787.0" y="232" text-anchor="middle" style="font-size:15px">from_scan.py</text>
+  <text class="sub" x="787.0" y="252" text-anchor="middle" style="font-size:12px">스캔 기록 → 평가셋·결과 JSON</text>
+  <text class="sub" x="787.0" y="270" text-anchor="middle" style="font-size:12px">변환 후 지표 출력</text>
+  <rect class="box key" x="938" y="208" width="262" height="84" rx="6"/>
+  <text class="name" x="1069.0" y="232" text-anchor="middle" style="font-size:15px">evalset.py</text>
+  <text class="sub" x="1069.0" y="252" text-anchor="middle" style="font-size:12px">검증 · 지표 · 게이트 판정</text>
+  <text class="sub" x="1069.0" y="270" text-anchor="middle" style="font-size:12px">모델 호출 없음</text>
+  <line class="arrow" x1="640" y1="302" x2="640" y2="319"/>
+  <polygon class="head" points="640,328 635,319 645,319"/>
+  <text class="note" x="652" y="320" style="font-size:13px">아래 계층만 import</text>
+  <rect class="box" x="60" y="328" width="1160" height="112" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="352" style="font-size:15px">target/  공격 대상과 방어</text>
+  <rect class="box" x="80" y="360" width="340" height="70" rx="6"/>
+  <text class="name" x="250.0" y="384" text-anchor="middle" style="font-size:15px">garak_target.py</text>
+  <text class="sub" x="250.0" y="404" text-anchor="middle" style="font-size:12px">Garak 이 부르는 함수: 입력 방어 → 모델 → 출력 방어</text>
+  <rect class="box" x="450" y="360" width="340" height="70" rx="6"/>
+  <text class="name" x="620.0" y="384" text-anchor="middle" style="font-size:15px">input_guard.py</text>
+  <text class="sub" x="620.0" y="404" text-anchor="middle" style="font-size:12px">입력 방어: 끼어든 지시·Base64 검사</text>
+  <rect class="box" x="820" y="360" width="380" height="70" rx="6"/>
+  <text class="name" x="1010.0" y="384" text-anchor="middle" style="font-size:15px">output_guard.py</text>
+  <text class="sub" x="1010.0" y="404" text-anchor="middle" style="font-size:12px">출력 방어: 카나리 차단·외부 링크 제거</text>
+  <line class="arrow" x1="640" y1="440" x2="640" y2="457"/>
+  <polygon class="head" points="640,466 635,457 645,457"/>
+  <rect class="box" x="60" y="466" width="1160" height="92" rx="10" style="fill-opacity:.35"/>
+  <text class="num" x="80" y="490" style="font-size:15px">base/  기반 — 다른 계층에 의존하지 않는다</text>
+  <rect class="box" x="80" y="500" width="340" height="50" rx="6"/>
+  <text class="name" x="250.0" y="524" text-anchor="middle" style="font-size:15px">llm.py</text>
+  <text class="sub" x="250.0" y="544" text-anchor="middle" style="font-size:12px">Ollama 호출·ready()</text>
+  <rect class="box" x="450" y="500" width="340" height="50" rx="6"/>
+  <text class="name" x="620.0" y="524" text-anchor="middle" style="font-size:15px">stats.py</text>
+  <text class="sub" x="620.0" y="544" text-anchor="middle" style="font-size:12px">Wilson 신뢰구간·반복 횟수</text>
+  <rect class="box" x="820" y="500" width="380" height="50" rx="6"/>
+  <text class="name" x="1010.0" y="524" text-anchor="middle" style="font-size:15px">hypothesis_log.py</text>
+  <text class="sub" x="1010.0" y="544" text-anchor="middle" style="font-size:12px">가설 대조·결과 저장</text>
+  <rect class="box ok" x="60" y="574" width="560" height="62" rx="8"/>
+  <text class="name" x="340" y="600" text-anchor="middle" style="font-size:15px">data/  예제 데이터 (코드 아님)</text>
+  <text class="sub" x="340" y="621" text-anchor="middle" style="font-size:12px">evalset.example.json · outcomes.example.json · scan_examples/ (4개)</text>
+  <rect class="box ok" x="660" y="574" width="560" height="62" rx="8"/>
+  <text class="name" x="940" y="600" text-anchor="middle" style="font-size:15px">tests/  [선택] 단위 테스트</text>
+  <text class="sub" x="940" y="621" text-anchor="middle" style="font-size:12px">test_evalset.py · test_from_scan.py  (코드를 고칠 때 확인)</text>
+  <text class="note" x="60" y="666" text-anchor="start">Garak·PyRIT 패키지는 복사하지 않고 설치한다(requirements-scan.txt). 다음 장에서 평가셋 지표 계산 흐름을 본다</text>
+  <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">15 / 26</text>
+</svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
   <title id="t">참고: test_* 시리즈 — LangGraph 평가·게이트</title>
-  <desc id="d">05 일차 src/의 모듈 구성: 04에서 복사한 defense.py의 집계 지표를 LangGraph 노드로 엮어 합격/불합격 게이트를 만든다.</desc>
+  <desc id="d">05 일차 src/의 모듈 구성: metrics.py의 집계 지표와 output_guard.py의 방어를 LangGraph 노드로 엮어 합격/불합격 게이트를 만든다.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -54,9 +54,9 @@
   <text class="sub" x="470.0" y="244" text-anchor="middle">신뢰구간·반복횟수</text>
   <text class="sub" x="470.0" y="266" text-anchor="middle">wilson() · trials()</text>
   <rect class="box key" x="620" y="190" width="260" height="90" rx="8"/>
-  <text class="name" x="750.0" y="222" text-anchor="middle">defense.py</text>
-  <text class="sub" x="750.0" y="244" text-anchor="middle">방어 + 6-5 집계 지표</text>
-  <text class="sub" x="750.0" y="266" text-anchor="middle">defense_rate_by_category()</text>
+  <text class="name" x="750.0" y="222" text-anchor="middle">output_guard · metrics</text>
+  <text class="sub" x="750.0" y="244" text-anchor="middle">출력 방어 + 집계 지표</text>
+  <text class="sub" x="750.0" y="266" text-anchor="middle">guard_response() · defense_rate()</text>
   <rect class="box" x="900" y="190" width="260" height="90" rx="8"/>
   <text class="name" x="1030.0" y="222" text-anchor="middle">hypothesis_log.py</text>
   <text class="sub" x="1030.0" y="244" text-anchor="middle">가설 대조·결과 저장</text>
@@ -76,11 +76,11 @@
   <polygon class="head" points="502.0,329.8 510.6,325.0 511.3,332.9"/>
   <rect class="box" x="160" y="530" width="360" height="100" rx="8"/>
   <text class="name" x="340.0" y="562" text-anchor="middle">test_defense.py</text>
-  <text class="sub" x="340.0" y="584" text-anchor="middle">defense.py 단위 테스트</text>
+  <text class="sub" x="340.0" y="584" text-anchor="middle">output_guard·metrics 단위 테스트</text>
   <text class="sub" x="340.0" y="606" text-anchor="middle">(모델 호출 없음, 03·04와 같은 패턴)</text>
   <line class="arrow" x1="350" y1="490" x2="340.5" y2="528.1"/>
   <polygon class="head" points="340.5,528.1 338.8,518.4 346.5,520.3"/>
-  <text class="note" x="60" y="666" text-anchor="start">test_graph 는 같은 모델 출력에 방어 ON/OFF 를 비교해 gate 로 판정한다. 스캐너(scan_*.py)는 바로 앞 장 참고</text>
+  <text class="note" x="60" y="666" text-anchor="start">test_graph 는 같은 모델 출력에 방어 ON/OFF 를 비교해 gate 로 판정한다. 스캐너(scan_*.py)는 s13, GUARD=1 구조는 다음 장</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">14 / 32</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">14 / 33</text>
 </svg>

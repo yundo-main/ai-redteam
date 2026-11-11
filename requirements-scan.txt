@@ -1,4 +1,0 @@
-# 6-5 실습 중 Garak·PyRIT 스캔용 추가 의존성 (Python 3.10~3.12). 기본 .venv 에 이어서 설치한다(패키지가 많고 무겁다).
-# 설치: 저장소 루트에서  source .venv/bin/activate && pip install -r requirements-scan.txt
-garak==0.17.1
-pyrit==1.1.0

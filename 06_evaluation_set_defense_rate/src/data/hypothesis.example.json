@@ -1,0 +1,10 @@
+{
+  "predictions": {
+    "ch06-garak.latent_injection_asr": 0.9,
+    "ch06-garak.base64_asr": 0.0,
+    "ch06-pyrit.leak_rate": 0.7
+  },
+  "memo": {
+    "ch06-pyrit.leak_rate": "예시: 방어 없는 모델은 내부 코드를 대부분 알려 줄 것이다"
+  }
+}

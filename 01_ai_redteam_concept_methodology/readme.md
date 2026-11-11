@@ -3,7 +3,7 @@
 > 학습 목표: AI 레드팀의 개념과 절차를 이해한다.
 > 주도 학습 주제: AI 레드팀 범위·규칙(ROE) 및 방법론 요약 작성
 
-> 전체 내용을 슬라이드 19장으로도 볼 수 있다: [slides/](slides/index.html) (s01~s19)
+> 전체 내용을 슬라이드 19장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s19)
 ---
 
 ![AI 레드팀 개념도](slides/s04-concept-map.svg)

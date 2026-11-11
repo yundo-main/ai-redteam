@@ -90,5 +90,5 @@
   <text class="sub" x="940.0" y="604" text-anchor="middle">성공률 + 가설 대조 · 원본 리포트는 results/garak/ 아래</text>
   <text class="note" x="60" y="666" text-anchor="start">두 스캐너 모두 같은 .venv 에서 실행하고 LLM(Ollama)이 필요하다. 게이트(test_graph.py)는 다음 장(참고)에서 따로 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-5</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">13 / 32</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">13 / 33</text>
 </svg>

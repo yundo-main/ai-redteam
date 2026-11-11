@@ -8,7 +8,7 @@
 
 ![Jailbreak vs Tool Abuse](slides/s12-agent-attack-surface.svg)
 
-> 전체 내용을 슬라이드 35장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s35, 실습은 s18~s31)
+> 전체 내용을 슬라이드 35장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s35, 소스 구조는 s21, 실습은 s18~s31)
 
 ## 1. 두 공격의 위치
 
@@ -233,6 +233,30 @@ cp -n 03_jailbreak_tool_abuse_testing/src/hypothesis.example.json results/hypoth
 ### 7.3 하네스 (`harness.py`)
 
 ![03 소스 코드 구조: llm·stats·tool_guard·hypothesis_log → harness → scenario](slides/s21-code-map.svg)
+
+**파일 트리**
+```
+03_jailbreak_tool_abuse_testing/
+├── readme.md                      이론 정리 (이 문서)
+├── slides/                        슬라이드 35장(index.html + s01~s35 SVG)
+└── src/
+    ├── harness.py                 TA-01·JB-01 반복 실행, 성공률·증거 기록 — LLM 필요
+    ├── scenario.py                6-2 워크시트(JSON)를 읽어 같은 방식으로 실행 — LLM 필요
+    ├── scenarios/
+    │   ├── ch03_ta01.json         6-2 워크시트: 도구 오용 TA-01
+    │   └── ch03_jb01.json         6-2 워크시트: 탈옥 JB-01
+    ├── tool_guard.py              도구 호출 방어 (미등록 도구·인자 검증·승인·감사 로그)
+    ├── llm.py                     Ollama 호출·ready() (04·05와 같은 복사본)
+    ├── stats.py                   Wilson 95% 구간·반복 횟수 (복사본)
+    ├── hypothesis_log.py          가설 대조·결과 저장 (복사본)
+    ├── hypothesis.example.json    가설 예시 → results/hypothesis-ch03.json 으로 복사
+    ├── test_harness.py            하네스 동작 확인 — LLM 필요
+    ├── test_scenario.py           워크시트 → 실행 연결 테스트 — LLM 필요
+    ├── test_tool_guard.py         도구 호출 방어·정책 유지 판정 테스트 — LLM 불필요
+    ├── test_hypothesis_log.py     가설 대조 단위 테스트 — LLM 불필요
+    └── test_stats.py              신뢰구간 단위 테스트 — LLM 불필요
+```
+모든 파일은 `.venv`를 활성화한 상태에서 `python`으로 실행한다. 결과는 루트 `results/`에 저장된다.
 
 `src/`의 파일은 혼자 동작하지 않는다. `llm.py`(모델 호출)·`stats.py`(신뢰구간)·`tool_guard.py`(TA-01 방어 정책)·`hypothesis_log.py`(가설 대조)가 토대이고, `harness.py`가 이 넷을 가져와 TA-01·JB-01의 수집·판정 함수로 합성한다. `scenario.py`는 `harness.py`의 수집·판정 함수를 그대로 가져와 6-2 워크시트(`scenarios/*.json`)의 입력으로 실행한다. 각 토대는 `test_tool_guard.py`·`test_stats.py`·`test_hypothesis_log.py`(모델 호출 없음)로, 합성 결과는 `test_harness.py`·`test_scenario.py`(실제 Ollama 모델)로 검증한다.
 

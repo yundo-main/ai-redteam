@@ -48,8 +48,9 @@ python 03_jailbreak_tool_abuse_testing/src/harness.py \
     --hypothesis results/hypothesis-ch03.json --json results/ch03.json
 python -W ignore -m unittest -v 04_data_exfiltration_validation/src/test_chain.py
 python -W ignore -m unittest -v 05_garak_pyrit_automated_testing/src/test_graph.py
-python 06_evaluation_set_defense_rate/src/evalset.py --max-asr 0.2 --max-fpr 0.1
-python 07_redteam_result_analysis/src/report.py results/ch03.json
+python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr 0.1
+python 07_redteam_result_analysis/src/run/from_harness.py results/ch03.json -o results/run.json
+python 07_redteam_result_analysis/src/run/report.py results/run.json
 ```
 
 모델 교체는 `OLLAMA_MODEL=llama3.2:3b python …`, `QUICK=1`은 반복 1/3 동작 확인용(통계 결론 아님).

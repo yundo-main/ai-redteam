@@ -5,7 +5,7 @@
 
 > 선행 개념: 6-1 지표 기초(8.1), 6-2 성공 조건(2.2)·시나리오 워크시트(6장), 6-5 스캔 결과
 
-> 전체 내용을 슬라이드 19장(실습 3장 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s19)
+> 전체 내용을 슬라이드 26장(소스 구조·실습 4장 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s26, 소스 구조는 s15~s16, 실습은 s17~s23)
 ---
 
 ![평가셋과 방어율·오탐률](slides/s03-eval-metrics.svg)
@@ -45,6 +45,8 @@
 | 심각도 | 실패 시 영향도 |
 | 출처·버전 | 수집 경로, 추가 시점 |
 
+![evalset.example.json 읽는 법: 케이스 필드 8개와 block 4·allow 2](slides/s06-case-example.svg)
+
 ### 2.3 구축 방법
 - **기존 공개 데이터셋·도구 Probe** 활용 + **자사 서비스 특화 케이스** 추가
 - 6-2의 시나리오에서 케이스 도출, 6-5 스캔에서 발견된 성공 공격을 편입
@@ -81,7 +83,7 @@
 - 표본이 작으면 방어율의 **신뢰 구간**이 넓다. 케이스 수와 반복 수를 함께 보고
 - 변경 전후 차이가 **우연 변동 범위**를 넘는지 확인
 
-> 이 일차의 실습 코드: [src/](src/) — `evalset.py`가 케이스 JSON(2.2의 필드)을 검증하고, 실행 결과(차단 여부)로 방어율·공격 성공률·오탐률·유형별·심각도 가중 방어율을 Wilson 95% 구간과 함께 계산하며 `--max-asr`·`--max-fpr` 게이트를 판정한다. 모델은 호출하지 않는다. `python 06_evaluation_set_defense_rate/src/evalset.py --max-asr 0.2 --max-fpr 0.1` (예제 파일의 값은 설명용 더미다). 심각도 가중치(low 1, medium 2, high 3)는 이 실습의 가정값이다.
+> 이 일차의 실습 코드: [src/](src/) — `evalset.py`가 케이스 JSON(2.2의 필드)을 검증하고, 실행 결과(차단 여부)로 방어율·공격 성공률·오탐률·유형별·심각도 가중 방어율을 Wilson 95% 구간과 함께 계산하며 `--max-asr`·`--max-fpr` 게이트를 판정한다. 모델은 호출하지 않는다. `python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr 0.1` (예제 파일의 값은 설명용 더미다). 심각도 가중치(low 1, medium 2, high 3)는 이 실습의 가정값이다.
 
 > 예제 코드: [src/](src/) — `stats.py`의 Wilson 95% 신뢰구간(`fmt`, `differs`)과 `evalset.py`가 위 내용을 구현한다. 공격·정상 각 30건 실행에서 방어율 30/30이어도 95% 하한은 약 89%이고, 유형별 방어율은 10건씩이라 10/10이어도 하한이 약 72%이다. 표본 크기가 결론의 강도를 정한다.
 
@@ -151,18 +153,70 @@
 
 ## 실습 (src/)
 
+**소스 코드 구조**
+
+![06 소스 코드 구조 1: run → target → base 상하 계층](slides/s15-code-map.svg)
+
+![06 소스 코드 구조 2: 평가셋 + 실행 결과 → evalset.py → 지표·게이트](slides/s16-code-map.svg)
+
+**파일 트리 (상하 계층)**
+```
+06_evaluation_set_defense_rate/
+├── readme.md                       이론 정리 (이 문서)
+├── requirements-scan.txt           Garak·PyRIT 설치 목록 (garak==0.17.1, pyrit==1.1.0)
+├── slides/                         슬라이드 26장(index.html + s01~s26 SVG)
+└── src/
+    ├── run/                        [1계층] 실행 — python 으로 직접 실행하는 파일
+    │   ├── scan_pyrit.py           PyRIT 스캐너: 공격 4유형 + 정상 질문 (GUARD=1 지원) — LLM 필요
+    │   ├── scan_garak.py           Garak 스캐너: 프로브 2개 + 정상 질문 (GUARD=1 지원) — LLM 필요
+    │   ├── from_scan.py            스캔 기록을 평가셋·결과 JSON 으로 변환해 지표 출력
+    │   └── evalset.py              검증·지표 계산·게이트 판정 (본체)
+    ├── target/                     [2계층] 공격 대상과 방어 — run 이 import
+    │   ├── garak_target.py         GUARD=1 일 때 Garak 이 공격하는 함수 (입력 방어 → 모델 → 출력 방어)
+    │   ├── input_guard.py          입력 방어: 끼어든 지시·Base64 검사
+    │   └── output_guard.py         출력 방어: 카나리 차단·외부 링크 제거
+    ├── base/                       [3계층] 기반 — 다른 계층에 의존하지 않음
+    │   ├── llm.py                  Ollama 호출·ready()
+    │   ├── stats.py                Wilson 95% 구간
+    │   └── hypothesis_log.py       가설 대조·결과 저장
+    ├── data/                       예제 데이터 (코드 아님)
+    │   ├── evalset.example.json    평가셋 예시 (공격 4건 + 정상 2건)
+    │   ├── outcomes.example.json   실행 결과 예시 ({"results": [{"id", "blocked"}]})
+    │   ├── hypothesis.example.json  가설 예시 (스캐너 HYPOTHESIS= 용)
+    │   └── scan_examples/          스캔 기록 예제 4개 (garak-raw·garak-guard·pyrit-raw·pyrit-guard)
+    └── tests/                      [선택: 코드를 고칠 때]
+        ├── test_evalset.py         단위 테스트 (모델 없음)
+        └── test_from_scan.py       변환 단위 테스트 (스캐너 없음)
+```
+입력은 평가셋 JSON과 실행 결과 JSON이고, 출력은 화면의 지표 표와 게이트 결과다. 모든 파일은 `.venv`를 활성화하고 `python`으로 실행한다. 스캐너(`scan_*.py`)만 LLM(Ollama)과 `requirements-scan.txt` 설치가 필요하고, 나머지는 필요 없다.
+
 이 일차의 코드는 [src/](src/)에 있고 모델 없이 실행된다. 평가셋(케이스 JSON)과 실행 결과(차단 여부)를 받아 3장의 지표를 계산한다.
 
 ```sh
-python -m unittest -v 06_evaluation_set_defense_rate/src/test_evalset.py
-python 06_evaluation_set_defense_rate/src/evalset.py --max-asr 0.2 --max-fpr 0.1
+python -m unittest -v 06_evaluation_set_defense_rate/src/tests/test_evalset.py     # [선택] 코드를 고쳤을 때 확인
+python 06_evaluation_set_defense_rate/src/run/evalset.py --max-asr 0.2 --max-fpr 0.1
 ```
+**왜 이 테스트가 있나 (선택)**: 단위 테스트는 실습을 따라 하는 데는 필요 없고, **코드를 고칠 때**(사람이든 AI든) 검증·계산·게이트 규칙이 깨지지 않았는지 몇 초 만에 확인하는 용도다. 게이트가 "표본 부족"과 "FAIL"을 뒤바꾸는 같은 실수는 숫자만 봐서는 알아채기 어렵다. 05 의 스캔 결과 형식이 바뀌면 `test_from_scan.py`가 변환이 어긋났다는 것을 알려 준다. 다만 테스트가 통과해도 방어가 실제로 통한다는 뜻은 아니다. 방어율·오탐률은 평가셋 측정이 말한다.
+
 
 1. **평가셋 검증**: 필수 필드, id 중복, `expected`(block/allow)·`severity` 값을 확인하고, 정상 케이스가 없으면 오류로 멈춘다(2.1).
 2. **지표 계산**: 방어율, 공격 성공률, 오탐률, 유형별 방어율, 심각도 가중 방어율을 Wilson 95% 구간과 함께 출력한다. 같은 id를 여러 번 적으면 반복 실행으로 센다.
 3. **게이트 판정**: 95% 상한까지 기준 이내면 PASS, 점추정만 이내면 "표본 부족", 점추정이 넘으면 FAIL, 결과가 없으면 "측정 안 됨"이다.
 
 예제 값(공격 4건, 정상 2건)은 설명용 더미라 구간이 매우 넓다(방어율 75% [30%–95%]). 실제 측정은 6-3~6-5 도구의 결과를 `outcomes` 형식으로 옮겨 넣는다.
+
+**스캔도 이 폴더에서 실행한다**: 이 폴더만 가져가도 `scan_garak.py`·`scan_pyrit.py`(`GUARD=1` 포함)로 직접 측정하고 `from_scan.py`로 평가셋에 넣을 수 있다. 설치 목록은 `06_evaluation_set_defense_rate/requirements-scan.txt`다(Garak·PyRIT 패키지 자체는 복사하지 않고 설치한다). 예: `GUARD=1 RESULT_JSON=results/ch06-pyrit-guard.json python 06_evaluation_set_defense_rate/src/run/scan_pyrit.py`.
+
+**Garak·PyRIT 결과 연결 (`from_scan.py`)**: 인자를 생략하면 `src/data/scan_examples/` 예제(방어 없음 기준선)를 쓰므로 스캐너를 실행하지 않아도 돈다. 내 실행 결과를 쓰려면 `--garak results/ch06-garak.json --pyrit results/ch06-pyrit.json`처럼 경로를 준다. 방어 후 예제는 `src/data/scan_examples/garak-guard.example.json`·`pyrit-guard.example.json`이다.
+
+```sh
+python 06_evaluation_set_defense_rate/src/run/from_scan.py --max-asr 0.2 --max-fpr 0.1
+```
+
+- 프로브·공격 유형 하나를 케이스 하나(GA-01~02, PY-01~04)로 보고, 공격 성공 k/n 을 `blocked=false` k개 + `blocked=true` n-k개로 펼친다. 결과는 `results/ch06-evalset.json`, `results/ch06-outcomes.json` 으로 저장된다.
+- 스캐너를 `GUARD` 없이 돌리면 방어 계층을 거치기 전 모델 원본 응답을 채점하므로 여기서 나온 방어율은 **모델 자체의 거부율(기준선)**이다. 가드레일 효과는 방어 계층을 붙인 실행 결과로 따로 봐야 한다.
+- `scan_pyrit.py` 를 `GUARD=1` 로 돌린 기록(`--pyrit results/ch06-pyrit-guard.json --out-dir 다른폴더`)을 넣으면 PyRIT 케이스(PY-01~04)는 방어 계층 통과 후 값이 된다. 예: data_exfiltration 방어율 32% → 100%. Garak 케이스는 방어 옵션이 없어 그대로라 전체 방어율은 두 값이 섞인다.
+- `scan_pyrit.py` 는 정상 질문 5종 x 10회도 보내, 방어 계층이 응답을 막거나 고친 비율이 오탐률이 된다(`OK-01`). `GUARD` 없는 기록은 방어 계층이 없어 오탐 0 이 당연하므로 **FPR PASS 를 근거로 쓰지 않는다**. Garak 쪽에는 정상 질문이 없다.
 
 ---
 

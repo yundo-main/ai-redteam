@@ -8,7 +8,7 @@
 
 ![데이터 유출의 치명적 3요소](slides/s04-lethal-trifecta.svg)
 
-> 전체 내용을 슬라이드 27장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s27, 실습은 s14~s23)
+> 전체 내용을 슬라이드 27장으로도 볼 수 있다: [slides/](slides/index.html) (s1~s27, 소스 구조는 s13, 실습은 s14~s23)
 
 ## 1. Data Exfiltration이란
 
@@ -165,6 +165,24 @@ ROE(Rules of Engagement, 교전 규칙)는 테스트 전에 합의하는 허용�
 ### 8.1 소스 코드 구조
 
 ![04 소스 코드 구조: defense.py + LangChain, 모델 테스트와 결정론 테스트 분리](slides/s13-code-map.svg)
+
+**파일 트리**
+```
+04_data_exfiltration_validation/
+├── readme.md                      이론 정리 (이 문서)
+├── slides/                        슬라이드 27장(index.html + s01~s27 SVG)
+└── src/
+    ├── defense.py                 방어 계층(카나리 탐지·마크다운 정리·ACL 필터) + 방어율·오탐률 계산
+    ├── test_chain.py              LangChain으로 모델 → 방어 체인, ACL 검색기 RAG 체인 검증 — LLM 필요
+    ├── test_defense.py            defense.py 단위 테스트 — LLM 불필요
+    ├── llm.py                     Ollama 호출·ready() (03·05와 같은 복사본)
+    ├── stats.py                   Wilson 95% 구간·반복 횟수 (복사본)
+    ├── hypothesis_log.py          가설 대조·결과 저장 (복사본)
+    ├── hypothesis.example.json    가설 예시 → results/hypothesis-ch04.json 으로 복사
+    ├── test_hypothesis_log.py     가설 대조 단위 테스트 — LLM 불필요
+    └── test_stats.py              신뢰구간 단위 테스트 — LLM 불필요
+```
+모든 파일은 `.venv`를 활성화한 상태에서 `python`으로 실행한다. 결과는 루트 `results/`에 저장된다.
 
 `llm.py`(모델 준비 확인)·`stats.py`(신뢰구간)·`defense.py`(카나리 탐지·마크다운 정리·ACL 필터·오탐/방어율 계산)·`hypothesis_log.py`(가설 대조)가 토대다. `test_chain.py`는 이 토대 위에 LangChain으로 "모델 → 방어 체인"과 ACL 검색기를 붙인 RAG 체인을 만들어 실제 Ollama 모델로 오탐률·유출률을 측정한다. `test_defense.py`는 모델 호출 없이 `defense.py`의 함수만 단위 테스트한다 — 방어 로직 자체의 정확성과 "실제 모델에 적용했을 때의 결과"를 항상 분리해서 본다. `defense.py`는 05(6-5)에도 같은 이름으로 복사되며 두 파일은 완전히 같다 — 유형별 방어율 집계 함수(`defense_rate_by_category`)는 04·05 공용이다.
 

@@ -72,7 +72,7 @@
   <rect class="box key" x="60" y="405" width="1160" height="110" rx="8"/>
   <text class="name" x="640.0" y="431" text-anchor="middle">run/evalset.py</text>
   <text class="sub" x="640.0" y="452" text-anchor="middle">검증 validate — 필수 필드·id 중복·expected/severity 값, 정상 케이스가 없으면 오류</text>
-  <text class="sub" x="640.0" y="471" text-anchor="middle">지표 score — 방어율 · 공격 성공률 · 오탐률 · 유형별 · 심각도 가중   ·   판정 gate — PASS / 표본 부족 / FAIL / 측정 안 됨</text>
+  <text class="sub" x="640.0" y="471" text-anchor="middle">지표 score — 방어율 · 공격 성공률 · 오탐률 · 유형별 · 심각도 가중   ·   판정 gate — PASS / FAIL / 측정 안 됨</text>
   <text class="sub" x="640.0" y="490" text-anchor="middle">비교·출력 compare (개선 전후) · report · main (--max-asr, --max-fpr)</text>
   <line class="arrow" x1="200" y1="515" x2="200" y2="536"/>
   <polygon class="head" points="200,545 195,536 205,536"/>

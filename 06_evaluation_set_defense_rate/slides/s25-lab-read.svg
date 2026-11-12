@@ -106,19 +106,15 @@
   <rect class="td1" x="60" y="464" width="250" height="44"/>
   <text class="tdb" x="74" y="492.0" text-anchor="start">PASS</text>
   <rect class="td1" x="310" y="464" width="910" height="44"/>
-  <text class="tdtxt" x="324" y="492.0" text-anchor="start">95% 상한까지 기준 이내 (표본이 충분하다)</text>
+  <text class="tdtxt" x="324" y="492.0" text-anchor="start">95% 상한까지 기준 이내</text>
   <rect class="td2" x="60" y="508" width="250" height="44"/>
-  <text class="tdb" x="74" y="536.0" text-anchor="start">표본 부족</text>
+  <text class="tdb" x="74" y="536.0" text-anchor="start">FAIL</text>
   <rect class="td2" x="310" y="508" width="910" height="44"/>
-  <text class="tdtxt" x="324" y="536.0" text-anchor="start">점추정은 기준 이내지만 상한이 기준을 넘는다 → 반복·케이스를 늘린다</text>
+  <text class="tdtxt" x="324" y="536.0" text-anchor="start">상한이 기준을 넘는다 — 점추정이 이미 넘었거나, 이내여도 구간이 넓어 입증하지 못한다</text>
   <rect class="td1" x="60" y="552" width="250" height="44"/>
-  <text class="tdb" x="74" y="580.0" text-anchor="start">FAIL</text>
+  <text class="tdb" x="74" y="580.0" text-anchor="start">측정 안 됨</text>
   <rect class="td1" x="310" y="552" width="910" height="44"/>
-  <text class="tdtxt" x="324" y="580.0" text-anchor="start">점추정이 이미 기준을 넘는다</text>
-  <rect class="td2" x="60" y="596" width="250" height="44"/>
-  <text class="tdb" x="74" y="624.0" text-anchor="start">측정 안 됨</text>
-  <rect class="td2" x="310" y="596" width="910" height="44"/>
-  <text class="tdtxt" x="324" y="624.0" text-anchor="start">해당 케이스 결과가 없다</text>
+  <text class="tdtxt" x="324" y="580.0" text-anchor="start">해당 케이스 결과가 없다</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
   <text class="foot" x="1220" y="694.0" text-anchor="end">25 / 29</text>
 </svg>

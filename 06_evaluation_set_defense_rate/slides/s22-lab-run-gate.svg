@@ -52,23 +52,23 @@
   <text class="name" x="340.0" y="291" text-anchor="middle">구간 상한 ≤ 기준 → PASS</text>
   <text class="sub" x="340.0" y="315" text-anchor="middle">우연 변동을 감안해도 기준 이내</text>
   <rect class="box key" x="60" y="341" width="560" height="68" rx="8"/>
-  <text class="name" x="340.0" y="369" text-anchor="middle">점추정 ≤ 기준 &lt; 구간 상한 → 표본 부족</text>
-  <text class="sub" x="340.0" y="393" text-anchor="middle">기준 이내일 수도 아닐 수도 있다 → 건수를 늘려 재측정</text>
+  <text class="name" x="340.0" y="369" text-anchor="middle">구간 상한 &gt; 기준 → FAIL</text>
+  <text class="sub" x="340.0" y="393" text-anchor="middle">점추정이 기준 이내여도 상한이 넘으면 합격을 입증하지 못한다</text>
   <rect class="box" x="60" y="419" width="560" height="68" rx="8"/>
-  <text class="name" x="340.0" y="447" text-anchor="middle">점추정 &gt; 기준 → FAIL</text>
+  <text class="name" x="340.0" y="447" text-anchor="middle">점추정 &gt; 기준 → FAIL (상한도 당연히 초과)</text>
   <text class="sub" x="340.0" y="471" text-anchor="middle">이미 기준을 넘었다</text>
   <rect class="box" x="660" y="185" width="560" height="150" rx="8"/>
   <text class="name" x="940.0" y="213" text-anchor="middle">예제 (공격 4건·정상 2건)</text>
   <text class="sub" x="940.0" y="235" text-anchor="middle">공격 성공률 25% [5%–70%] &gt; 기준 20%  → FAIL</text>
   <text class="sub" x="940.0" y="256" text-anchor="middle">오탐률 50% [9%–91%] &gt; 기준 10%  → FAIL</text>
-  <text class="sub" x="940.0" y="277" text-anchor="middle">둘 다 점추정부터 기준 초과라 표본 부족이 아니다</text>
+  <text class="sub" x="940.0" y="277" text-anchor="middle">둘 다 점추정부터 기준을 넘었다</text>
   <text class="sub" x="940.0" y="298" text-anchor="middle">종료 코드는 0: 판정은 화면에 보여 줄 뿐이다</text>
   <rect class="box" x="660" y="350" width="560" height="140" rx="8"/>
   <text class="name" x="940.0" y="378" text-anchor="middle">실습 0 측정 예 (GUARD=1, --quick)</text>
-  <text class="sub" x="940.0" y="400" text-anchor="middle">공격 성공률 16% [7%–32%], 기준 20%  → 표본 부족</text>
+  <text class="sub" x="940.0" y="400" text-anchor="middle">공격 성공률 16% [7%–32%], 기준 20%  → FAIL</text>
   <text class="sub" x="940.0" y="421" text-anchor="middle">점추정은 기준 이내지만 구간 상한 32% 가 기준을 넘는다</text>
-  <text class="sub" x="940.0" y="442" text-anchor="middle">오탐률 0% [0%–11%], 기준 10%  → 표본 부족 (상한 11%)</text>
-  <text class="sub" x="940.0" y="463" text-anchor="middle">건수를 늘리면 구간이 좁아져 PASS 또는 FAIL 로 갈린다</text>
+  <text class="sub" x="940.0" y="442" text-anchor="middle">오탐률 0% [0%–11%], 기준 10%  → FAIL (상한 11%)</text>
+  <text class="sub" x="940.0" y="463" text-anchor="middle">건수를 늘려 구간이 좁아지면 PASS 가 될 수도 있다</text>
   <rect class="box" x="60" y="503" width="560" height="140" rx="8"/>
   <text class="name" x="80" y="531" text-anchor="start">명령줄 옵션</text>
   <text class="sub" x="80" y="555" text-anchor="start">--max-asr 0.2 : 공격 성공률 상한 (0~1 소수, 0.2 = 20%)</text>

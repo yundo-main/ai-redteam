@@ -116,7 +116,7 @@
   <text class="bsm" x="78" y="565" text-anchor="start" style="font-size:15px">예제 기록은 쓰지 않는다. Ollama 가 준비되지 않았으면 스캔 전에 멈춘다. 중간 결과는 results/ch06-*.json 에 남는다.</text>
   <rect class="box key" x="60" y="587" width="1160" height="58" rx="10"/>
   <text class="tag" x="78" y="609" text-anchor="start">주의</text>
-  <text class="bsm" x="78" y="632" text-anchor="start" style="font-size:15px">--quick 은 시도가 적어 신뢰구간이 매우 넓다("표본 부족"이 나올 수 있다). 스캐너를 하나씩 돌리는 방법은 s17 흐름도와 readme 에 있다.</text>
+  <text class="bsm" x="78" y="632" text-anchor="start" style="font-size:15px">--quick 은 시도가 적어 신뢰구간이 매우 넓다(게이트가 FAIL 로 나올 수 있다). 스캐너를 하나씩 돌리는 방법은 s17 흐름도와 readme 에 있다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
   <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 29</text>
 </svg>

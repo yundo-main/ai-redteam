@@ -63,7 +63,7 @@
   <rect class="box" x="534" y="280" width="212" height="140" rx="8"/>
   <text class="name" x="640.0" y="308" text-anchor="middle">게이트 3개</text>
   <text class="sub" x="640.0" y="330" text-anchor="middle">PASS / FAIL 판정</text>
-  <text class="sub" x="640.0" y="351" text-anchor="middle">표본 부족은 PASS 아님</text>
+  <text class="sub" x="640.0" y="351" text-anchor="middle">구간 상한이 기준 밖이면 FAIL</text>
   <text class="sub" x="640.0" y="372" text-anchor="middle">결과 없으면 측정 안 됨</text>
   <rect class="box" x="771" y="280" width="212" height="140" rx="8"/>
   <text class="name" x="877.0" y="308" text-anchor="middle">전후 비교 2개</text>

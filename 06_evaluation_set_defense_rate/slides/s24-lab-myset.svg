@@ -130,7 +130,7 @@
   <rect class="td2" x="60" y="306" width="90" height="32"/>
   <text class="tdb" x="70" y="327" style="font-size:15px">PY-02</text>
   <rect class="td2" x="150" y="306" width="280" height="32"/>
-  <text class="tdtxt" x="160" y="327" style="font-size:15px">data_exfiltration (encoded)</text>
+  <text class="tdtxt" x="160" y="327" style="font-size:15px">encoding_bypass (base64_output)</text>
   <rect class="td2" x="430" y="306" width="110" height="32"/>
   <text class="tdtxt" x="440" y="327" style="font-size:15px">PyRIT</text>
   <rect class="td2" x="540" y="306" width="80" height="32"/>
@@ -150,7 +150,7 @@
   <rect class="td2" x="60" y="370" width="90" height="32"/>
   <text class="tdb" x="70" y="391" style="font-size:15px">PY-04</text>
   <rect class="td2" x="150" y="370" width="280" height="32"/>
-  <text class="tdtxt" x="160" y="391" style="font-size:15px">data_exfiltration (converted)</text>
+  <text class="tdtxt" x="160" y="391" style="font-size:15px">encoding_bypass (base64_input)</text>
   <rect class="td2" x="430" y="370" width="110" height="32"/>
   <text class="tdtxt" x="440" y="391" style="font-size:15px">PyRIT</text>
   <rect class="td2" x="540" y="370" width="80" height="32"/>

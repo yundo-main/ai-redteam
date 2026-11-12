@@ -93,7 +93,7 @@
   <text class="cmd" x="132" y="211" text-anchor="start" style="font-size:14px">python 06_evaluation_set_defense_rate/src/run/evalset.py</text>
   <text class="cmd" x="132" y="233" text-anchor="start" style="font-size:14px">  results/guard/ch06-evalset.json results/guard/ch06-outcomes.json</text>
   <text class="cmd" x="132" y="255" text-anchor="start" style="font-size:14px">  --max-asr 0.2 --max-fpr 0.1</text>
-  <text class="bsm" x="776" y="232" text-anchor="start" style="font-size:15px">실습 0 의 내 측정 결과(방어 후)로 지표와 게이트 판정</text>
+  <text class="bsm" x="776" y="232" text-anchor="start" style="font-size:15px">내 측정 결과(방어 후)로 지표 1-2(s21)·게이트 1-3(s22)</text>
   <circle class="circ" cx="84" cy="331" r="16"/>
   <text class="circt" x="84" y="337" text-anchor="middle">2</text>
   <rect class="cmdbg" x="116" y="284" width="640" height="94" rx="8"/>
@@ -111,11 +111,11 @@
   <rect class="cmdbg" x="116" y="448" width="640" height="72" rx="8"/>
   <text class="cmd" x="132" y="479" text-anchor="start" style="font-size:14px">python -m unittest -v</text>
   <text class="cmd" x="132" y="501" text-anchor="start" style="font-size:14px">  06_evaluation_set_defense_rate/src/tests/test_evalset.py</text>
-  <text class="bsm" x="776" y="489" text-anchor="start" style="font-size:15px">[선택·LLM 불필요] 코드를 고쳤을 때 규칙 확인 (18개 통과)</text>
+  <text class="bsm" x="776" y="489" text-anchor="start" style="font-size:15px">[선택] 실습 1-1(s20): 코드를 고쳤을 때 규칙 확인 (18개)</text>
   <rect class="box key" x="60" y="532" width="1160" height="84" rx="10"/>
   <text class="tag" x="78" y="556" text-anchor="start">주의</text>
   <text class="bsm" x="78" y="580" text-anchor="start" style="font-size:15px">evalset.py 는 모델을 호출하지 않는다. 실습 0 의 measure.py 가 얻은 차단 여부를 받아 계산만 한다. 모델을 쓸 수 없으면 3번 예제로 실행한다.</text>
-  <text class="bsm" x="78" y="602" text-anchor="start" style="font-size:15px">측정값은 실행마다 달라지므로 s21~s24 의 숫자(75% 등)는 설명용 예제 값이다. 심각도 가중치(low 1, medium 2, high 3)는 이 실습의 가정값이다.</text>
+  <text class="bsm" x="78" y="602" text-anchor="start" style="font-size:15px">측정값은 실행마다 달라지므로 s21~s25 의 숫자(75% 등)는 설명용 예제 값이다. 심각도 가중치(low 1, medium 2, high 3)는 이 실습의 가정값이다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 27</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">19 / 29</text>
 </svg>

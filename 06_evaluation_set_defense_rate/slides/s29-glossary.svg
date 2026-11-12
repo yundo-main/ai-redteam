@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">요약</title>
-  <desc id="d">평가셋·지표·통계·균형 요약.</desc>
+  <title id="t">용어 설명</title>
+  <desc id="d">Evaluation Dataset 등 용어.</desc>
   <style>
     .bg { fill: #ffffff; }
     .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
@@ -85,20 +85,32 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60.0" text-anchor="middle">6-6</text>
-  <text class="stitle" x="60" y="118.0" text-anchor="start">요약</text>
-  <text class="ssub" x="60" y="154.0" text-anchor="start">6-6 핵심 정리</text>
-  <circle class="circ" cx="84" cy="209" r="16"/>
-  <text class="circt" x="84" y="215.0" text-anchor="middle">1</text>
-  <text class="body" x="120" y="216.0" text-anchor="start">평가셋은 유형별 공격 + 정상 + 경계 사례로 구성하고, 학습/튜닝 데이터와 분리해 오염을 막는다</text>
-  <circle class="circ" cx="84" cy="273" r="16"/>
-  <text class="circt" x="84" y="279.0" text-anchor="middle">2</text>
-  <text class="body" x="120" y="280.0" text-anchor="start">핵심 지표는 방어율(= 1 − ASR)과 오탐률이며, 반드시 유형별로 본다</text>
-  <circle class="circ" cx="84" cy="337" r="16"/>
-  <text class="circt" x="84" y="343.0" text-anchor="middle">3</text>
-  <text class="body" x="120" y="344.0" text-anchor="start">비결정성 때문에 반복 실행과 신뢰 구간을 고려하고, 판정은 규칙·LLM·사람을 조합한다</text>
-  <circle class="circ" cx="84" cy="401" r="16"/>
-  <text class="circt" x="84" y="407.0" text-anchor="middle">4</text>
-  <text class="body" x="120" y="408.0" text-anchor="start">방어율과 사용성은 상충하므로 허용 기준을 합의하고, 변경마다 회귀 테스트를 수행한다</text>
+  <text class="stitle" x="60" y="118.0" text-anchor="start">용어 설명</text>
+  <text class="ssub" x="60" y="154.0" text-anchor="start">6-6에서 쓰는 용어</text>
+  <rect class="th" x="60" y="190" width="330" height="44"/>
+  <rect class="th" x="390" y="190" width="830" height="44"/>
+  <text class="thtxt" x="74" y="218.0" text-anchor="start">용어</text>
+  <text class="thtxt" x="404" y="218.0" text-anchor="start">설명</text>
+  <rect class="td1" x="60" y="234" width="330" height="44"/>
+  <text class="tdb" x="74" y="262.4" text-anchor="start">Evaluation Dataset</text>
+  <rect class="td1" x="390" y="234" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="262.4" text-anchor="start">프롬프트 인젝션, 탈옥 등 공격 프롬프트와 정답 레이블로 구성된 평가 데이터셋</text>
+  <rect class="td2" x="60" y="278" width="330" height="44"/>
+  <text class="tdb" x="74" y="306.4" text-anchor="start">Defense Rate Metric</text>
+  <rect class="td2" x="390" y="278" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="306.4" text-anchor="start">전체 적대적 시도 중 가드레일에 의해 성공적으로 차단된 비중(%)</text>
+  <rect class="td1" x="60" y="322" width="330" height="44"/>
+  <text class="tdb" x="74" y="350.4" text-anchor="start">False Positive Rate</text>
+  <rect class="td1" x="390" y="322" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="350.4" text-anchor="start">정상적인 사용자 프롬프트를 공격으로 오탐하여 차단한 비율</text>
+  <rect class="td2" x="60" y="366" width="330" height="44"/>
+  <text class="tdb" x="74" y="394.4" text-anchor="start">Benchmark Suite</text>
+  <rect class="td2" x="390" y="366" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="394.4" text-anchor="start">AI 모델 배포 전 보안 표준 충족 여부를 판단하는 종합 평가 벤치마크</text>
+  <rect class="td1" x="60" y="410" width="330" height="44"/>
+  <text class="tdb" x="74" y="438.4" text-anchor="start">Regression Testing</text>
+  <rect class="td1" x="390" y="410" width="830" height="44"/>
+  <text class="tdtxt" x="404" y="438.4" text-anchor="start">보안 패치 후 기존 공격 프롬프트 방어력이 유지되는지 재검증하는 테스트</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">25 / 27</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">29 / 29</text>
 </svg>

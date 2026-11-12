@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">실습 0 · 내 모델로 직접 측정</title>
+  <title id="t">실습 0 · 스캐너를 실행해 직접 측정</title>
   <desc id="d">스캐너로 내 모델을 측정하고 평가셋 도구 입력으로 변환하는 순서와 주의.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -118,5 +118,5 @@
   <text class="tag" x="78" y="609" text-anchor="start">주의</text>
   <text class="bsm" x="78" y="632" text-anchor="start" style="font-size:15px">--quick 은 시도가 적어 신뢰구간이 매우 넓다("표본 부족"이 나올 수 있다). 스캐너를 하나씩 돌리는 방법은 s17 흐름도와 readme 에 있다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 27</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">18 / 29</text>
 </svg>

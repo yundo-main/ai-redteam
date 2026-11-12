@@ -114,5 +114,5 @@
   <text class="bsm" x="78" y="548.8" text-anchor="start">정상 케이스(allow)가 없으면 오류다: 다 막는 모델이 최고로 평가되기 때문이다.</text>
   <text class="bsm" x="78" y="573.6" text-anchor="start">결과에 평가셋에 없는 id가 있으면 오류, 평가셋에는 있는데 실행 안 된 케이스는 따로 보고한다.</text>
   <text class="foot" x="60" y="694.0" text-anchor="start">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 27</text>
+  <text class="foot" x="1220" y="694.0" text-anchor="end">23 / 29</text>
 </svg>

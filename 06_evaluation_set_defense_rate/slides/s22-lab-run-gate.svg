@@ -64,10 +64,10 @@
   <text class="sub" x="940.0" y="277" text-anchor="middle">둘 다 점추정부터 기준 초과라 표본 부족이 아니다</text>
   <text class="sub" x="940.0" y="298" text-anchor="middle">종료 코드는 0: 판정은 화면에 보여 줄 뿐이다</text>
   <rect class="box" x="660" y="350" width="560" height="140" rx="8"/>
-  <text class="name" x="940.0" y="378" text-anchor="middle">스캔 GUARD=1 (공격·정상 100건씩)</text>
-  <text class="sub" x="940.0" y="400" text-anchor="middle">공격 성공률 18% [12%–27%], 기준 20%  → 표본 부족</text>
-  <text class="sub" x="940.0" y="421" text-anchor="middle">점추정은 기준 이내지만 구간 상한 27% 가 기준을 넘는다</text>
-  <text class="sub" x="940.0" y="442" text-anchor="middle">오탐률 1% [0%–5%], 기준 10%  → PASS</text>
+  <text class="name" x="940.0" y="378" text-anchor="middle">실습 0 측정 예 (GUARD=1, --quick)</text>
+  <text class="sub" x="940.0" y="400" text-anchor="middle">공격 성공률 16% [7%–32%], 기준 20%  → 표본 부족</text>
+  <text class="sub" x="940.0" y="421" text-anchor="middle">점추정은 기준 이내지만 구간 상한 32% 가 기준을 넘는다</text>
+  <text class="sub" x="940.0" y="442" text-anchor="middle">오탐률 0% [0%–11%], 기준 10%  → 표본 부족 (상한 11%)</text>
   <text class="sub" x="940.0" y="463" text-anchor="middle">건수를 늘리면 구간이 좁아져 PASS 또는 FAIL 로 갈린다</text>
   <rect class="box" x="60" y="503" width="560" height="140" rx="8"/>
   <text class="name" x="80" y="531" text-anchor="start">명령줄 옵션</text>
@@ -78,10 +78,10 @@
   <rect class="box ok" x="660" y="503" width="560" height="140" rx="8"/>
   <text class="name" x="680" y="531" text-anchor="start">기준은 사람이 정하고, 도구는 판정만 한다</text>
   <text class="sub" x="680" y="555" text-anchor="start">ASR·FPR 은 낮을수록 좋은 값이라 기준을 상한으로 통일한다</text>
-  <text class="sub" x="680" y="576" text-anchor="start">점추정만 보면 18% 를 성급히 합격으로 읽기 쉽다</text>
+  <text class="sub" x="680" y="576" text-anchor="start">점추정만 보면 16% 를 성급히 합격으로 읽기 쉽다</text>
   <text class="sub" x="680" y="597" text-anchor="start">— 구간 상한을 함께 보는 이유</text>
   <text class="sub" x="680" y="618" text-anchor="start">잘못된 파일·인자는 종료 코드 2</text>
   <text class="note" x="60" y="666" text-anchor="start">점추정만 비교하는 단순 게이트(예: 방어율 ≥ 90%)와 달리, 이 gate 는 신뢰구간 상한을 함께 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">22 / 27</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">22 / 29</text>
 </svg>

@@ -5,7 +5,7 @@
 
 > 선행 개념: 6-1 지표 기초(8.1), 6-2 성공 조건(2.2)·시나리오 워크시트(6장), 6-5 스캔 결과
 
-> 전체 내용을 슬라이드 27장(소스 구조·실습 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s27, 소스 구조는 s15~s16, 실습은 s17~s24)
+> 전체 내용을 슬라이드 29장(소스 구조·실습 포함)으로도 볼 수 있다: [slides/](slides/index.html) (s1~s29, 소스 구조는 s15~s16, 실습은 s17~s26)
 ---
 
 ![평가셋과 방어율·오탐률](slides/s03-eval-metrics.svg)
@@ -164,7 +164,7 @@
 06_evaluation_set_defense_rate/
 ├── readme.md                       이론 정리 (이 문서)
 ├── requirements-scan.txt           Garak·PyRIT 설치 목록 (garak==0.17.1, pyrit==1.1.0)
-├── slides/                         슬라이드 27장(index.html + s01~s27 SVG)
+├── slides/                         슬라이드 29장(index.html + s01~s29 SVG)
 └── src/
     ├── run/                        [1계층] 실행 — python 으로 직접 실행하는 파일
     │   ├── measure.py              스캔 4번을 매번 실행하고 변환·지표까지 한 번에 낸다 — LLM 필요
@@ -191,9 +191,9 @@
         ├── test_from_scan.py       변환 단위 테스트 (스캐너 없음)
         └── test_pyrit_target.py    PyRIT 방어 계층 단위 테스트 (모델·PyRIT 없음)
 ```
-입력은 평가셋 JSON과 실행 결과 JSON이고, 출력은 화면의 지표 표와 게이트 결과다. 모든 파일은 `.venv`를 활성화하고 `python`으로 실행한다. 스캐너(`scan_*.py`)만 LLM(Ollama)과 `requirements-scan.txt` 설치가 필요하고, 나머지는 필요 없다.
+입력은 평가셋 JSON과 실행 결과 JSON이고, 출력은 화면의 지표 표와 게이트 결과다. 모든 파일은 `.venv`를 활성화하고 `python`으로 실행한다. LLM(Ollama)과 `requirements-scan.txt` 설치가 필요한 것은 스캐너(`scan_*.py`)와 이를 실행하는 `measure.py`뿐이고, 나머지는 필요 없다.
 
-이 일차의 코드는 [src/](src/)에 있다. **실습 0**에서 스캐너로 내 모델을 측정해 평가셋·결과 JSON을 만들고(Ollama 필요), **실습 1~3**에서 평가셋 도구(`evalset.py`, 모델 호출 없음)가 그 JSON을 받아 3장의 지표를 계산한다. 모델을 쓸 수 없으면 실습 0을 건너뛰고 예제 파일로 같은 계산을 한다.
+이 일차의 코드는 [src/](src/)에 있다. **실습 0**에서 스캐너로 내 모델을 측정해 평가셋·결과 JSON을 만들고(Ollama 필요), **실습 1~3**에서 평가셋 도구(`evalset.py`, 모델 호출 없음)가 그 JSON을 받아 3장의 지표를 계산한다. 실습 2-1은 내가 만든 평가셋 8개 케이스를 구성 원칙(2.1)과 대조하고, 실습 3-1은 방어 없음·방어 후 결과를 유형별로 비교해 읽는다. 모델을 쓸 수 없으면 실습 0을 건너뛰고 예제 파일로 같은 계산을 한다.
 
 ```sh
 # 실습 0 에서 만든 내 측정 결과로 계산 (모델 호출 없음)

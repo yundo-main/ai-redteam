@@ -105,5 +105,5 @@
   <text class="sub" x="940" y="621" text-anchor="middle" style="font-size:12px">test_evalset · test_from_scan · test_pyrit_target  (코드를 고칠 때 확인)</text>
   <text class="note" x="60" y="666" text-anchor="start">Garak·PyRIT 패키지는 복사하지 않고 설치한다(requirements-scan.txt). 다음 장에서 평가셋 지표 계산 흐름을 본다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">15 / 27</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">15 / 29</text>
 </svg>

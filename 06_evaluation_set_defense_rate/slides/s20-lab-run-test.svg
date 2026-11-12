@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
-  <title id="t">[선택] 단위 테스트</title>
+  <title id="t">실습 1-1 · [선택] 단위 테스트</title>
   <desc id="d">test_evalset.py 18개 테스트의 구성과 의미.</desc>
   <style>
     .bg { fill: #ffffff; }
@@ -43,7 +43,7 @@
   <rect class="bg" width="1280" height="720"/>
   <rect class="chip" x="60" y="40" width="60" height="28" rx="14"/>
   <text class="chiptxt" x="90" y="60" text-anchor="middle">6-6</text>
-  <text class="stitle" x="60" y="118">[선택] 단위 테스트 — 도구가 맞는가</text>
+  <text class="stitle" x="60" y="118">실습 1-1 · [선택] 단위 테스트</text>
   <text class="ssub" x="60" y="154">모델도 예제 파일도 쓰지 않고, 테스트 안의 작은 입력으로 evalset.py 의 규칙을 확인한다</text>
   <rect class="box key" x="60" y="185" width="1160" height="70" rx="8"/>
   <text class="name" x="640.0" y="213" text-anchor="middle">python -m unittest -v 06_evaluation_set_defense_rate/src/tests/test_evalset.py</text>
@@ -86,5 +86,5 @@
   <text class="sub" x="80" y="626" text-anchor="start">한 가지만 돌릴 때 :  -k Gate  (이름에 Gate 가 들어간 테스트만, 대소문자 구분)</text>
   <text class="note" x="60" y="666" text-anchor="start">스캔 결과를 변환하는 from_scan.py 는 test_from_scan.py(8개)가 따로 검증한다</text>
   <text class="foot" x="60" y="694">AI Red Team · 6-6</text>
-  <text class="foot" x="1220" y="694" text-anchor="end">20 / 27</text>
+  <text class="foot" x="1220" y="694" text-anchor="end">20 / 29</text>
 </svg>

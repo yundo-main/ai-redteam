@@ -1,0 +1,20 @@
+[project]
+name = "ai-redteam-framework"
+version = "0.1.0"
+description = "AI 레드팀 측정 프레임워크 — 케이스→러너→지표→보고서→시각화/서버"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+scan = ["garak", "pyrit"]
+graph = ["langgraph", "langchain-ollama"]
+server = []
+
+[project.scripts]
+redteam = "run.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

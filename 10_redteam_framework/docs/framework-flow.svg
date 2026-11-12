@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 30 1220 795" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">프레임워크 동작 흐름도</title>
+  <desc id="d">GUI 탭 순서(설정→가설→측정→평가→분석→시각화→매뉴얼)와 내부 계층(run→target→service→base), Case→Outcome→지표→보고서로 이어지는 처리 흐름.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .box.bad { fill: #fbe7e7; stroke: #d64545; }
+    .box.layer { fill: #f4f0fb; stroke: #7a52c4; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 16px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 12.5px; }
+    .small { fill: #4a5568; font-size: 11.5px; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .arrow.thin { stroke-width: 1.2; stroke-dasharray: 4 3; }
+    .head { fill: #6b7686; }
+    .title { fill: #1b2433; font-size: 26px; font-weight: 700; }
+    .stitle { fill: #1b2433; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 12.5px; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .box.bad { fill: #3d1d1d; stroke: #ef6b6b; }
+      .box.layer { fill: #261f3a; stroke: #a98ae0; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle { fill: #eef1f6; }
+      .sub, .small { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .arrow { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="head"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="820"/>
+  <text class="title" x="40" y="48">프레임워크 동작 흐름도</text>
+  <text class="foot" x="40" y="72">GUI 탭 순서 · run → target → service → base 계층 · 10_redteam_framework</text>
+
+  <!-- ============ 1행: GUI 탭 순서 ============ -->
+  <text class="stitle" x="40" y="106">GUI 탭 순서</text>
+  <g>
+    <rect class="box" x="40" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="54" y="140">0</text>
+    <text class="name" x="54" y="164">설정</text>
+
+    <rect class="box" x="210" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="224" y="140">1</text>
+    <text class="name" x="224" y="164">가설</text>
+
+    <rect class="box key" x="380" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="394" y="140">2</text>
+    <text class="name" x="394" y="164">측정</text>
+
+    <rect class="box" x="550" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="564" y="140">3</text>
+    <text class="name" x="564" y="164">평가</text>
+
+    <rect class="box" x="720" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="734" y="140">4</text>
+    <text class="name" x="734" y="164">분석</text>
+
+    <rect class="box ok" x="890" y="118" width="150" height="64" rx="10"/>
+    <text class="num" x="904" y="140">5</text>
+    <text class="name" x="904" y="164">시각화</text>
+
+    <rect class="box" x="1060" y="118" width="180" height="64" rx="10"/>
+    <text class="num" x="1074" y="140">6</text>
+    <text class="name" x="1074" y="164">매뉴얼·인덱스</text>
+
+    <path class="arrow" marker-end="url(#arrow)" d="M190,150 H208"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M360,150 H378"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M530,150 H548"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M700,150 H718"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M870,150 H888"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M1040,150 H1058"/>
+  </g>
+  <text class="small" x="40" y="204">가설·평가셋·Outcome·가설 파일 경로는 분석·시각화 탭이 공유 — 한 곳에서 고르면 나머지에 그대로 쓰인다</text>
+
+  <!-- ============ 2행: 처리 파이프라인 ============ -->
+  <text class="stitle" x="40" y="246">처리 파이프라인 (run/pipeline.py)</text>
+  <g>
+    <rect class="box" x="40" y="258" width="170" height="92" rx="10"/>
+    <text class="name" x="54" y="286">Case</text>
+    <text class="sub" x="54" y="308">평가셋 JSON</text>
+    <text class="small" x="54" y="328">id·type·expected</text>
+
+    <rect class="box key" x="250" y="258" width="170" height="92" rx="10"/>
+    <text class="name" x="264" y="286">러너 (runner)</text>
+    <text class="sub" x="264" y="308">native·graph</text>
+    <text class="small" x="264" y="328">pyrit·garak</text>
+
+    <rect class="box" x="460" y="258" width="170" height="92" rx="10"/>
+    <text class="name" x="474" y="286">Outcome</text>
+    <text class="sub" x="474" y="308">k/n 1건</text>
+    <text class="small" x="474" y="328">runner·condition</text>
+
+    <rect class="box" x="670" y="258" width="170" height="92" rx="10"/>
+    <text class="name" x="684" y="286">지표 계산</text>
+    <text class="sub" x="684" y="308">service/evalset</text>
+    <text class="small" x="684" y="328">방어율·ASR·FPR·게이트</text>
+
+    <rect class="box ok" x="880" y="258" width="170" height="92" rx="10"/>
+    <text class="name" x="894" y="286">보고서·대시보드</text>
+    <text class="sub" x="894" y="308">service/report·viz</text>
+    <text class="small" x="894" y="328">md·html·svg 차트</text>
+
+    <rect class="box" x="1090" y="258" width="150" height="92" rx="10"/>
+    <text class="name" x="1104" y="286">웹 GUI</text>
+    <text class="sub" x="1104" y="308">run/server.py</text>
+    <text class="small" x="1104" y="328">127.0.0.1 로컬</text>
+
+    <path class="arrow" marker-end="url(#arrow)" d="M210,304 H248"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M420,304 H458"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M630,304 H668"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M840,304 H878"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M1050,304 H1088"/>
+  </g>
+  <text class="small" x="40" y="372">가설 파일이 있으면 지표 계산 단계에서 예측↔실측 Wilson 구간을 대조해 보고서·대시보드에 함께 담는다(차트③)</text>
+
+  <!-- ============ 3행: 계층 규칙 ============ -->
+  <text class="stitle" x="40" y="414">계층 규칙 — 한 방향으로만 의존</text>
+  <g>
+    <rect class="box layer" x="40" y="426" width="270" height="70" rx="10"/>
+    <text class="name" x="54" y="452">run/</text>
+    <text class="small" x="54" y="474">cli·server·pipeline·jobs — 조합 지점</text>
+
+    <rect class="box layer" x="340" y="426" width="270" height="70" rx="10"/>
+    <text class="name" x="354" y="452">target/</text>
+    <text class="small" x="354" y="474">runners(native·graph·pyrit·garak)·defenses</text>
+
+    <rect class="box layer" x="640" y="426" width="270" height="70" rx="10"/>
+    <text class="name" x="654" y="452">service/</text>
+    <text class="small" x="654" y="474">evalset·report·viz — 계산·출력</text>
+
+    <rect class="box layer" x="940" y="426" width="270" height="70" rx="10"/>
+    <text class="name" x="954" y="452">base/</text>
+    <text class="small" x="954" y="474">schema·stats·llm·hypothesis_log</text>
+
+    <path class="arrow" marker-end="url(#arrow)" d="M310,461 H338"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M610,461 H638"/>
+    <path class="arrow" marker-end="url(#arrow)" d="M910,461 H938"/>
+  </g>
+  <text class="small" x="40" y="520">run → target → service → base 한 방향뿐 — base는 다른 계층을 모르고, target은 run을 모른다(순환 의존 금지)</text>
+
+  <!-- ============ 4행: 안전 경계 ============ -->
+  <text class="stitle" x="40" y="562">안전 경계 (ROE)</text>
+  <g>
+    <rect class="box bad" x="40" y="574" width="280" height="86" rx="10"/>
+    <text class="name" x="54" y="600">모델 주소</text>
+    <text class="sub" x="54" y="622">기본 localhost만</text>
+    <text class="small" x="54" y="642">REDTEAM_ALLOW_REMOTE=1 명시해야 원격 허용</text>
+
+    <rect class="box bad" x="350" y="574" width="280" height="86" rx="10"/>
+    <text class="name" x="364" y="600">카나리·URL</text>
+    <text class="sub" x="364" y="622">CANARY- 접두사만</text>
+    <text class="small" x="364" y="642">평가 URL은 예약 도메인만(.invalid·example.com)</text>
+
+    <rect class="box bad" x="660" y="574" width="280" height="86" rx="10"/>
+    <text class="name" x="674" y="600">서버 바인딩</text>
+    <text class="sub" x="674" y="622">기본 127.0.0.1</text>
+    <text class="small" x="674" y="642">외부 바인딩은 --allow-remote 필요, 인증 없음</text>
+
+    <rect class="box bad" x="970" y="574" width="270" height="86" rx="10"/>
+    <text class="name" x="984" y="600">출력 내용</text>
+    <text class="sub" x="984" y="622">집계값·케이스 id만</text>
+    <text class="small" x="984" y="642">모델 원문·입력 본문·카나리 원문 제외</text>
+  </g>
+
+  <!-- ============ 5행: 파일 교환 ============ -->
+  <text class="stitle" x="40" y="708">exchange/ — 가설·평가셋·Outcome·보고서 교환</text>
+  <g>
+    <rect class="box" x="40" y="720" width="270" height="70" rx="10"/>
+    <text class="name" x="54" y="746">hypothesis/</text>
+    <text class="small" x="54" y="768">가설 JSON</text>
+
+    <rect class="box" x="340" y="720" width="270" height="70" rx="10"/>
+    <text class="name" x="354" y="746">evalset/</text>
+    <text class="small" x="354" y="768">평가셋(Case 목록) JSON</text>
+
+    <rect class="box" x="640" y="720" width="270" height="70" rx="10"/>
+    <text class="name" x="654" y="746">outcomes/</text>
+    <text class="small" x="654" y="768">측정 결과(Outcome) JSON</text>
+
+    <rect class="box" x="940" y="720" width="270" height="70" rx="10"/>
+    <text class="name" x="954" y="746">reports/</text>
+    <text class="small" x="954" y="768">보고서·대시보드 산출물</text>
+  </g>
+  <text class="foot" x="40" y="812">핵심: 점추정이 아니라 신뢰구간 상한으로 판정 — 0건 관측은 "안전"이 아니라 "측정 부족"</text>
+</svg>

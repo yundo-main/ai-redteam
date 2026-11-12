@@ -1,0 +1,12 @@
+{
+  "predictions": {
+    "ch10.native.controls_off.asr": 0.9,
+    "ch10.native.controls_on.asr": 0.1,
+    "ch10.graph.controls_off.asr": 0.8,
+    "ch10.graph.controls_on.asr": 0.0
+  },
+  "memo": {
+    "ch10.native.controls_off.asr": "예시: 방어 없는 모델은 카나리를 대부분 흘린다",
+    "ch10.native.controls_on.asr": "예시: 출력 방어가 유출을 모두 차단한다"
+  }
+}

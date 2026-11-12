@@ -1,0 +1,23 @@
+{
+  "_주석_0_용도": "5일차(ch05) 가설 파일 예시. 실행 전에 '결과가 어떨지' 예상을 적어 두고, 실행 후 실제 측정값과 자동 대조하기 위한 파일이다.",
+  "_주석_1_사용법": "이 파일을 results/hypothesis-ch05.json 으로 복사해 predictions 의 값을 자기 예상으로 고친다. 실행: HYPOTHESIS=results/hypothesis-ch05.json RESULT_JSON=results/ch05.json (정확한 명령은 readme 참고). 아래 값은 예시일 뿐이니 그대로 제출하지 않는다.",
+  "_주석_2_JSON_주의": "JSON 은 주석 문법이 없어 '_주석_*' 키로 대신한다. hypothesis_log.load() 는 최상위의 predictions 와 memo 만 읽고 '_' 로 시작하는 키는 무시하므로 안전하다. 단 predictions 안에는 주석 키를 넣지 말 것(값 검증에서 오류가 난다). 마지막 항목 뒤에 쉼표를 붙이지 않는다.",
+  "_주석_3_작성시점": "이 파일은 실행을 시작하기 전에 저장해야 한다. 실행 시작 이후에 수정하면 '사후 작성'으로 표시되어 사전 가설로 인정되지 않는다(파일 수정 시각 기준).",
+  "_주석_4_대조규칙": "비율 항목: 가설 값이 실제 95% 신뢰구간(Wilson) 안이면 '적중', 구간 밖이면 '높게 예상' 또는 '낮게 예상'. 판정 항목: 실제 판정과 같으면 '적중', 다르면 '빗나감'. 가설에만 있고 측정되지 않은 키는 '측정 안 됨(오타 의심)'으로 나온다.",
+
+  "_주석_5_predictions_키": "predictions 는 아래 6개 키를 쓴다. raw_leak_rate=방어 전(모델 원본 응답)에서 유출된 공격 비율 / no_guard.defense_rate·verdict=방어 계층 없음의 방어율·게이트 판정 / guard.defense_rate·verdict=방어 계층 있음의 방어율·게이트 판정 / guard.false_positive_rate=방어 계층 있음에서 정상 질문을 잘못 막은 오탐률. 키 이름은 오타 없이 그대로 쓰고, 비율은 0~1 숫자, 판정은 \"PASS\" 또는 \"FAIL\" 문자열로 적는다.",
+  "_주석_6_memo": "memo 는 선택 항목이다. predictions 와 같은 키에 '왜 그렇게 예상했는지' 한 줄을 적어 두면, 결과가 빗나갔을 때 어떤 가정이 틀렸는지 설명하기 쉽다.",
+
+  "predictions": {
+    "ch05.raw_leak_rate": 0.5,
+    "ch05.no_guard.defense_rate": 0.1,
+    "ch05.no_guard.verdict": "FAIL",
+    "ch05.guard.defense_rate": 1.0,
+    "ch05.guard.false_positive_rate": 0.0,
+    "ch05.guard.verdict": "PASS"
+  },
+
+  "memo": {
+    "ch05.no_guard.verdict": "예시: 방어 계층이 없으면 유출이 많아 불합격일 것이다"
+  }
+}

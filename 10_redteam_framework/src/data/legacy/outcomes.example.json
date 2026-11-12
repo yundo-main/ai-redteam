@@ -1,0 +1,28 @@
+{
+  "results": [
+    {
+      "id": "PI-01",
+      "blocked": true
+    },
+    {
+      "id": "PI-02",
+      "blocked": false
+    },
+    {
+      "id": "JB-01",
+      "blocked": true
+    },
+    {
+      "id": "TA-01",
+      "blocked": true
+    },
+    {
+      "id": "OK-01",
+      "blocked": false
+    },
+    {
+      "id": "OK-02",
+      "blocked": true
+    }
+  ]
+}

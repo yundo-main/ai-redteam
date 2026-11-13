@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 30 1220 640" role="img" aria-labelledby="t d" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <title id="t">서버 실행 방법</title>
+  <desc id="d">프레임워크 웹 서버를 켜고 브라우저 GUI에 접속하기까지의 순서도. 사전 준비 → 서버 켜기 → 브라우저 접속 → 사용, 그리고 끄기·문제 해결.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #eef3fb; stroke: #3b6fc4; stroke-width: 1.5; }
+    .box.key { fill: #fdf0e3; stroke: #d27a1f; }
+    .box.ok { fill: #e9f6ee; stroke: #2f8f5b; }
+    .box.bad { fill: #fbe7e7; stroke: #d64545; }
+    .box.dim { fill: #f4f6f9; stroke: #9aa5b5; }
+    .num { fill: #3b6fc4; font-size: 13px; font-weight: 700; }
+    .name { fill: #1b2433; font-size: 16px; font-weight: 700; }
+    .sub { fill: #4a5568; font-size: 12.5px; }
+    .small { fill: #4a5568; font-size: 11.5px; }
+    .cmd { fill: #1b2433; font-size: 12px; font-family: "SF Mono", Menlo, monospace; }
+    .arrow { stroke: #6b7686; stroke-width: 1.6; fill: none; }
+    .head { fill: #6b7686; }
+    .title { fill: #1b2433; font-size: 26px; font-weight: 700; }
+    .stitle { fill: #1b2433; font-size: 15px; font-weight: 700; }
+    .foot { fill: #8a94a3; font-size: 12.5px; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #14181f; }
+      .box { fill: #1c2536; stroke: #7aa5ee; }
+      .box.key { fill: #33271a; stroke: #f0a45a; }
+      .box.ok { fill: #14291e; stroke: #5fc58b; }
+      .box.bad { fill: #3d1d1d; stroke: #ef6b6b; }
+      .box.dim { fill: #1b212b; stroke: #5d6a7d; }
+      .num { fill: #7aa5ee; }
+      .name, .title, .stitle, .cmd { fill: #eef1f6; }
+      .sub, .small { fill: #aab3c2; }
+      .foot { fill: #8a94a3; }
+      .arrow { stroke: #8f9aab; }
+      .head { fill: #8f9aab; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="head"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="700"/>
+  <text class="title" x="40" y="48">서버 실행 방법</text>
+  <text class="foot" x="40" y="72">10_redteam_framework 웹 서버 + GUI · 기본 127.0.0.1:8971 · 매뉴얼 0절</text>
+
+  <!-- ============ 1행: 전체 흐름 ============ -->
+  <text class="stitle" x="40" y="106">전체 흐름</text>
+  <g>
+    <rect class="box" x="40" y="118" width="270" height="72" rx="10"/>
+    <text class="num" x="56" y="142">1</text>
+    <text class="name" x="56" y="168">사전 준비</text>
+    <text class="small" x="56" y="184">.venv 파이썬 · (측정 시) Ollama</text>
+
+    <rect class="box key" x="355" y="118" width="270" height="72" rx="10"/>
+    <text class="num" x="371" y="142">2</text>
+    <text class="name" x="371" y="168">서버 켜기</text>
+    <text class="small" x="371" y="184">cli.py serve --port 8971</text>
+
+    <rect class="box" x="670" y="118" width="270" height="72" rx="10"/>
+    <text class="num" x="686" y="142">3</text>
+    <text class="name" x="686" y="168">브라우저 접속</text>
+    <text class="small" x="686" y="184">http://127.0.0.1:8971</text>
+
+    <rect class="box ok" x="985" y="118" width="255" height="72" rx="10"/>
+    <text class="num" x="1001" y="142">4</text>
+    <text class="name" x="1001" y="168">GUI 사용</text>
+    <text class="small" x="1001" y="184">설정→가설→측정→평가→…</text>
+
+    <line class="arrow" x1="310" y1="154" x2="353" y2="154" marker-end="url(#arrow)"/>
+    <line class="arrow" x1="625" y1="154" x2="668" y2="154" marker-end="url(#arrow)"/>
+    <line class="arrow" x1="940" y1="154" x2="983" y2="154" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ============ 2행: 단계별 명령 ============ -->
+  <text class="stitle" x="40" y="222">단계별 명령 (저장소 루트 ai-redteam/ 에서)</text>
+  <g>
+    <rect class="box dim" x="40" y="234" width="585" height="120" rx="10"/>
+    <text class="num" x="56" y="258">1</text>
+    <text class="name" x="56" y="282">사전 준비</text>
+    <text class="cmd" x="56" y="306"># LLM 측정이 필요할 때만 (터미널 1에 상주)</text>
+    <text class="cmd" x="56" y="326">ollama serve</text>
+    <text class="cmd" x="56" y="346">ollama pull qwen2.5:3b        # 최초 1회</text>
+
+    <rect class="box key" x="655" y="234" width="585" height="120" rx="10"/>
+    <text class="num" x="671" y="258">2</text>
+    <text class="name" x="671" y="282">서버 켜기 — 포그라운드</text>
+    <text class="cmd" x="671" y="306">.venv/bin/python 10_redteam_framework/src/run/cli.py serve --port 8971</text>
+    <text class="small" x="671" y="330"># 백그라운드로 띄우려면:</text>
+    <text class="cmd" x="671" y="348">nohup .venv/bin/python 10_redteam_framework/src/run/cli.py serve --port 8971 &gt; /tmp/redteam-server.log 2&gt;&amp;1 &amp;</text>
+  </g>
+
+  <g>
+    <rect class="box" x="40" y="374" width="585" height="86" rx="10"/>
+    <text class="num" x="56" y="398">3</text>
+    <text class="name" x="56" y="422">브라우저 접속</text>
+    <text class="cmd" x="56" y="446">http://127.0.0.1:8971</text>
+    <text class="small" x="56" y="466">포트 생략 시 기본 8000 — --port 로 변경 가능</text>
+
+    <rect class="box bad" x="655" y="374" width="585" height="86" rx="10"/>
+    <text class="num" x="671" y="398">끄기·확인</text>
+    <text class="cmd" x="671" y="422">kill $(lsof -ti :8971)          # 프로세스 찾기·종료</text>
+    <text class="cmd" x="671" y="442">tail -f /tmp/redteam-server.log  # 백그라운드 로그</text>
+  </g>
+
+  <!-- ============ 3행: 주의사항 ============ -->
+  <text class="stitle" x="40" y="496">주의사항</text>
+  <g>
+    <rect class="box" x="40" y="508" width="390" height="76" rx="10"/>
+    <text class="name" x="56" y="534">.venv 로 실행</text>
+    <text class="sub" x="56" y="556">시스템 python으로 띄우면 graph·pyrit·garak이 "없음"으로 표시</text>
+
+    <rect class="box" x="445" y="508" width="390" height="76" rx="10"/>
+    <text class="name" x="461" y="534">로컬 전용</text>
+    <text class="sub" x="461" y="556">기본 127.0.0.1 바인딩 · 외부는 --host 0.0.0.0 --allow-remote (인증 없음)</text>
+
+    <rect class="box ok" x="850" y="508" width="390" height="76" rx="10"/>
+    <text class="name" x="866" y="534">결과는 디스크에 영속</text>
+    <text class="sub" x="866" y="556">서버를 꺼도 results/ 결과·작업 기록·평가 로그는 유지</text>
+  </g>
+
+  <text class="foot" x="40" y="622">연결 안 될 때: ① lsof -ti :8971 로 서버 생존 확인 → ② 포트 번호 확인 → ③ 브라우저 강력 새로고침(Cmd+Shift+R)</text>
+</svg>

@@ -126,7 +126,7 @@
           <form id="jobform">
             <label class="field">
               <span>케이스 파일</span>
-              <input name="cases" value="exchange/evalset/sample-cases.json" spellcheck="false">
+              <span class="pathwrap"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input name="cases" value="exchange/evalset/sample-cases.json" spellcheck="false"></span>
             </label>
             <fieldset>
               <legend>러너</legend>
@@ -140,11 +140,11 @@
             <label class="check inline"><input type="checkbox" name="quick"> QUICK 모드 <small>시도 횟수 축소 — 동작 확인용, 통계적 결론 아님</small></label>
             <label class="field">
               <span>가설 파일 (선택)</span>
-              <span class="combo"><input id="jhyp" name="hypothesis" placeholder="exchange/hypothesis/hypothesis-ch10.json — 예측 대비 표·차트③" spellcheck="false"><button type="button" class="ghost hopenbtn" data-target="jhyp">편집</button></span>
+              <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="jhyp" name="hypothesis" placeholder="exchange/hypothesis/hypothesis-ch10.json — 예측 대비 표·차트③" spellcheck="false"><button type="button" class="ghost hopenbtn" data-target="jhyp">편집</button></span>
             </label>
             <label class="field">
               <span>결과 폴더</span>
-              <input name="out_dir" value="results" spellcheck="false">
+              <span class="pathwrap"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input name="out_dir" value="results" spellcheck="false"></span>
             </label>
             <div class="formrow">
               <button type="submit" class="primary">측정 시작</button>
@@ -248,7 +248,7 @@
           <h2><span class="step">5</span> 평가셋 보기</h2>
           <label class="field">
             <span>평가셋 파일</span>
-            <span class="combo"><input id="ecases" value="exchange/evalset/sample-cases.json" spellcheck="false"><select id="ecsel"></select></span>
+            <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="ecases" value="exchange/evalset/sample-cases.json" spellcheck="false"><select id="ecsel"></select></span>
           </label>
           <div class="formrow">
             <button id="btncases" class="ghost" type="button">평가셋 불러오기</button>
@@ -296,9 +296,9 @@
         <section class="card">
           <h2><span class="step">6</span> 평가 대상·지표</h2>
           <div class="fields2 eq">
-            <label class="field"><span>결과 폴더</span><input id="rdir" value="results" spellcheck="false"></label>
+            <label class="field"><span>결과 폴더</span><span class="pathwrap"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="rdir" value="results" spellcheck="false"></span></label>
             <label class="field"><span>Outcome 파일</span>
-              <span class="combo"><input id="ocases" value="exchange/outcomes/sample-outcomes.json" spellcheck="false"><select id="ofile"></select></span>
+              <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="ocases" value="exchange/outcomes/sample-outcomes.json" spellcheck="false"><select id="ofile"></select></span>
             </label>
           </div>
           <p class="sub" style="margin-top:.6rem">평가셋 파일은 평가 탭 5번 카드에서 선택 — 지표 계산·시각화·분석에 같은 파일이 쓰입니다.</p>
@@ -337,7 +337,7 @@
           <p class="sub" id="anTarget">—</p>
           <label class="field">
             <span>가설 파일 (선택 — 가설 대조 표에 사용)</span>
-            <span class="combo"><input id="ahyp" value="exchange/hypothesis/sample-hypothesis.json" placeholder="비우면 가설 대조 없음" spellcheck="false"><select id="ahsel"></select></span>
+            <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="ahyp" value="exchange/hypothesis/sample-hypothesis.json" placeholder="비우면 가설 대조 없음" spellcheck="false"><select id="ahsel"></select></span>
             <div class="formrow" style="margin-top:.4rem"><button type="button" class="ghost hopenbtn" data-target="ahyp">편집</button></div>
           </label>
           <div class="formrow">
@@ -365,7 +365,7 @@
           <p class="sub" id="viztarget">—</p>
           <label class="field">
             <span>비교할 Outcome (선택)</span>
-            <span class="combo"><input id="ocases2" placeholder="비워 두면 비교 안 함" spellcheck="false"><select id="ofile2"></select></span>
+            <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="ocases2" placeholder="비워 두면 비교 안 함" spellcheck="false"><select id="ofile2"></select></span>
           </label>
           <div class="formrow">
             <button id="btnviz" class="primary" type="button">차트 미리보기</button>
@@ -555,7 +555,7 @@
     </div>
     <label class="field">
       <span>가설 파일 경로</span>
-      <span class="combo"><input id="hpath" value="exchange/hypothesis/hypothesis-ch10.json" spellcheck="false"><select id="hsel"></select></span>
+      <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="hpath" value="exchange/hypothesis/hypothesis-ch10.json" spellcheck="false"><select id="hsel"></select></span>
     </label>
     <div class="formrow">
       <button id="hload" class="ghost" type="button">불러오기</button>
@@ -582,7 +582,7 @@
     </div>
     <label class="field">
       <span>평가셋 파일 경로</span>
-      <span class="combo"><input id="epath" value="exchange/evalset/sample-cases.json" spellcheck="false"><select id="esel"></select></span>
+      <span class="combo"><span class="pathpre" title="기준 디렉터리 — 고정">10_redteam_framework/</span><input id="epath" value="exchange/evalset/sample-cases.json" spellcheck="false"><select id="esel"></select></span>
     </label>
     <div class="formrow">
       <button id="eload" class="ghost" type="button">불러오기</button>

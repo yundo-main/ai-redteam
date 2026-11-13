@@ -149,6 +149,19 @@ legend { font-size: .78rem; font-weight: 600; color: var(--muted); padding: 0 .3
 .combo select { border-radius: 0 8px 8px 0; max-width: 45%; font-size: .78rem; }
 .combo button.hopenbtn { border-radius: 0 8px 8px 0; flex-shrink: 0; }
 .combo input:has(+ button.hopenbtn) { border-radius: 8px 0 0 8px; }
+
+/* ---------- 경로 입력: 고정 접두사 + 상대경로 ---------- */
+.pathwrap { display: flex; }
+.pathpre {
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  font-size: .85rem; padding: .5rem .55rem;
+  border: 1px solid var(--line); border-right: 0; border-radius: 8px 0 0 8px;
+  background: var(--card); color: var(--muted);
+  white-space: nowrap; user-select: none; cursor: default;
+}
+.pathpre + input { border-radius: 0; }
+.pathwrap .pathpre + input { border-radius: 0 8px 8px 0; }
+.combo .pathpre { font-size: .78rem; padding: .5rem .45rem; }
 .fields2 { display: grid; grid-template-columns: 1fr 2fr; gap: .8rem; }
 .fields2.eq { grid-template-columns: 1fr 1fr; }
 @media (max-width: 560px) { .fields2 { grid-template-columns: 1fr; } }

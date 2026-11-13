@@ -911,7 +911,7 @@ const GLOSSARY = [
   ["결과 폴더", "측정 Outcome·보고서·대시보드가 저장되는 디렉터리. 기본값 results/ (경로 기준: 10_redteam_framework/), 임포트·익스포트용 샘플은 exchange/ 아래에 둔다."],
   ["경고 모드 (QUICK)", "시도 횟수를 줄여 빠르게 동작만 확인하는 모드. 통계적 결론으로 쓰면 안 되며, 표본이 적어 게이트가 FAIL로 나오는 게 정상이다."],
   ["공격 성공률 (ASR)", "Attack Success Rate — 공격 케이스(expected=block)가 성공한 비율 k/n. 낮을수록 좋고 게이트 기준은 상한 ≤20%."],
-  ["구간 (신뢰구간)", "Wilson 95% 신뢰구간 — 점추정값 k/n 대신 실제 비율이 있을 법한 범위를 보여준다. 표본이 적으면 넓어진다."],
+  ["Wilson 구간 (신뢰구간)", "Wilson 95% 신뢰구간 — 점추정값 k/n 대신 실제 비율이 있을 법한 범위를 보여준다. 표본이 적으면 넓어진다. 게이트 판정과 가설 대조에 이 구간을 쓴다."],
   ["그룹", "(runner, condition) 조합 단위. 측정값은 항상 그룹별로 나눠 집계하며 다른 그룹과 직접 비교하지 않는다."],
   ["대시보드", "차트 5종(유형별 방어율·전후 비교·가설 대조·심각도 매트릭스·실행 현황)과 케이스별 표를 한 HTML에 담은 산출물."],
   ["데모", "LLM 연결 없이 exchange/ 샘플 파일로 가설·측정·평가·분석 흐름을 체험하는 기능. 설정 탭에 있다."],
@@ -982,7 +982,13 @@ const isLatinAlias = s => /^[A-Za-z0-9_]+$/.test(s);
 function termAliases(term) {
   const out = [term];
   const m = term.match(/^(.*?)\s*\(([^)]+)\)$/);
-  if (m) { out.push(m[1].trim()); out.push(m[2].trim()); }
+  const base = m ? m[1].trim() : term;
+  if (m) out.push(base, m[2].trim());
+  // 라틴어로 시작하는 복합 용어는 첫 단어도 별칭으로 — "Wilson 구간" → "Wilson"
+  if (/^[A-Za-z]/.test(base)) {
+    const first = base.split(/\s+/)[0];
+    if (first !== base) out.push(first);
+  }
   return out;
 }
 const GLOSS_DEF_BY_ALIAS = new Map();

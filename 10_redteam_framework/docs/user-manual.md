@@ -5,14 +5,52 @@
 
 ## 0. 서버 실행
 
+흐름도를 먼저 보면 이해가 빠르다: [서버 실행 흐름도(SVG)](/docs/server-run.svg)
+
+### 0-1. 사전 준비
+
+- **Python 3.9+** 와 저장소 클론이 필요하다.
+- **측정(LLM 호출)을 하려면 Ollama**가 먼저 떠 있어야 한다:
+
 ```bash
-cd ai-redteam   # 저장소 루트
-.venv/bin/python3 10_redteam_framework/src/run/cli.py serve --port 8971
-# 브라우저: http://127.0.0.1:8971
+ollama serve            # 터미널 1 — 상주 실행
+ollama pull qwen2.5:3b  # 최초 1회
 ```
 
-- 가상환경(`.venv`)으로 실행해야 graph·pyrit·garak 러너가 "설치됨"으로 잡힌다. 시스템 `python3`로 띄우면 선택적 의존성이 빠질 수 있다.
-- 기본 바인딩은 `127.0.0.1`(로컬 전용)이다. 외부 접근은 `--host 0.0.0.0 --allow-remote` 둘 다 필요하고, 이 서버엔 인증이 없으므로 교육용 로컬 전용으로만 쓴다.
+- 평가·분석·시각화·작업로그만 보는 용도라면 Ollama 없이도 된다(측정만 실패).
+- graph/pyrit/garak 러너를 쓰려면 추가 패키지가 필요하다(`pip install garak pyrit langgraph langchain-ollama`, pyproject의 extras `scan`·`graph`). 설치 여부는 설정 탭 "서버·모델 환경" 카드에서 확인된다.
+
+### 0-2. 서버 켜기
+
+저장소 루트(`ai-redteam/`)에서:
+
+```bash
+# 포그라운드(이 터미널이 서버 — Ctrl+C로 종료)
+.venv/bin/python 10_redteam_framework/src/run/cli.py serve --port 8971
+
+# 백그라운드(터미널 닫아도 유지)
+nohup .venv/bin/python 10_redteam_framework/src/run/cli.py serve --port 8971 > /tmp/redteam-server.log 2>&1 &
+```
+
+- 가상환경(`.venv`)으로 실행해야 graph·pyrit·garak 러너가 "설치됨"으로 잡힌다. 시스템 `python`로 띄우면 선택적 의존성이 빠질 수 있다.
+- 포트 생략 시 기본 `8000`, GUI 기본 포트는 `8971`이다. 포트가 바쁘면 `--port`로 다른 번호를 준다.
+- 브라우저에서 `http://127.0.0.1:<포트>` 접속. 기본 바인딩은 `127.0.0.1`(로컬 전용)이다. 외부 접근은 `--host 0.0.0.0 --allow-remote` 둘 다 필요하고, 이 서버엔 인증이 없으므로 교육용 로컬 전용으로만 쓴다.
+
+### 0-3. 서버 끄기·상태 확인
+
+```bash
+# 포트로 프로세스 찾기
+lsof -ti :8971
+
+# 백그라운드 서버 종료
+kill $(lsof -ti :8971)
+
+# 로그 보기(백그라운드로 띄운 경우)
+tail -f /tmp/redteam-server.log
+```
+
+- 서버를 꺼도 `results/`의 결과 파일·작업 기록·평가 로그는 디스크에 남아 재시작 후 그대로 보인다.
+- "연결이 안 됨"이면 ① 서버가 실제로 떴는지(`lsof -ti :8971`) ② 포트 번호가 맞는지 ③ 브라우저 강력 새로고침 순으로 확인한다.
 
 ## 1. 설정 탭 — 처음 한 번만
 
@@ -81,7 +119,7 @@ verdict가 FAIL이어도 당황할 필요 없다 — 표본이 적으면(QUICK �
 
 | 증상 | 원인 | 해결 |
 | --- | --- | --- |
-| graph/pyrit/garak이 "없음"으로 표시 | 서버를 가상환경이 아닌 시스템 파이썬으로 실행 | `.venv/bin/python3`로 서버 재시작 |
+| graph/pyrit/garak이 "없음"으로 표시 | 서버를 가상환경이 아닌 시스템 파이썬으로 실행 | `.venv/bin/python`로 서버 재시작 |
 | 측정 기준표·가설 대조가 안 보임 | 브라우저 캐시 | 강력 새로고침(Cmd+Shift+R) — 서버가 `Cache-Control: no-store`를 보내므로 이후엔 자동 갱신 |
 | `/api/analyze`에서 verdict가 `—` | 게이트 기준값(max_asr/max_fpr) 미지정 | GUI는 기본 0.2/0.1을 자동으로 넣는다. 직접 API를 부를 때는 `max_asr`·`max_fpr` 쿼리를 추가 |
 | garak "리포트를 찾을 수 없음" | 결과 폴더 이동 후 코드가 옛 경로를 봄 | 최신 버전은 `10_redteam_framework/results/garak` 고정 경로를 쓴다(이미 반영됨) |
